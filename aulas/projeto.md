@@ -1,5 +1,5 @@
 Nome do projeto: Jogo da forca;
 
-Descrição: Um usuario escolher uma palavra, o outro adivinha;
+Descrição: Um usuario escolhe uma palavra, o outro adivinha;
 
-Objetivos: Um usuario escolher uma palavra, o outro adivinha;
+Objetivos: Um usuario escolhe uma palavra, o outro adivinha;
