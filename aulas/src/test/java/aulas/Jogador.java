@@ -2,10 +2,17 @@ package aulas;
 
 public class Jogador {
 	
-	String nome;
-	Integer score;
+	private String nome;
+	private Integer score;
+	private Integer resposta;
 	
 	
+	public Integer getResposta() {
+		return resposta;
+	}
+	public void setResposta(Integer resposta) {
+		this.resposta = resposta;
+	}
 	public String getNome() {
 		return nome;
 	}
