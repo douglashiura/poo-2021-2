@@ -4,7 +4,7 @@ Nome do Projeto: Damas
 Descrição: Criar jogo de damas
 
 
-Objetivos: Criar tabuleiro e 2 jogadores com testes JUnit 
+Objetivos: Criar tabuleiro, peças brancas e pretas e efetuar testes JUnit.
 
 
 Limitações: Lembrar como programar
