@@ -1,5 +1,5 @@
 Nome do projeto: Calculadora 
 
-Descrição: Calculadora com as quatro operações básicas (soma, subtração, divisão e multiplicação)
+Descrição: Calculadora que realiza algumas operações básicas
 
 Objetivo: Responder corretamente aos cálculos matemáticos
