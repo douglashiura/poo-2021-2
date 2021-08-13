@@ -1,4 +1,4 @@
--Nome do projeto: Jogo da MTM.
+-Nome do projeto: Jogo da MaTeMatica.
 
 -Descrição: aparecera questões para o usuario responder.
 
