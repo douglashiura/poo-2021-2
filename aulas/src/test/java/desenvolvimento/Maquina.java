@@ -4,48 +4,49 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import java.util.Random;
 
-public class Maquina{
+public class Maquina extends Acao{
 	private Integer fichas = 0;
-	private boolean acesso = false;
-	private Integer n1;
-	private Integer n2;
-	private Integer n3;
+	Integer n1;
+	Integer n2;
+	Integer n3;
+	
+	
 	
 	@Test
-	public void testeGerarAcesso() throws Exception {
-		Acao maquina = new Acao();
+	public void testeGerarFichas() throws Exception {
 		Jogador jogador = new Jogador();
+		Maquina maquina = new Maquina();
 		jogador.setMoeda(5);
 		maquina.colocarMoeda(jogador);
-		acesso = maquina.getAcesso();
 		fichas = maquina.getFichas();
 		
-		assertEquals(Integer.valueOf(5), jogador.getMoeda());
-		assertEquals(Integer.valueOf(5), fichas);
-		assertTrue(acesso);
+		assertEquals(Integer.valueOf(5), maquina.getFichas());
+	}
 		
-		while (this.fichas >0) {
+	@Test
+	public void testeAlavanca() throws Exception {
+		// o jogo aceita apenas os valores: 1, 5 e 10;
+		Jogador jogador = new Jogador();
+		Maquina maquina = new Maquina();
+		jogador.setMoeda(10);
+		maquina.colocarMoeda(jogador);
+		fichas = maquina.getFichas();
+		
+		while (fichas >0) {
 			System.out.println("Você possui: " + fichas + " fichas");
 			maquina.puxarAlavanca(fichas);
 			n1 = maquina.getN1();
 			n2 = maquina.getN2();
 			n3 = maquina.getN3();
+			maquina.buscarCombinacaoVencedora(n1, n2, n3);
+			maquina.getRecompensa();
 			
 			this.fichas = fichas - 1;
-			
-		}
-			
+		}		
 		
 		
 	}
-	
-	public void testePuxarAlavanca() throws Exception {
-		
-		
-				
-		}
 
-	
-	
-	
+
+
 }
