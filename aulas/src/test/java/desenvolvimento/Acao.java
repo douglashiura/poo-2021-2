@@ -7,31 +7,39 @@ public class Acao {
 	private Integer n1;
 	private Integer n2;
 	private Integer n3;
+	private Integer reembolso;
 	private boolean recompensa = false;
 	
-	public void colocarMoeda(Jogador moedaDoJogador) {
-		switch (moedaDoJogador.getMoeda()) {
-			case 1:
-				this.fichas = 1;
-				break;
-			case 5:
-				this.fichas = 5;
-				break;
-			case 10:
-				this.fichas = 10;
-				break;
-		}
-		
-	}
 	
-	public void puxarAlavanca(Integer fichas) {
-		if (fichas >0) {
+	
+	public void colocarMoeda(Jogador jogador) {
+		if (jogador.getMoeda() ==1) {
+			jogador.setFichas(1);
+			jogador.setMoeda(0);
+		}
+			else if (jogador.getMoeda() ==5) {
+				jogador.setFichas(5);
+				jogador.setMoeda(0);
+			}
+			else if (jogador.getMoeda() ==10) {
+				jogador.setFichas(10);
+				jogador.setMoeda(0);
+			}	
+			else {
+				System.out.println("Moeda inválida! Sua moeda será devolvida.");
+			}
+		}
+	
+	
+	public void puxarAlavanca(Jogador jogador) {
+		if (jogador.getFichas() >0) {
 			Random r1 = new Random();
 			Random r2 = new Random();
 			Random r3 = new Random();
 			this.n1 = r1.nextInt(3);
 			this.n2 = r2.nextInt(3);
 			this.n3 = r3.nextInt(3);
+			jogador.setFichas(jogador.getFichas()-1);
 
 			System.out.println(n1 + " " + n2 + " " + n3);
 		}
@@ -39,7 +47,7 @@ public class Acao {
 			
 	public void buscarCombinacaoVencedora(Integer n1, Integer n2, Integer n3) {
 		
-		if (n1 == n2 && n2 == n3) {
+		if (n1 ==n2 && n2 == n3 ) {
 			System.out.println("Venceu ");
 			this.recompensa = true;
 		}
@@ -49,7 +57,9 @@ public class Acao {
 	}
 	
 	
-	
+	public void setFichas(Integer fichas) {
+		this.fichas = fichas;
+	}
 	public Integer getFichas() {
 		return fichas;
 	}
