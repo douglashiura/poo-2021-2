@@ -1,5 +1,5 @@
 package controledenotas;
 
-public class Resultado {
-
+public enum Resultado {
+	APROVADO, REPROVADO, EXAME;
 }
