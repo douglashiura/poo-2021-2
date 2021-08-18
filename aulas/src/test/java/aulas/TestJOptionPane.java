@@ -7,7 +7,7 @@ public class TestJOptionPane {
 	 public static void main (String arg[]) {
 		 
 		 
-		 JOptionPane.showMessageDialog(null,"Olaaaa");
+		 JOptionPane.showInputDialog(null,"Olaaaa");
 				  System.exit(0); 
 				 } 
 		 

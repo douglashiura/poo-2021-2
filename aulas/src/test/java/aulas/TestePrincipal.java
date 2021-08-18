@@ -18,6 +18,7 @@ public class TestePrincipal {
 
 		soma.setQuestao(2 + 2);
 		jogadorUM.setResposta(4);
+	
 
 		assertEquals(soma.getQuestao(), jogadorUM.getResposta());
 
