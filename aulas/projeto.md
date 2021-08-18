@@ -1,5 +1,5 @@
-Nome do projeto: Calculadora 
+Nome do projeto: Caixa eletrônico 
 
-Descrição: Calculadora que realiza algumas operações básicas
+Descrição: Simulador de um caixa eletrônico com as opções de Saque e Depósito
 
-Objetivo: Responder corretamente aos cálculos matemáticos
+Objetivo: Sacar, depositar e obter controle de saldo
