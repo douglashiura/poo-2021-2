@@ -1,5 +1,7 @@
 package JogoDaAdvinhacao;
 
+import javax.swing.JOptionPane;
+
 public class Charada {
     public Charada(){
         this.setDica("");
