@@ -2,7 +2,7 @@ package desenvolvimento;
 
 import java.util.Random;
 
-public class Acao {
+public abstract class Acao {
 	private Integer fichas = 0;
 	private Integer n1;
 	private Integer n2;
