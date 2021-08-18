@@ -1,5 +1,7 @@
 package JogoDaAdvinhacao;
 import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 public class JogoDaAdvinhacao {
     public static void main(String[] args) {        
         Scanner userInputScanner = new Scanner(System.in);
@@ -15,5 +17,6 @@ public class JogoDaAdvinhacao {
         }else{
              System.out.println("Que pena!!!!! A resposta correta é: "+charada.getResposta());
         }
+        JOptionPane.showInputDialog("Fim de Jogo!");
     } 
 }
