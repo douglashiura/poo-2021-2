@@ -6,8 +6,10 @@ import java.util.Random;
 
 import org.junit.Test;
 
-public class TestePrincipal {
+public class TestePrincipal extends GeradorDeContas{
 
+	
+	
 	@Test
 	public void soma() throws Exception {
 
@@ -32,7 +34,7 @@ public class TestePrincipal {
 
 		for (int i = 0; i < 1; i++) {
 			System.out.println(ram.nextInt(100));
-			System.out.println(gerador.getRandomico()+"mm");
+			System.out.println(gerador.valo1()+"mm");
 		}
 	}
 
