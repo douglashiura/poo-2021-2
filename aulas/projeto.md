@@ -4,7 +4,4 @@
 
 -Objetivos: acertar as questões mostradas.
 
--Limitações: aparecera algumas alternativas como resposta com tempo limite para responder...
-
-
-tyustyu
+-Limitações: aparecera algumas alternativas como resposta com tempo limite para responder.
