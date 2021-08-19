@@ -1,21 +1,18 @@
-#### Nome do projeto: Quiz Java 
+#### Nome do projeto: Sistema Locação de Equipamentos
 
 
 #### Descrição:
 
-- Quiz de perguntas e respostas referente a linguaguem de programação Java.
+- Sistema de Locação de Equipamentos ( A definir o tipo de equipamentos )
 
 
 #### Objetivos:
 
-- Teste de conhecimento.
+- Locar equipamentos ( a definir o tipo de equipamento )
 
 #### Limitações:
 
-- Criar perguntas
-- Criar respostas
-- Tirar duvidas
-- Score de pontos.
+
 
 
 
