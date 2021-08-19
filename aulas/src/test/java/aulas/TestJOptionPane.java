@@ -3,6 +3,7 @@ package aulas;
 import java.awt.Color;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 //import javax.swing.JOptionPane;
 
 public class TestJOptionPane {
@@ -15,7 +16,10 @@ public class TestJOptionPane {
 		janela.setSize(300, 200);
 		janela.setVisible(true);
 		janela.setTitle("Test");
-		janela.setBackground(Color.cyan);
+		janela.setBackground(Color.green);
+		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
+		JLabel label = new JLabel("Outro teste");
+		janela.getContentPane().add(label);
 	}
 }
