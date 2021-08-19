@@ -1,11 +1,11 @@
-package controledenotas;
+package br.ies.aula.controledenotas;
 
 import java.util.List;
 
-public class Notas {
+public class Nota {
 
 	public double nota;
-	public Notas(double nota) {
+	public Nota(double nota) {
 		// TODO Auto-generated constructor stub
 		this.nota = nota;
 	}

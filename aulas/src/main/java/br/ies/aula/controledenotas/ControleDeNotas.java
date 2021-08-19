@@ -1,4 +1,4 @@
-package controledenotas;
+package br.ies.aula.controledenotas;
 
 import java.util.List;
 
@@ -21,8 +21,8 @@ public class ControleDeNotas {
 		double media = 0;
 		double soma = 0;
 		int i = 0;
-		List<Notas> lstNotas = deiwid.lstNotas;
-		for (Notas notas : lstNotas) {
+		List<Nota> lstNotas = deiwid.lstNotas;
+		for (Nota notas : lstNotas) {
 			soma = notas.nota;
 		}
 		media = soma / i;
