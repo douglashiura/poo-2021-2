@@ -8,7 +8,7 @@ public class HelloWorldSwing {
 		frame.getContentPane() .add(label);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(400, 300);
-		frame.pack();
+		//frame.pack();
 		frame.setVisible(true);
 		}
 	}
