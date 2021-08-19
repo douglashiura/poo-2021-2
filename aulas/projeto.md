@@ -12,6 +12,9 @@
 
 #### Limitações:
 
+- Cadastro de Cliente
+- Cadasto de Equipamento / Itens / Marca
+
 
 
 
