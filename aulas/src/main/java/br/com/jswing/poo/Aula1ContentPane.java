@@ -1,4 +1,4 @@
-package br.com.jpotion;
+package br.com.jswing.poo;
 
 import java.awt.BorderLayout;
 
