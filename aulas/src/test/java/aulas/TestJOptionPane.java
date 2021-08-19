@@ -1,5 +1,7 @@
 package aulas;
 
+import java.awt.Color;
+
 import javax.swing.JFrame;
 //import javax.swing.JOptionPane;
 
@@ -12,7 +14,8 @@ public class TestJOptionPane {
 		JFrame janela = new JFrame("Testando");
 		janela.setSize(300, 200);
 		janela.setVisible(true);
-		
+		janela.setTitle("Test");
+		janela.setBackground(Color.cyan);
 		
 	}
 }
