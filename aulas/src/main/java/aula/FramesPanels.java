@@ -1,15 +1,15 @@
 package aula;
 
-import javax.swing.JOptionPane;
+import javax.swing.JFrame;
 
-
-public class TesteEntradaSaida{
-	
-	public static void main(String{} args) {
-	String numero=JOptionPane.showInputDialog("digite um numero:");
-			JOptionPane.showMessageDialog(null,"o numero digitado foi:"+ numero);
-
-	}
-
+public class FramesPanels {
+    public static void main(String[] args) {
+ JFrame janela = new JFrame("Meu primeiro frame em Java");
+ janela.setSize(300,200);
+ janela.setVisible(true);
+    }
 }
+
+
+
 
