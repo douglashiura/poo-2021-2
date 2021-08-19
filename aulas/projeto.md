@@ -1,11 +1,11 @@
-Nome do Projeto: Damas
+Nome do Projeto: Calculadora
 
 
-Descri��o: Criar jogo de damas
+Descrição: Criar calculadora básica com operações de soma, subtração, multiplicação, divisão e potência
 
 
-Objetivos: Criar tabuleiro, pe�as brancas e pretas e efetuar testes JUnit.
+Objetivos: Criar calculadora utilizando metodos abstratos.
 
 
-Limita��es: Lembrar como programar
+Limitações: Lembrar como programar
 
