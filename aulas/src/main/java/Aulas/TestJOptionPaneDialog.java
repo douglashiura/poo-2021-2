@@ -17,7 +17,7 @@ public class TestJOptionPaneDialog {
 				options[2]
 		);
 		frame.getContentPane().add(new Label(options[n].toString()));
-		frame.pack();
+		frame.setSize(600, 600);
 		frame.setVisible(true);
 	}
 }
