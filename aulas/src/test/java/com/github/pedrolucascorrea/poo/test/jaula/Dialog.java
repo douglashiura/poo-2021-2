@@ -9,11 +9,13 @@ public class Dialog {
 	public static void main(String[] args) {
 		Object[] options = { "Sim!", "Não", "Quem sabe?" };
 		JFrame frame = new JFrame("Hello");
-		frame.getContentPane().add(new Label("Vida"));
-		frame.pack();
-		frame.setVisible(Boolean.TRUE);
+
 		int n = JOptionPane.showOptionDialog(frame, "Tem certeza?", "Confirmação", JOptionPane.YES_NO_CANCEL_OPTION,
 				JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
-		System.out.println(n);
-	}
-}
+
+		frame.getContentPane().add(new Label(options[n].toString()));
+		frame.pack();
+		frame.setVisible(Boolean.TRUE);
+	};
+
+};
