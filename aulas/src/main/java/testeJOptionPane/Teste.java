@@ -12,6 +12,7 @@ public class Teste {
 		JFrame frame = new JFrame("Frame");
 		JLabel label = new JLabel("Teste");
 		//frame.setSize(400, 300);
+		label.setVisible(false);
 		frame.getContentPane().add(label, BorderLayout.CENTER);
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
