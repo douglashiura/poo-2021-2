@@ -1,4 +1,4 @@
-package desenvolvimento;
+package br.ies.aula.jogo.cacaniquel.modelo;
 
 public class Jogador extends Acao{
 	private Integer moeda;
