@@ -10,7 +10,7 @@ public class JFrameTeste {
 		final JLabel label = new JLabel("Testando frame java");
 		janela.getContentPane().add(label);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//janela.pack();
+		janela.pack();
 		janela.setVisible(true);
 	}
 }
