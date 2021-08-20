@@ -5,8 +5,8 @@ import javax.swing.*;
 
 public class TestJOptionPaneDialog {
 	public static void main(String[] args) {
-		JFrame frame = new JFrame("TESTE DE FRAME");
-		final JLabel label = new JLabel("JANELA ABERTA");
+		JFrame frame = new JFrame("JFrame de Jnela");
+		final JLabel label = new JLabel("Jnela é isso!");
 		frame.getContentPane().add(label, BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.pack();
