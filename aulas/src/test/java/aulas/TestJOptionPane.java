@@ -22,7 +22,7 @@ public class TestJOptionPane {
 		JLabel texto = new JLabel("Outro teste");
 		janela.getContentPane().add(texto);
 		
-		janela.setVisible(false);
+		texto.setVisible(false);
 		
 	}
 }
