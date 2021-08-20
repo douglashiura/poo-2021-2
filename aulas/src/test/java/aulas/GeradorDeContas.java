@@ -15,17 +15,11 @@ public class GeradorDeContas {
 		this.questao = questao;
 	}
 
-	public Integer valo1() {
+	public Integer valo() {
 		
 		Random gerador = new Random();
-
-		for (int i = 0; i < 1; i++) {
 
 			return this.randomico = gerador.nextInt(100);
 
 	}
-		return randomico;
-
-
-}
 }

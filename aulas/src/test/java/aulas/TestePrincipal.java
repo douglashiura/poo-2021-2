@@ -16,9 +16,11 @@ public class TestePrincipal extends GeradorDeContas{
 		Jogador jogadorUM = new Jogador();
 		jogadorUM.setNome("Anatan");
 
+		GeradorDeContas gerador = new GeradorDeContas();
 		GeradorDeContas soma = new GeradorDeContas();
 
-		soma.setQuestao(2 + 2);
+		soma.setQuestao(gerador.valo() + gerador.valo());
+		System.out.println(soma.getQuestao()+"Soma");
 		jogadorUM.setResposta(4);
 	
 
@@ -34,7 +36,7 @@ public class TestePrincipal extends GeradorDeContas{
 
 		for (int i = 0; i < 1; i++) {
 			System.out.println(ram.nextInt(100));
-			System.out.println(gerador.valo1()+"mm");
+			System.out.println(gerador.valo()+"mm");
 		}
 	}
 
