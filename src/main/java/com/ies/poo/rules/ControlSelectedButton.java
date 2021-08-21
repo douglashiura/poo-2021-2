@@ -33,4 +33,24 @@ public class ControlSelectedButton {
 		this.buttonsReference.put(button, Boolean.FALSE);
 	}
 	
+	public void alterButtonSelectedState(JButton button, Boolean buttonStatus) {
+		Boolean selectedButton = this.buttonsReference.get(button);
+		selectedButton = buttonStatus;
+	}
+	
+	public void clearSelection() {
+		this.buttonsReference.values().stream().forEach(button -> { 
+			button = false; 
+		});
+	}
+	
+	public Boolean isAllButtonsSelected() {
+		for(Boolean button : this.buttonsReference.values()) {
+			if(!button) {
+				return false;
+			}
+		}
+		return true;
+	}
+	
 }
