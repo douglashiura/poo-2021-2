@@ -12,17 +12,17 @@ public class TestJOptionPane {
 
 		// JOptionPane.showInputDialog(null, "Olaaaa");
 
-		JFrame janela = new JFrame("Testando");
+		JFrame janela = new JFrame();
 		janela.setSize(300, 200);
 		janela.setVisible(true);
-		janela.setTitle("Titulo Testando");
-		janela.setBackground(Color.green);
+		janela.setTitle(" Jogo da Mtm ");
+		janela.getContentPane().setBackground(Color.LIGHT_GRAY);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 		JLabel texto = new JLabel("Outro teste");
 		janela.getContentPane().add(texto);
-		
-		texto.setVisible(false);
-		
+
+		// texto.setVisible(false);
+
 	}
 }

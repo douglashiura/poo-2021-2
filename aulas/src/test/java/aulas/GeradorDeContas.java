@@ -16,10 +16,10 @@ public class GeradorDeContas {
 	}
 
 	public Integer valo() {
-		
+
 		Random gerador = new Random();
 
-			return this.randomico = gerador.nextInt(100);
+		return gerador.nextInt(100);
 
 	}
 }
