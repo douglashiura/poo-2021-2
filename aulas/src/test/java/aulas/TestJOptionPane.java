@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 //import javax.swing.JOptionPane;
 
 public class TestJOptionPane {
@@ -21,6 +22,8 @@ public class TestJOptionPane {
 
 		JLabel texto = new JLabel("Outro teste");
 		janela.getContentPane().add(texto);
+	
+		JOptionPane.showMessageDialog(janela," Houve um problema parça ","Erro 404",JOptionPane.INFORMATION_MESSAGE);
 
 		// texto.setVisible(false);
 
