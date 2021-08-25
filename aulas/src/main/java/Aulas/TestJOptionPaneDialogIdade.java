@@ -17,7 +17,7 @@ public class TestJOptionPaneDialogIdade {
 				options[2]
 		);
 		frame.getContentPane().add(new Label(options[n].toString()));
-		frame.setSize(600, 600);
+		frame.setSize(400, 300);
 		frame.setVisible(true);
 	}
 }
