@@ -1,19 +1,22 @@
-#### Nome do projeto: Sistema Locação de Equipamentos
+#### Nome do projeto: 
+
+- Nilux Tech - Sistema Locação de Equipamentos de Informática
 
 
 #### Descrição:
 
-- Sistema de Locação de Equipamentos ( A definir o tipo de equipamentos )
+- Sistema de Locação de Equipamentos de informática.
 
 
 #### Objetivos:
 
-- Locar equipamentos ( a definir o tipo de equipamento )
+- Software para gerenciar o emprestimo de equipamentos de informática.
 
 #### Limitações:
 
 - Cadastro de Cliente
 - Cadasto de Equipamento / Itens / Marca
+- Data de Locação / Data Devolução
 
 
 
