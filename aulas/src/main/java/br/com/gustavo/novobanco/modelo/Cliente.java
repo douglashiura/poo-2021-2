@@ -1,4 +1,4 @@
-package br.com.gustavo.novobanco;
+package br.com.gustavo.novobanco.modelo;
 
 public class Cliente {
 	
