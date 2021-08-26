@@ -17,6 +17,8 @@ public class ExFlowLayout {
 		frame.add(new JButton("Botão 2"));
 		frame.add(new JButton("Botão 3"));
 		frame.add(new JButton("Botão 4"));
+		frame.add(new JButton("Botão 5"));
+
 
 		frame.setVisible(true);
 
