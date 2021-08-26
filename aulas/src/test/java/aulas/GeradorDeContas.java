@@ -2,7 +2,7 @@ package aulas;
 
 import java.util.Random;
 
-public class GeradorDeContas {
+public class GeradorDeContas { 
 
 	private Integer questao;
 	private Integer randomico;

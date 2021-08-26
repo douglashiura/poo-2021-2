@@ -20,7 +20,7 @@ public class TestJOptionPane {
 		janela.getContentPane().setBackground(Color.LIGHT_GRAY);
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-		JLabel texto = new JLabel("Outro teste");
+		JLabel texto = new JLabel("Outro teste"); 
 		janela.getContentPane().add(texto);
 	
 		JOptionPane.showMessageDialog(janela," Houve um problema parça ","Erro 404",JOptionPane.INFORMATION_MESSAGE);

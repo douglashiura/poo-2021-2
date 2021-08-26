@@ -8,6 +8,7 @@ public class TesteJopitonPane {
 
 	public static void main(String arg[]) {
 
+
 		JPanel panel = new JPanel();
 		JLabel label = new JLabel("Qual sua idade");
 		panel.add(label);
