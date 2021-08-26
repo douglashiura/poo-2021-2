@@ -1,5 +1,5 @@
 package br.com.jswing.exercicios;
 
-public class LayoutManagers {
+public class ExFlowLayout {
 
 }
