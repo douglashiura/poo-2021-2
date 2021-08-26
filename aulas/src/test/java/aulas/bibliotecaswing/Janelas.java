@@ -27,7 +27,6 @@ public class Janelas{
 		container1.add(label);
 		container1.add(botao);
 		container1.setVisible(true);
-		
 		// configurações Label
 		label.setVisible(true);
 		label.setSize(700, 700);
