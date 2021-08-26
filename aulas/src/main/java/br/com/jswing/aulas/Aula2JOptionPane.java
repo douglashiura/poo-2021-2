@@ -1,4 +1,4 @@
-package br.com.jswing.poo;
+package br.com.jswing.aulas;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
