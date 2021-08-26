@@ -1,5 +1,5 @@
 package br.com.jswing.exercicios;
 
-public class Container {
+public class LayoutManagers {
 
 }
