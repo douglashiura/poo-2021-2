@@ -16,7 +16,8 @@ public class TesteLabel {
 		JLabel etiqueta4 = new JLabel("4");
 		JLabel etiqueta5 = new JLabel("5");
 		
-		janela.setLayout(new FlowLayout());
+		//janela.setLayout(new FlowLayout());
+		janela.getContentPane().setLayout(new FlowLayout());
 		
 		janela.getContentPane().add(etiqueta1);
 		janela.getContentPane().add(etiqueta2);
