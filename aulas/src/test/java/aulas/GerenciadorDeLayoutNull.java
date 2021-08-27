@@ -1,6 +1,5 @@
 package aulas;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 
 import javax.swing.BorderFactory;
