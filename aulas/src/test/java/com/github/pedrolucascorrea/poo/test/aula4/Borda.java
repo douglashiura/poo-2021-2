@@ -36,7 +36,7 @@ public class Borda {
 		panel21.setBackground(Color.cyan);
 		panel22.setBackground(Color.green);
 
-		panel1.setBorder(BorderFactory.createLineBorder(Color.green, 20));
+		panel1.setBorder(BorderFactory.createLineBorder(Color.pink, 20));
 		panel2.setBorder(BorderFactory.createLineBorder(Color.orange, 20));
 		panel21.setBorder(BorderFactory.createLineBorder(Color.green, 20));
 		panel22.setBorder(BorderFactory.createLineBorder(Color.cyan, 20));
