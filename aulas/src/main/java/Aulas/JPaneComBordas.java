@@ -1,0 +1,21 @@
+package Aulas;
+import java.awt.Color;
+import javax.swing.BorderFactory;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class JPaneComBordas {
+
+	public static void main(String[] args) {
+		JFrame frame = new JFrame();
+		frame.setSize(500,300);
+		JPanel panel = new JPanel();
+		JLabel label = new JLabel("Matheus Alborghetti Machado");
+		label.setBorder(BorderFactory.createLineBorder(Color.blue));
+		frame.getContentPane().add(panel);
+		panel.add(label);
+		frame.setVisible(true);
+	}
+
+}
