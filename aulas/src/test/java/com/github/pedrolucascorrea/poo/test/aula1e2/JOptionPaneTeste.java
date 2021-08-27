@@ -1,4 +1,4 @@
-package com.github.pedrolucascorrea.poo.test.jaula1e2;
+package com.github.pedrolucascorrea.poo.test.aula1e2;
 
 import javax.swing.JOptionPane;
 

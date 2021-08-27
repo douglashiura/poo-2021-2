@@ -1,4 +1,4 @@
-package com.github.pedrolucascorrea.poo.test.jaula3;
+package com.github.pedrolucascorrea.poo.test.aula3;
 
 import java.awt.FlowLayout;
 
