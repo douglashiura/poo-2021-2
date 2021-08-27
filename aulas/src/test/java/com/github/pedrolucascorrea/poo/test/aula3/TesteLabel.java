@@ -1,6 +1,6 @@
 package com.github.pedrolucascorrea.poo.test.aula3;
 
-import java.awt.FlowLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -17,7 +17,7 @@ public class TesteLabel {
 		JLabel etiqueta5 = new JLabel("5");
 		
 		//janela.setLayout(new FlowLayout());
-		janela.getContentPane().setLayout(new FlowLayout());
+		janela.getContentPane().setLayout(new GridLayout(3, 3));
 		
 		janela.getContentPane().add(etiqueta1);
 		janela.getContentPane().add(etiqueta2);
