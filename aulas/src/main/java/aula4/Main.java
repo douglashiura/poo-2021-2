@@ -26,19 +26,20 @@ public class Main {
 		frame.getContentPane().setLayout(gridLayout1);
 		frame.getContentPane().add(panel1);
 		frame.getContentPane().add(panel2);
-		panel1.setBackground(Color.CYAN);
+		panel1.setBackground(Color.yellow);
 		panel1.add(meuNome);
-		panel1.setBorder(BorderFactory.createLineBorder(Color.yellow));
+		panel1.setBorder(BorderFactory.createLineBorder(Color.black));
 		
 		panel2.setLayout(gridLayout2);
 		panel2.setBackground(Color.yellow);
 		panel2.add(panel3);
 		panel2.add(panel4);
-		panel2.setBorder(BorderFactory.createLineBorder(Color.CYAN));
-		panel3.setBackground(Color.CYAN);
+		panel3.setBackground(Color.yellow);
 		panel3.add(nomeMae);
+		panel3.setBorder(BorderFactory.createLineBorder(Color.black));
 		panel4.setBackground(Color.yellow);
 		panel4.add(NomePai);
+		panel4.setBorder(BorderFactory.createLineBorder(Color.black));
 		frame.setVisible(true);
 	}
 
