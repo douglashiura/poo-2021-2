@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 public class Janelas{
 
 	public static void main(String[] args) {
-		
 
 		JFrame frame = new JFrame("Colocar titulo da janela aqui");
 		JPanel container1 = new JPanel();
