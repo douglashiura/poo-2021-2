@@ -29,6 +29,9 @@ public class Conteiner {
 		janela.getContentPane().add(tres);
 		janela.getContentPane().add(quatro);
 		janela.getContentPane().add(cinco);
+		
+		//escolher um gerenciador de laouyt https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
+		// pode ser o null
 
 	}
 }
