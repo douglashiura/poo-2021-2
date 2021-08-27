@@ -9,7 +9,7 @@ public class JPaneComBordas {
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame();
-		frame.setSize(500,300);
+		frame.setSize(300,200);
 		JPanel panel = new JPanel();
 		JLabel label = new JLabel("Matheus Alborghetti Machado");
 		label.setBorder(BorderFactory.createLineBorder(Color.blue));
