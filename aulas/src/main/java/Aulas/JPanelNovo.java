@@ -1,6 +1,7 @@
 package Aulas;
 
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
@@ -21,7 +22,7 @@ public class JPanelNovo {
 		JLabel ocupacao = new JLabel("Quase DBA");
 		JLabel faculdade = new JLabel("IES");
 		GridLayout gridLayout1 = new GridLayout(2, 2);
-		GridLayout gridLayout2 = new GridLayout(2, 2);
+		FlowLayout flowlayout1 = new FlowLayout(1, 2, 1);
 		
 		frame.setSize(500,500);
 		frame.getContentPane().setLayout(gridLayout1);
