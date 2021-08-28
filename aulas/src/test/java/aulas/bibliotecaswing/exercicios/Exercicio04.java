@@ -9,6 +9,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+// bordas do jPanel
 public class Exercicio04 {
 
 	
@@ -16,19 +17,18 @@ public class Exercicio04 {
 		
 		JFrame frame = new JFrame();
 		frame.setVisible(true);
-		frame.pack();
 		frame.setSize(500, 500);
-		frame.getContentPane().setLayout(new BorderLayout());
+		
+		
 		frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(Color.black);
-		panel.setOpaque(true);
-		panel.setBorder(BorderFactory.createLineBorder(Color.blue));
-		
-		frame.getContentPane().add(panel, BorderLayout.CENTER);
-		
+		panel.setBorder(BorderFactory.createLineBorder(Color.magenta));
 		JLabel label = new JLabel("Ronaldo");
+		frame.getContentPane().add(panel);
+		
+		
 		panel.add(label);
 		
 		
