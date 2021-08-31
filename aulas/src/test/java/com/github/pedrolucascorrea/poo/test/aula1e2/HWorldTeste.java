@@ -2,8 +2,9 @@ package com.github.pedrolucascorrea.poo.test.aula1e2;
 
 import javax.swing.*;
 
-public class HelloWorldFrame extends JFrame {
-	public HelloWorldFrame() {
+public class HWorldTeste extends JFrame {
+
+	public HWorldTeste() {
 		super("HelloWorldSwing");
 		final JLabel label = new JLabel("Hello World");
 		getContentPane().add(label);
@@ -14,7 +15,7 @@ public class HelloWorldFrame extends JFrame {
 	}
 
 	public static void main (String[] args) {
-		HelloWorldFrame frame = new HelloWorldFrame();
+		HWorldTeste frame = new HWorldTeste();
 		
 	}
 }
