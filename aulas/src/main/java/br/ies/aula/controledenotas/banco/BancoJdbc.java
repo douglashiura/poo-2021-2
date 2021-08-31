@@ -1,0 +1,54 @@
+package br.ies.aula.controledenotas.banco;
+
+import java.io.IOException;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+import com.sun.jdi.connect.spi.Connection;
+
+public class BancoJdbc {
+	private static final String URL = "jdbc:postgresql://127.0.0.1:5432/POO2021-2";
+	private static final String USER = "postgres";
+	private static final String PASSWORD = "1234567bobi";
+
+	public static Connection obterConexao() throws BancoException {
+		try {
+			return (Connection) DriverManager.getConnection(URL, USER, PASSWORD);
+		} 
+		catch (SQLException e) {
+			throw new BancoException("Erro na conexão com o Banco de Dados. " + e.getMessage());
+		} 
+	}
+
+	public static void fecharConexao(Connection conexao) throws IOException {
+		if (conexao != null) {
+			conexao.close();
+		}
+	}
+
+	public static void fecharConexao(Connection conexao, PreparedStatement statement) throws BancoException, IOException {
+		fecharConexao(conexao);
+		if (statement != null) {
+			try {
+				statement.close();
+			} 
+			catch (SQLException e) {
+				throw new BancoException("Erro ao fechar conexão com o Banco de Dados. " + e.getMessage());
+			}
+		}
+	}
+
+	public static void fecharConexao(Connection conexao, PreparedStatement statement, ResultSet resultSet) throws BancoException, IOException {
+		fecharConexao(conexao, statement);
+		if (resultSet != null) {
+			try {
+				resultSet.close();
+			} 
+			catch (SQLException e) {
+				throw new BancoException("Erro ao fechar conexão com o Banco de Dados. " + e.getMessage());
+			}
+		}
+	}
+}
