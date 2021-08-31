@@ -18,13 +18,13 @@ public class Aluno {
 	private String nome;
 	private String login;
 	private String senha;
-	private int matricula;
+	private String matricula;
 	private List<Nota> lstNotas;
 	
 	public Aluno() {
 	}
 
-	public Aluno(String nome, String login, String senha, int matricula) {
+	public Aluno(String nome, String login, String senha, String matricula) {
 		this.nome = nome;
 		this.login = login;
 		this.senha = senha;
@@ -103,6 +103,7 @@ public class Aluno {
 		aluno.setNome(resultSet.getString("nome"));
 		aluno.setLogin(resultSet.getString("login"));
 		aluno.setSenha(resultSet.getString("senha"));
+		aluno.setMatricula(resultSet.getString("matricula"));
 			
 		return aluno;
 	}
@@ -148,11 +149,11 @@ public class Aluno {
 		this.lstNotas = lstNotas;
 	}
 	
-	public int getMatricula() {
+	public String getMatricula() {
 		return matricula;
 	}
 
-	public void setMatricula(int matricula) {
+	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
 }
