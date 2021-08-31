@@ -1,4 +1,4 @@
-package testecontroledenotas;
+package br.ies.aula.testecontroledenotas;
 
 import static org.junit.Assert.assertEquals;
 
