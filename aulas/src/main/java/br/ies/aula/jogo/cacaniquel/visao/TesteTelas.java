@@ -1,15 +1,16 @@
 package br.ies.aula.jogo.cacaniquel.visao;
 
-
 public class TesteTelas {
 
-	public static void main(String[] args) {
+	
+	
+	
+	public static void main(String[] args) throws InterruptedException {
 		
-		TelaGerenciamentoBotoes telaPrincipal = new TelaGerenciamentoBotoes();
-		telaPrincipal.iniciar();
-	
+		TelaPrincipal telaPrincipal = new TelaPrincipal();
+		telaPrincipal.mostrarTela();
+		
+		
+		
 	}
-	
-	
-	
 }

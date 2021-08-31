@@ -1,4 +1,4 @@
-package br.ies.aula.jogo.cacaniquel.visao;
+package aulas.bibliotecaswing;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
