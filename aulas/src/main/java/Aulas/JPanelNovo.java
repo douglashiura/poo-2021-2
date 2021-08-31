@@ -31,7 +31,7 @@ public class JPanelNovo {
 		panel1.setBackground(Color.gray);
 		panel1.add(nome);
 		panel1.setBorder(BorderFactory.createLineBorder(Color.red));		
-		panel2.setLayout(gridLayout2);
+		panel2.setLayout(flowlayout1);
 		panel2.setBackground(Color.cyan);
 		panel2.add(panel3);
 		panel2.add(panel4);
