@@ -1,0 +1,14 @@
+gabinete
+mouse
+faculdade
+processador
+disco
+monitor
+teclado
+memoria
+energia
+kubernetes
+docker
+python
+postgres
+POO
