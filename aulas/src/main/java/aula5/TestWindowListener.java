@@ -27,13 +27,13 @@ public class TestWindowListener {
 
 		@Override
 		public void mouseExited(MouseEvent e) {
-			// TODO Auto-generated method stub
+			System.out.print("\nSaiu");
 			
 		}
 
 		@Override
 		public void mousePressed(MouseEvent e) {
-			// TODO Auto-generated method stub
+			System.out.print("\nPressionou");
 			
 		}
 
