@@ -1,6 +1,8 @@
 package tec.nnilux.view;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -13,9 +15,11 @@ public class TelaPrincipal {
 		JFrame frame = new JFrame();
 		frame.setTitle("Nilux Technology - Outsourcing de TI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(500, 300);
+		frame.setSize(800, 600);
 		frame.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
 		frame.setVisible(true);
+		frame.setLocationRelativeTo(null);
+		//frame.getContentPane().setBackground(Color.DARK_GRAY);
 
 		// Barra de Menu
 		JMenuBar menuBarTelaPrincipal = new JMenuBar();
