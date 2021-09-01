@@ -1,6 +1,8 @@
 package aulas;
 import java.awt.Component;
 import java.awt.Container;
+import java.util.EventObject;
+
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -23,20 +25,15 @@ public class PrimeiraTela {
     }
  
     
-    private static void Criar() {
+    private static void criar() {
         JFrame frame = new JFrame("Tetris");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         addComponentsToPane(frame.getContentPane());
         frame.setSize(900, 900);
         frame.pack();
         frame.setVisible(true);
-    }
+        frame.addMouseListener(null);dM;
  
-    public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                Criar();
-            }
-        });
+
     }
 }
