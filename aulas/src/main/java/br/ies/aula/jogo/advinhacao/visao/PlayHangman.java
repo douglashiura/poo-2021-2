@@ -21,7 +21,7 @@ public class PlayHangman {
 		System.out.println("1 - GUI1 com escrita");
 		System.out.println("2 - GUI2 com botões");
 		
-		ViewMode vmode = ViewMode.TUI; //default TUI
+		ViewMode vmode = ViewMode.TUI;
 		try
 		{
 			int v = input.nextInt();

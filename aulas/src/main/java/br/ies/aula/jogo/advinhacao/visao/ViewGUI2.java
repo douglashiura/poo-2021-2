@@ -11,22 +11,22 @@ import br.ies.aula.jogo.advinhacao.controle.ControllerToView;
 public class ViewGUI2 implements ControllerToView{
 
 	private final int fontSize = 23;
-	private JFrame mainFrame; //main hangman frame
-	private JPanel righthandside; //right side of main frame
-	private JPanel lefthandside; //left side of main frame
-	private JFrame secondaryFrame; //frame to pop up once game finishes
+	private JFrame mainFrame; 
+	private JPanel righthandside;
+	private JPanel lefthandside;
+	private JFrame secondaryFrame;
 	
 	private final JLabel wordToGuessMessage = new JLabel("Advinhe a palavra:",JLabel.LEFT);
-	private final JLabel entercharhere = new JLabel("Advinhe a letra:",JLabel.LEFT);
+	private final JLabel entercharhere = new JLabel("Escolha uma letra:",JLabel.LEFT);
 
-	private JLabel message; //one of "Welcome to Hangman","Incorrect Guess","Correct Guess"
+	private JLabel message;
 	private ArrayList<JButton> alphabetButtons = new ArrayList<JButton>();
-	private JLabel incorrectLetters; //letter incorrectly guessed
-	private JLabel wordToGuess; //Label containing wordUserWillGuess
-	private HangmanPanel hangman; //the actual hangman picture
+	private JLabel incorrectLetters;
+	private JLabel wordToGuess;
+	private HangmanPanel hangman;
 	
 	private ControllerGUI myController;
-	private String wordUserWillGuess; //the actual dashes and correct letters of the word
+	private String wordUserWillGuess;
 	private final String alphabet = "qwertyuiopasdfghjklzxcvbnm";
 
 	
@@ -37,7 +37,7 @@ public class ViewGUI2 implements ControllerToView{
 		prepareGUI();
 	}
 	
-	//create, set up, display mainFrame
+
 	private void prepareGUI(){
 		mainFrame = new JFrame("Bem vindo ao jogo do advinha");
 	    mainFrame.setSize(1000,475);
@@ -56,11 +56,11 @@ public class ViewGUI2 implements ControllerToView{
 	    mainFrame.add(lefthandside);
 	    mainFrame.add(righthandside);
 	    
-	    //mainFrame.getRootPane().setDefaultButton(defaultbutton);
+	
 	    mainFrame.setVisible(true);  
 	}
 	
-	//create left side with hangman and incorrect guesses
+
 	public void createLeftSide(){
 		lefthandside = new JPanel();
 	    lefthandside.setLayout(new BoxLayout(lefthandside,BoxLayout.Y_AXIS));
@@ -72,7 +72,7 @@ public class ViewGUI2 implements ControllerToView{
 	    lefthandside.add(incorrectLetters);
 	}
 	
-	//create right side with correct guesses, alphabet buttons, message, give up button
+
 	public void createRightSide(){
 	    righthandside = new JPanel();
 	    righthandside.setLayout(new GridLayout(3,1));
@@ -86,7 +86,7 @@ public class ViewGUI2 implements ControllerToView{
 	    righthandside.add(bottom);
 	}
 	
-	//create message and  give up button JPanel
+
 	private JPanel createBottomRight()
 	{
 		JPanel bottom = new JPanel();
@@ -107,7 +107,7 @@ public class ViewGUI2 implements ControllerToView{
 	    return bottom;
 	}
 	
-	//create correct guesses area in JPanel
+
 	private JPanel createWordStuff(){
 		JPanel wordStuff = new JPanel();
 		wordStuff.setLayout(new GridLayout(3,1));
@@ -122,14 +122,12 @@ public class ViewGUI2 implements ControllerToView{
 		return wordStuff;
 	}
 	
-	//create alphabet buttons area
+
 	private JPanel createAlphaButtons(){
 		JPanel alphabetrow1 = new JPanel();
 		JPanel alphabetrow2 = new JPanel();
 		JPanel alphabetrow3 = new JPanel();
-		
-		//alphabetrow1.setLayout(new GridLayout(1,10));
-		//alphabetrow2.setLayout(new BoxLayout(alphabetrow2,BoxLayout.X_AXIS));
+
 		
 		int j = 0;
 		for(String letter: alphabet.split("")){
@@ -147,21 +145,21 @@ public class ViewGUI2 implements ControllerToView{
 	    
 	    JPanel temp = new JPanel();
 	    temp.setLayout(new GridLayout(3,1));
-	    //temp.setPreferredSize(new Dimension(400,300));
+
 	    temp.add(alphabetrow1);
 	    temp.add(alphabetrow2);
 	    temp.add(alphabetrow3);
 		return temp;
 	}
 	
-	//create a Jlabel
+
 	private JLabel createLabel(String msg){
 		JLabel label = new JLabel(msg,JLabel.CENTER);
 	    label.setFont(new Font("Arial",Font.BOLD,fontSize));
 	    return label;
 	}
 	
-	//create a Jbutton
+
 	private JButton createButton(String msg){
 		JButton thisbutton = new JButton(msg);
 	    thisbutton.setActionCommand(msg);
@@ -171,7 +169,7 @@ public class ViewGUI2 implements ControllerToView{
 	    return thisbutton;
 	}
 	
-	//disable button guessed
+
 	public void eraseGuess(String guess){
 		int index = alphabet.indexOf(guess);
 		System.out.println(guess);
@@ -179,7 +177,7 @@ public class ViewGUI2 implements ControllerToView{
 			alphabetButtons.get(index).setEnabled(false);
 	}
 	
-	//reset the entire gui
+
 	public void reset(String word){
 		if(secondaryFrame!=null)
 			secondaryFrame.dispose();
@@ -189,7 +187,7 @@ public class ViewGUI2 implements ControllerToView{
 	    prepareGUI();
 	}
 
-	//game is done: terminate JFrames
+
 	public void endInterface() {
 		if(secondaryFrame!=null)
 			secondaryFrame.dispose();
@@ -208,11 +206,11 @@ public class ViewGUI2 implements ControllerToView{
 
 	//do nothing
 	public char getNextGuess() {
-		//ONLY FOR GUI1 - do nothing
+
 		return ' ';
 	}
 
-	//ask user if they want to play again in new secondaryFrame
+
 	public boolean playAgain(boolean won, String word) {
 		secondaryFrame = new JFrame("Gostaria de jogar denovo?");
 	    secondaryFrame.setSize(500,500);
