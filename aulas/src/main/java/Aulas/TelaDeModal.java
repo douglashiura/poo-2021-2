@@ -4,6 +4,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 
 public class TelaDeModal {
 
@@ -56,5 +57,8 @@ public class TelaDeModal {
 			public void windowActivated(WindowEvent e) {
 				// TODO Auto-generated method stub
 				
-			});
-		}
+			}
+		});
+	}
+	}
+		
