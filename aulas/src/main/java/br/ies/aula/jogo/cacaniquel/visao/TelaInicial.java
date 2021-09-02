@@ -1,46 +1,76 @@
 package br.ies.aula.jogo.cacaniquel.visao;
 
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.GridLayout;
 import java.awt.Image;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
-public class TelaInicial extends JFrame{
-	
-	
-	public void mostrarTela() {
-		
-		ImageIcon imagem = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\caca.png").getImage().getScaledInstance(1400, 700, Image.SCALE_DEFAULT));
-		JLabel label = new JLabel();
-		label.setVisible(true);
-		label.setBorder(BorderFactory.createLineBorder(Color.white, 2));
-		label.setIcon(imagem);
-		
-		JPanel panel = new JPanel();
-		panel.setVisible(true);
-		panel.setBackground(Color.black);
-		panel.setBorder(BorderFactory.createLineBorder(Color.WHITE));
-		
-		TelaInicial frame = new TelaInicial();
-		frame.setTitle("CAÇA-NÍQUEL");
-		frame.setVisible(true);
-		frame.setSize(800, 400);
-		frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
-		frame.getContentPane().add(panel);
-		
-	}
+public class TelaInicial extends JPanel{
+	private static final long serialVersionUID = 1L;
+	private JLabel labelrocket = new JLabel();
+	private JLabel labelCarta1 = new JLabel();
+	private JLabel labelCarta2 = new JLabel();
+	private JLabel labelCarta3 = new JLabel();
+	private ImageIcon rocketjpg = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\rocket.jpg").getImage().getScaledInstance(200, 70, Image.SCALE_DEFAULT));
+	private ImageIcon coringa = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\coringao.jpg").getImage().getScaledInstance(200, 300, Image.SCALE_DEFAULT));
 
 	
+	public TelaInicial() throws InterruptedException {
+		
+		setLayout(null);
+		setSize(700, 700);
+		setBackground(Color.black);
+		setVisible(true);
+		
+	}
+	
+	public void criarLabels() throws InterruptedException {
+		
+		labelrocket.setIcon(rocketjpg);
+		labelrocket.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
+		labelrocket.setBounds(10, 600, 200, 70);
+		labelrocket.setVisible(true);
+		
+		add(labelrocket);	
+		add(labelCarta1);
+			
+	}
+	
+	public void movimentarCartas() throws InterruptedException {
+		labelCarta1.setIcon(coringa);
+		labelCarta1.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+		labelCarta1.setBounds(400, 250, 200, 300);
+		labelCarta1.setVisible(true);
+		
+		
+		labelCarta2.setIcon(coringa);
+		labelCarta2.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+		labelCarta2.setBounds(600, 250, 200, 300);
+		labelCarta2.setVisible(true);
+		
+		
+		labelCarta3.setIcon(coringa);
+		labelCarta3.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+		labelCarta3.setBounds(800, 250, 200, 300);
+		labelCarta3.setVisible(true);
+		
+		
+		
+		
+	}
+		
+		
+	}
 	
 	
-}
+	
+	
+	
+	
+
