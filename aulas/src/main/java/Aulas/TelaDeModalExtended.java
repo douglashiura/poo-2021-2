@@ -32,7 +32,7 @@ public class TelaDeModalExtended extends JFrame implements ActionListener{
 				botao.setBackground(Color.blue); }
 			
 			public static void main(String[] args) {
-			new TelaDeModal();
+			new TelaDeModalExtended();
 }}
 
 				
