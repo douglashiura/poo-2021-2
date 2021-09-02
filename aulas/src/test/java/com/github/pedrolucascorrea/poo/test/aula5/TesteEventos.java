@@ -1,33 +1,64 @@
 package com.github.pedrolucascorrea.poo.test.aula5;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.event.FocusEvent;
+import java.awt.event.FocusListener;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
+import javax.swing.JTextField;
 
 public class TesteEventos {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("HelloWorldSwing");
-		final JLabel label = new JLabel("Hello World");
-		JButton button = new JButton("Clique aqui");
-		frame.getContentPane().add(label);
-		frame.getContentPane().add(button);
+		//final JLabel label = new JLabel("Hello World");
+		//JButton button = new JButton("Clique aqui");]
+		JTextField myName = new JTextField("Pedro Lucas");	
+		JTextField lalala = new JTextField("LALALALALA");
+		frame.getContentPane().setLayout(new FlowLayout());
+		frame.getContentPane().add(myName);
+		frame.getContentPane().add(lalala);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(300, 300);
 		frame.setVisible(true);
 		
-		button.addActionListener(new ActionListener() {
+		lalala.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				lalala.setBackground(Color.lightGray);
+				
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				lalala.setBackground(Color.green);
+				
+			}
+		});
+		myName.addFocusListener(new FocusListener() {
+			
+			@Override
+			public void focusLost(FocusEvent e) {
+				myName.setBackground(Color.cyan);
+				
+			}
+			
+			@Override
+			public void focusGained(FocusEvent e) {
+				myName.setBackground(Color.orange);
+				
+			}
+		});
+		
+		/*button.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Botao Apertado");
 
 			}
-		});
+		});*/
 		
 		/*frame.addWindowListener(new WindowListener() {
 
