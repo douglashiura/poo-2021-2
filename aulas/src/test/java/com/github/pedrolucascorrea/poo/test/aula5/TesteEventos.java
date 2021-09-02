@@ -1,8 +1,11 @@
 package com.github.pedrolucascorrea.poo.test.aula5;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
@@ -10,11 +13,23 @@ public class TesteEventos {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("HelloWorldSwing");
 		final JLabel label = new JLabel("Hello World");
+		JButton button = new JButton("Clique aqui");
 		frame.getContentPane().add(label);
+		frame.getContentPane().add(button);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setSize(300, 300);
 		frame.setVisible(true);
-		frame.addWindowListener(new WindowListener() {
+		
+		button.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("Botao Apertado");
+
+			}
+		});
+		
+		/*frame.addWindowListener(new WindowListener() {
 
 			@Override
 			public void windowOpened(WindowEvent e) {
@@ -41,8 +56,7 @@ public class TesteEventos {
 
 			@Override
 			public void windowClosing(WindowEvent e) {
-				// TODO Auto-generated method stub
-
+				System.out.println("Fechando Janela");
 			}
 
 			@Override
@@ -55,6 +69,7 @@ public class TesteEventos {
 				// TODO Auto-generated method stub
 
 			}
-		});
+		});*/
+		
 	}
 }
