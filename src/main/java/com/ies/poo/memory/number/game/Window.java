@@ -3,9 +3,14 @@ package com.ies.poo.memory.number.game;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class Window implements WindowListener {
+import javax.swing.JFrame;
 
+public class Window implements WindowListener {
+	private JFrame frame;
 	
+	public Window(JFrame frame) {
+		this.frame = frame;
+	}
 	public void windowActivated(WindowEvent arg0) {  
 	    System.out.println("activated");  
 	}  
@@ -13,7 +18,8 @@ public class Window implements WindowListener {
 	    System.out.println("closed");  
 	}  
 	public void windowClosing(WindowEvent arg0) {  
-	    System.out.println("closing");  
+	    System.out.println("closing");
+	    frame.dispose();
 	}  
 	public void windowDeactivated(WindowEvent arg0) {  
 	    System.out.println("deactivated");  
