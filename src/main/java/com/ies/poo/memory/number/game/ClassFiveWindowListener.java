@@ -4,12 +4,16 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.event.MouseEvent;
 
 public class ClassFiveWindowListener {
 
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Janela");
 		Window window = new Window(frame);
+		HearEvent hearEvent;
+		
+		
 		
 		JButton button = new JButton("Apertou-me");
 		JLabel label = new JLabel("Luiz Fernando de Morais");
