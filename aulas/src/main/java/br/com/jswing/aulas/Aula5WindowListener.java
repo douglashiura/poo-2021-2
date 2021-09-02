@@ -6,7 +6,7 @@ import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
 
-public class Aula5Events {
+public class Aula5WindowListener {
 
 	public static void main(String[] args) {
 		
