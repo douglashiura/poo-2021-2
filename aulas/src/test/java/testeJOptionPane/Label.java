@@ -9,10 +9,9 @@ import javax.swing.JLabel;
 
 public class Label {
 	
-	static JLabel labelQueMudaDeCor;
 	
 	public static void main(String[] args) {
-		JLabel label = new JLabel("TESTE", JLabel.CENTER);
+		JLabel label = new JLabel("Mudando COR", JLabel.CENTER);
 	    JFrame frame = new JFrame("Frame");
 		frame.getContentPane().add(label);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
