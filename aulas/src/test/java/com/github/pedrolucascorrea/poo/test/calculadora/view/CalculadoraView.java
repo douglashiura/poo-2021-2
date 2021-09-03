@@ -1,8 +1,6 @@
 package com.github.pedrolucascorrea.poo.test.calculadora.view;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.FontMetrics;
@@ -11,7 +9,6 @@ import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -78,7 +75,7 @@ public class CalculadoraView extends JFrame {
 
 		// Configuração equalPanel
 		JPanel equalPanel = new JPanel();
-		equalPanel.setLayout(new BorderLayout());
+		equalPanel.setLayout(new FlowLayout());
 		//equalPanel.setPreferredSize(new Dimension(350, 75));
 		//equalPanel.setMaximumSize(new Dimension(350, 75));
 
@@ -92,7 +89,7 @@ public class CalculadoraView extends JFrame {
 		mainPanel.add(screenPanel);
 		mainPanel.add(numbersPanel);
 		mainPanel.add(equalPanel);
-		mainPanel.setLayout(new GridLayout(3, 1));
+		mainPanel.setLayout(new GridLayout(3,1));
 
 		frame.getContentPane().add(mainPanel);
 
