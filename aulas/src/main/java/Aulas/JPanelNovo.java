@@ -42,5 +42,4 @@ public class JPanelNovo {
 		panel4.add(faculdade);
 		frame.setVisible(true);
 	}
-
 }
