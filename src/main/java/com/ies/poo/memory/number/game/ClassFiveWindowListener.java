@@ -41,7 +41,7 @@ public class ClassFiveWindowListener {
 		button.setLocation(20, 20);
 		button.setSize(100, 100);
 		textField.setSize(100, 100);
-		textField.setLocation(300, 300);
+		textField.setLocation(200, 200);
 		textField2.setSize(100, 100);
 		textField2.setLocation(100, 100);
 		textField2.addTextListener(new TextListener() {
@@ -57,17 +57,25 @@ public class ClassFiveWindowListener {
 
 			@Override
 			public void keyTyped(KeyEvent e) {
+				System.out.println(e.getKeyChar());
+				if(e.getKeyChar() == 'S') {
+					textField.setText("São Paulo");
+				}
 			}
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				// TODO Auto-generated method stub
+				if(e.getKeyChar() == 'a') {
+					textField.setText("São Caetano");
+				}
 				
 			}
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				// TODO Auto-generated method stub
+				if(e.getKeyChar() == 'S') {
+					textField.setText("São José");
+				}
 				
 			}
 			
@@ -76,8 +84,8 @@ public class ClassFiveWindowListener {
 		frame.setSize(400, 400);
 		//frame.getContentPane().add(button);
 		//frame.getContentPane().add(label);
-		//frame.getContentPane().add(textField);
-		frame.getContentPane().add(textField2);
+		frame.getContentPane().add(textField);
+		//frame.getContentPane().add(textField2);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.addWindowListener(window);
