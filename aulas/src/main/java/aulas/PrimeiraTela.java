@@ -32,7 +32,7 @@ public class PrimeiraTela {
         frame.setSize(900, 900);
         frame.pack();
         frame.setVisible(true);
-        frame.addMouseListener(null);dM;
+        frame.addMouseListener(null);
  
 
     }
