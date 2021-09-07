@@ -1,4 +1,4 @@
-package com.ies.poo.memory.number.game;
+package com.ies.poo.classes;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;

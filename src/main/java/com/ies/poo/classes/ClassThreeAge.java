@@ -1,4 +1,4 @@
-package com.ies.poo.memory.number.game;
+package com.ies.poo.classes;
 
 import java.awt.Label;
 
