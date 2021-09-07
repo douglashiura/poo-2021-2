@@ -13,36 +13,39 @@ public class TesteTelas extends JFrame{
 
 	public TesteTelas() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(new CardLayout());
+		getContentPane().setLayout(new GridLayout());
 		setSize(700, 700);
 		setVisible(true);
 	}
 	
 	public static void main(String[] args) throws InterruptedException {
 
-		TelaPrincipal panelInicial = new TelaPrincipal();
-		TelaInicial panelPrincipal = new TelaInicial();
+		TelaPrincipal panelPrincipal = new TelaPrincipal();
+		TelaInicial panelInicial = new TelaInicial();
 		TesteTelas frame = new TesteTelas();
 		
+		for(int n=0; n<10; n++) {
 		
+		frame.getContentPane().revalidate();
 		frame.getContentPane().add(panelInicial);
-		panelInicial.criarTela();
-		Thread.sleep(6000);
+		frame.getContentPane().repaint();
+		Thread.sleep(1000);
 		
 		frame.getContentPane().remove(panelInicial);
-		frame.repaint();
-		
-		Thread.sleep(3000);
-		frame.getContentPane().add(panelPrincipal);
-		panelPrincipal.criarTela();
-		
-		
-		Thread.sleep(6000);
-		panelPrincipal.movimentarCartas();
-		frame.repaint(); // atualiza os componentes na tela;
-		frame.revalidate(); //reajustar o layout;
-	 }
 
-	
+		frame.getContentPane().revalidate();
+		frame.getContentPane().add(panelPrincipal);
+		frame.getContentPane().repaint();
+		Thread.sleep(1000);
+		
+		frame.getContentPane().remove(panelPrincipal);
+		Thread.sleep(1000);
+		
+		
+		}
+		
+		
+		
+	}
 
 }
