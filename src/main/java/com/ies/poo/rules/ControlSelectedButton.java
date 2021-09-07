@@ -7,7 +7,7 @@ import javax.swing.JButton;
 
 public class ControlSelectedButton {
 	private String buttonName;
-	private Map<JButton, Boolean> buttonsReference;
+	private Map<JButton, ButtonState> buttonsReference;
 	
 	public ControlSelectedButton () {
 		this.buttonsReference = new HashMap<>();
@@ -21,32 +21,32 @@ public class ControlSelectedButton {
 		this.buttonName = buttonName;
 	}
 	
-	public Map<JButton, Boolean> getButtonsReference() {
+	public Map<JButton, ButtonState> getButtonsReference() {
 		return buttonsReference;
 	}
 	
-	public void setButtonsReference(Map<JButton, Boolean> buttonsReference) {
+	public void setButtonsReference(Map<JButton, ButtonState> buttonsReference) {
 		this.buttonsReference = buttonsReference;
 	}
 	
 	public void addButton(JButton button) {
-		this.buttonsReference.put(button, Boolean.FALSE);
+		this.buttonsReference.put(button, ButtonState.NORMAL);
 	}
 	
-	public void alterButtonSelectedState(JButton button, Boolean buttonStatus) {
-		Boolean selectedButton = this.buttonsReference.get(button);
+	public void alterButtonSelectedState(JButton button, ButtonState buttonStatus) {
+		ButtonState selectedButton = this.buttonsReference.get(button);
 		selectedButton = buttonStatus;
 	}
 	
 	public void clearSelection() {
 		this.buttonsReference.values().stream().forEach(button -> { 
-			button = false; 
+			button = ButtonState.NORMAL; 
 		});
 	}
 	
 	public Boolean isAllButtonsSelected() {
-		for(Boolean button : this.buttonsReference.values()) {
-			if(!button) {
+		for(ButtonState button : this.buttonsReference.values()) {
+			if(button != ButtonState.SELECTED) {
 				return false;
 			}
 		}

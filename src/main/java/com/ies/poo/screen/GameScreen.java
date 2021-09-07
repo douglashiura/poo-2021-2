@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.ies.poo.rules.ButtonState;
 import com.ies.poo.rules.ControlSelectedButton;
 
 public class GameScreen extends JFrame {
@@ -36,7 +37,7 @@ public class GameScreen extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				((JButton)	e.getSource()).setBackground(Color.green);
-				controlButtons.alterButtonSelectedState(((JButton) e.getSource()), Boolean.TRUE);
+				controlButtons.alterButtonSelectedState(((JButton) e.getSource()), ButtonState.SELECTED);
 				((JButton)	e.getSource()).setText(controlButtons.getButtonName());
 			}
 			
