@@ -1,5 +1,9 @@
 package com.ies.poo.screen;
 
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -19,6 +23,16 @@ public class GameScreen extends JFrame {
 		button1 = new JButton("Button1");
 		panel.add(button1);
 		button1.setBounds(10, 10, 100, 100);
+		
+		button1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				((JButton)	e.getSource()).setBackground(Color.BLUE);;
+				
+			}
+			
+		});
 		
 		button2 = new JButton("Button2");
 		panel.add(button2);
