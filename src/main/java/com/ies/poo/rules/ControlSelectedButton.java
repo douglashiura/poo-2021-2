@@ -1,5 +1,6 @@
 package com.ies.poo.rules;
 
+import java.awt.Color;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,6 +37,25 @@ public class ControlSelectedButton {
 	public void alterButtonSelectedState(JButton button, ButtonState buttonStatus) {
 		ButtonState selectedButton = this.buttonsReference.get(button);
 		selectedButton = buttonStatus;
+		changeButtonVisibility(button);
+	}
+	
+	private void changeButtonVisibility(JButton button) {
+		ButtonState buttonStatus = this.buttonsReference.get(button);
+		switch(buttonStatus) {
+			case NORMAL:
+				button.setBackground(Color.GRAY);
+				button.setText("Game");
+				break;
+			case SELECTED:
+				button.setBackground(Color.GREEN);
+				button.setText(this.buttonName);
+				break;
+			case EVEN_MATCH:
+				button.setBackground(Color.MAGENTA);
+				button.setText(this.buttonName);
+				break;
+		}
 	}
 	
 	public void clearSelection() {
