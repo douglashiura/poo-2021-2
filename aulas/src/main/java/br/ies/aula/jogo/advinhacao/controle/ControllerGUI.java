@@ -13,13 +13,13 @@ public class ControllerGUI implements ViewToController {
 	private ControllerToView myView;
 	private String word;
 	
-	public ControllerGUI(String filename) throws IOException //from file
+	public ControllerGUI(String filename) throws IOException
 	{
 		myModel = new Model(filename);
 			
 	}	
 	
-	//start the game
+	
 	public void go(ViewMode viewMode){
 		word = myModel.getRandomWord();
 		
@@ -32,12 +32,12 @@ public class ControllerGUI implements ViewToController {
 			myView = (ControllerToView) new ViewGUI1(this, myModel.correctLettersToString());
 			break;
 		default:
-			return; //error
+			return; 
 			
 		}
 	}
 	
-	//a guess was given: fill in the empty spaces of the word to guess
+	
 	private boolean fillInGuess(String word, char guess) {
 		boolean found = false;
 		for (int i = 0; i < word.length(); i++) {
@@ -61,7 +61,7 @@ public class ControllerGUI implements ViewToController {
 		return myModel.getGamesPlayed();
 	}
 
-	//a guess was given: check validity and notify user
+	
 	public void guessGiven(char guess){
 		if (!myModel.maxBadGuessReached() && !myModel.wordGuessed()){
 			boolean previous = myModel.previousGuess(guess);
@@ -82,10 +82,10 @@ public class ControllerGUI implements ViewToController {
 		boolean won = myModel.wordGuessed();
 
 		if (won) {
-			myView.playAgain(true,word);//won
+			myView.playAgain(true,word);
 		}
 		else if(myModel.maxBadGuessReached()){
-			myView.playAgain(false, word);//lost
+			myView.playAgain(false, word);
 		}
 		
 	}
@@ -94,7 +94,7 @@ public class ControllerGUI implements ViewToController {
 		return word;
 	}
 	
-	//user wants to play again
+	
 	public void playAgain(){
 		word = myModel.getRandomWord();
 		myView.reset(myModel.correctLettersToString());

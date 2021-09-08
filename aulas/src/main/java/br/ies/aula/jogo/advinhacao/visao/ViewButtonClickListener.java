@@ -22,17 +22,17 @@ public class ViewButtonClickListener implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();  
         
-        if( command.equals( "Enter" )){
+        if( command.equals( "Entrar" )){
         	char guess = myView.getNextGuess();
         	myView.eraseGuess(String.valueOf(guess));
         	if(guess!=' '){
         		myController.guessGiven(guess);
         	}
-        }else if(command.equals("Give Up")){
+        }else if(command.equals("Desistir")){
         	myView.playAgain(false, myController.getWord());
-        }else if(command.equals("Exit")){
+        }else if(command.equals("Sair")){
         	myView.endInterface();
-        }else if(command.equals("Play Again")){ 
+        }else if(command.equals("Jogar Novamente")){ 
         	myController.playAgain();
         }else{
         	JButton buttonPushed = (JButton)e.getSource();
