@@ -13,14 +13,14 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-public class CalculadoraView extends JFrame {
-
-	private static final long serialVersionUID = 1L;
+public class CalculadoraView {
 
 	public static void main(String[] args) {
+		
 		// Main
 		JFrame frame = new JFrame();
 		JPanel mainPanel = new JPanel();
+		JButtons b = new JButtons();
 
 		// Configuração screenPanel
 		JPanel screenPanel = new JPanel();
@@ -29,47 +29,27 @@ public class CalculadoraView extends JFrame {
 
 		// Configuração numbersPanel
 		JPanel numbersPanel = new JPanel();
-
-		JButton button1 = new JButton("1");
-		JButton button2 = new JButton("2");
-		JButton button3 = new JButton("3");
-		JButton button4 = new JButton("4");
-		JButton button5 = new JButton("5");
-		JButton button6 = new JButton("6");
-		JButton button7 = new JButton("7");
-		JButton button8 = new JButton("8");
-		JButton button9 = new JButton("9");
-		JButton button0 = new JButton("0");
-
-		JButton dotButton = new JButton(".");
-		JButton sumButton = new JButton("+");
-		JButton subButton = new JButton("-");
-		JButton multButton = new JButton("*");
-		JButton divButton = new JButton("/");
-		JButton clearButton = new JButton("C");
-
-		button1.setBackground(Color.cyan);
-
+		
 		numbersPanel.setBackground(Color.lightGray);
-		numbersPanel.add(button1);
-		numbersPanel.add(button2);
-		numbersPanel.add(button3);
-		numbersPanel.add(sumButton);
+		numbersPanel.add(b.button1);
+		numbersPanel.add(b.button2);
+		numbersPanel.add(b.button3);
+		numbersPanel.add(b.sumButton);
 
-		numbersPanel.add(button4);
-		numbersPanel.add(button5);
-		numbersPanel.add(button6);
-		numbersPanel.add(subButton);
+		numbersPanel.add(b.button4);
+		numbersPanel.add(b.button5);
+		numbersPanel.add(b.button6);
+		numbersPanel.add(b.subButton);
 
-		numbersPanel.add(button7);
-		numbersPanel.add(button8);
-		numbersPanel.add(button9);
-		numbersPanel.add(multButton);
+		numbersPanel.add(b.button7);
+		numbersPanel.add(b.button8);
+		numbersPanel.add(b.button9);
+		numbersPanel.add(b.multButton);
 
-		numbersPanel.add(button0);
-		numbersPanel.add(dotButton);
-		numbersPanel.add(clearButton);
-		numbersPanel.add(divButton);
+		numbersPanel.add(b.button0);
+		numbersPanel.add(b.dotButton);
+		numbersPanel.add(b.clearButton);
+		numbersPanel.add(b.divButton);
 
 		numbersPanel.setLayout(new GridLayout(4, 4, 3, 3));
 
