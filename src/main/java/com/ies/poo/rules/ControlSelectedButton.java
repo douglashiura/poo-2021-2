@@ -35,8 +35,8 @@ public class ControlSelectedButton {
 	}
 	
 	public void alterButtonSelectedState(JButton button, ButtonState buttonStatus) {
-		ButtonState selectedButton = this.buttonsReference.get(button);
-		selectedButton = buttonStatus;
+		this.buttonsReference.get(button);
+		this.buttonsReference.put(button, buttonStatus);
 		changeButtonVisibility(button);
 	}
 	

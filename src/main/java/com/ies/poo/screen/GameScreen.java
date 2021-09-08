@@ -21,31 +21,32 @@ public class GameScreen extends JFrame {
 	public GameScreen () {
 		super("Number memory game");
 		
-		controlButtons = new ControlSelectedButton();
-		controlButtons.setButtonName("Game");
-		
-		panel = new JPanel();
-		this.add(panel);
-		panel.setLayout(null);
-		
-		button1 = new JButton("Button1");
-		panel.add(button1);
-		button1.setBounds(10, 10, 100, 100);
-		
-		button1.addActionListener(new ActionListener() {
-
+		ActionListener buttonAction = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				((JButton)	e.getSource()).setBackground(Color.green);
 				controlButtons.alterButtonSelectedState(((JButton) e.getSource()), ButtonState.SELECTED);
 				((JButton)	e.getSource()).setText(controlButtons.getButtonName());
-			}
-			
-		});
+			};
+		};
 		
-		button2 = new JButton("Button2");
+		controlButtons = new ControlSelectedButton();
+		controlButtons.setButtonName("Flop");
+		
+		panel = new JPanel();
+		this.add(panel);
+		panel.setLayout(null);
+		
+		button1 = new JButton("Game");
+		panel.add(button1);
+		button1.setBounds(10, 10, 100, 100);
+		
+		button1.addActionListener(buttonAction);
+		
+		button2 = new JButton("Game");
 		panel.add(button2);
 		button2.setBounds(120, 10, 100, 100);
+		button2.addActionListener(buttonAction);
 
 		this.setBounds(250, 250, 350, 350);
 		
