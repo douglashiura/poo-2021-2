@@ -9,13 +9,13 @@ import javax.swing.JMenuItem;
 
 
 public class TelaPrincipal {
-
-	public static void main(String[] args) {
-
+	
+	public TelaPrincipal() {
+		
 		JFrame frame = new JFrame();
 		frame.setTitle("Nilux Technology - Outsourcing de TI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(900, 600);
+		frame.setSize(500, 300);
 		frame.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
 		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
@@ -54,6 +54,12 @@ public class TelaPrincipal {
 		
 		JMenuItem item = new JMenuItem("Item");
 		menuCadastro.add(item);
+		
+	}
+
+	public static void main(String[] args) {
+
+		new TelaPrincipal();
 
 	}
 
