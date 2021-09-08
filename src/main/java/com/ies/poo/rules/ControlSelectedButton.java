@@ -16,14 +16,18 @@ public class ControlSelectedButton {
 	
 	public void executeButtonAction(JButton button, ButtonState selected) {
 		alterButtonSelectedState(button, selected);
-		changeButtonVisibility(button);
 		if(this.isAllButtonsSelected()) {
-			
+			changeAllButtonsState(ButtonState.EVEN_MATCH);
+		} else {
+			changeButtonVisibility(button);
 		}
 	}
 	
 	private void changeAllButtonsState(ButtonState buttonState) {
-		
+		for (JButton button : this.buttonsReference.keySet()) {
+			alterButtonSelectedState(button, buttonState);
+			changeButtonVisibility(button);
+		}
 	}
 	
 	public String getButtonName() {
@@ -52,6 +56,7 @@ public class ControlSelectedButton {
 	
 	private void changeButtonVisibility(JButton button) {
 		ButtonState buttonStatus = this.buttonsReference.get(button);
+		button.setOpaque(true);
 		switch(buttonStatus) {
 			case NORMAL:
 				button.setBackground(Color.GRAY);
@@ -64,14 +69,13 @@ public class ControlSelectedButton {
 			case EVEN_MATCH:
 				button.setBackground(Color.MAGENTA);
 				button.setText(this.buttonName);
+				button.setEnabled(false);
 				break;
 		}
 	}
 	
 	public void clearSelection() {
-		this.buttonsReference.values().stream().forEach(button -> { 
-			button = ButtonState.NORMAL; 
-		});
+		changeAllButtonsState(ButtonState.NORMAL);
 	}
 	
 	public Boolean isAllButtonsSelected() {

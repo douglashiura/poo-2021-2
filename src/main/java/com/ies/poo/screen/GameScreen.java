@@ -25,7 +25,7 @@ public class GameScreen extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				((JButton)	e.getSource()).setBackground(Color.green);
-				controlButtons.alterButtonSelectedState(((JButton) e.getSource()), ButtonState.SELECTED);
+				controlButtons.executeButtonAction(((JButton) e.getSource()), ButtonState.SELECTED);
 				((JButton)	e.getSource()).setText(controlButtons.getButtonName());
 			};
 		};
