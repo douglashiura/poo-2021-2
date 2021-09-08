@@ -14,6 +14,18 @@ public class ControlSelectedButton {
 		this.buttonsReference = new HashMap<>();
 	}
 	
+	public void executeButtonAction(JButton button, ButtonState selected) {
+		alterButtonSelectedState(button, selected);
+		changeButtonVisibility(button);
+		if(this.isAllButtonsSelected()) {
+			
+		}
+	}
+	
+	private void changeAllButtonsState(ButtonState buttonState) {
+		
+	}
+	
 	public String getButtonName() {
 		return buttonName;
 	}
@@ -35,9 +47,7 @@ public class ControlSelectedButton {
 	}
 	
 	public void alterButtonSelectedState(JButton button, ButtonState buttonStatus) {
-		this.buttonsReference.get(button);
 		this.buttonsReference.put(button, buttonStatus);
-		changeButtonVisibility(button);
 	}
 	
 	private void changeButtonVisibility(JButton button) {
