@@ -3,6 +3,8 @@ package com.ies.poo.screen;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -20,16 +22,23 @@ public class GameScreen extends JFrame {
 	
 	private ControlSelectedButton controlButtons;
 	private ControlSelectedButton controlA;
+	private List<ControlSelectedButton> controlList;
 	
 	public GameScreen () {
 		super("Number memory game");
 		
+		controlList = new ArrayList<>();
+		
 		ActionListener buttonAction = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				((JButton)	e.getSource()).setBackground(Color.green);
-				controlButtons.executeButtonAction(((JButton) e.getSource()), ButtonState.SELECTED);
-				((JButton)	e.getSource()).setText(controlButtons.getButtonName());
+				JButton button = (JButton) e.getSource();
+				
+				for (ControlSelectedButton control : controlList) {
+					if(control.getButtonsReference().get(button) != null) {
+						control.executeButtonAction(button, ButtonState.SELECTED);
+					}
+				}
 			};
 		};
 		
@@ -72,6 +81,10 @@ public class GameScreen extends JFrame {
 		this.controlButtons.addButton(button2);
 		this.controlA.addButton(buttonA);
 		this.controlA.addButton(buttonB);
+		
+		this.controlList.add(controlButtons);
+		this.controlList.add(controlA);
+		
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
