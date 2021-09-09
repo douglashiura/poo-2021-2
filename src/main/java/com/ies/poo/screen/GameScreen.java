@@ -14,6 +14,9 @@ import com.ies.poo.rules.ButtonState;
 import com.ies.poo.rules.ControlSelectedButton;
 
 public class GameScreen extends JFrame {
+	private static final int PLAY_QUANTITIES_LIMIT = 2;
+	private Integer plays = 0;
+	
 	private JButton button1;
 	private JButton button2;
 	private JPanel panel;
@@ -23,11 +26,13 @@ public class GameScreen extends JFrame {
 	private ControlSelectedButton controlButtons;
 	private ControlSelectedButton controlA;
 	private List<ControlSelectedButton> controlList;
+	private List<ControlSelectedButton> selectedButtonList;
 	
 	public GameScreen () {
 		super("Number memory game");
 		
 		controlList = new ArrayList<>();
+		selectedButtonList = new ArrayList<>();
 		
 		ActionListener buttonAction = new ActionListener() {
 			@Override
@@ -36,7 +41,21 @@ public class GameScreen extends JFrame {
 				
 				for (ControlSelectedButton control : controlList) {
 					if(control.getButtonsReference().get(button) != null) {
+						plays++;
 						control.executeButtonAction(button, ButtonState.SELECTED);
+						if(!selectedButtonList.contains(control)) {
+							selectedButtonList.add(control);
+						}
+						if(plays == PLAY_QUANTITIES_LIMIT) {
+							if(selectedButtonList.size() > 1) {
+								for (ControlSelectedButton selectedControl : selectedButtonList) {
+									selectedControl.clearSelection();
+								}
+							} 
+							plays = 0;
+							selectedButtonList.clear();
+						}
+						break;
 					}
 				}
 			};
