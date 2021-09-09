@@ -1,31 +1,29 @@
 package com.github.pedrolucascorrea.poo.test.calculadora.view;
 
-import java.awt.Color;
-import java.awt.FlowLayout;
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.event.ComponentAdapter;
 import java.awt.event.ComponentEvent;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
-public class CalculadoraView extends JFrame{
-	
+public class CalculadoraView extends JFrame {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
+	private MainPanel panel;
+
 	public CalculadoraView() {
 		JFrame frame = new JFrame();
-		MainPanel mp = new MainPanel();
 
-		frame.getContentPane().add(mp);
+		frame.getContentPane().add(panel);
 
 		frame.setTitle("Calculadora");
-		
+
 		frame.addComponentListener(new ComponentAdapter() {
 			@Override
 			public void componentResized(ComponentEvent e) {
@@ -34,15 +32,15 @@ public class CalculadoraView extends JFrame{
 		});
 
 		frame.setSize(350, 500);
-		
+
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
+
 	}
 
 	public static void main(String[] args) {
 		CalculadoraView frame = new CalculadoraView();
 		frame.setVisible(true);
-		
+
 	}
 
 	// Centralização do Titulo
