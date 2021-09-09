@@ -27,6 +27,9 @@ public class JButtons extends JButton {
 		JButton multButton = new JButton("*");
 		JButton divButton = new JButton("/");
 		JButton clearButton = new JButton("C");
+		
+		JButton equalButton = new JButton("=");
+		// equalButton.setPreferredSize(new Dimension(350, 75));
 
 	}
 
