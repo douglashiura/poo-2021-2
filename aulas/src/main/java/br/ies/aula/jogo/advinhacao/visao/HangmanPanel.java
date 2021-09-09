@@ -8,9 +8,7 @@ import javax.swing.*;
 
 public class HangmanPanel extends JPanel{
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 	private int x = 0;
 	private int y = 0;
@@ -58,7 +56,7 @@ public class HangmanPanel extends JPanel{
 	
 	//
 	private void drawbody(Graphics g){
-		g.drawArc(x+2*(width/3)-3*(height/8), y-height*4+width/6, 3*height/4, 3*height/4, 90, 360); //head
+		drawsHeadInGraphic(g);
 		if(badGuesses>1){
 			drawVertLine(height,x+2*width/3,y-height*4+width/6+3*height/4,g);
 			if(badGuesses>2){
@@ -74,6 +72,17 @@ public class HangmanPanel extends JPanel{
 				}
 			}
 		}
+	}
+
+	private void drawsHeadInGraphic(Graphics g) {
+		int xPointBeginHeadDrawing = x+2*(width/3)-3*(height/8);
+		int yPointBeginHeadDrawing = y-height*4+width/6;
+		int shifting = 3;
+		int widthOfHead = shifting*height/4;
+		int heightOfHead = shifting*height/4;
+		int startAngle = 90;
+		int arcAngle = 360;
+		g.drawArc(xPointBeginHeadDrawing, yPointBeginHeadDrawing, widthOfHead, heightOfHead, startAngle, arcAngle);
 	}
 
 

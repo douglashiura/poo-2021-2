@@ -22,7 +22,7 @@ public class ViewButtonClickListener implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
         String command = e.getActionCommand();  
         
-        if( command.equals( "Entrar" )){
+        if(command.equals( "Entrar" )){
         	char guess = myView.getNextGuess();
         	myView.eraseGuess(String.valueOf(guess));
         	if(guess!=' '){
