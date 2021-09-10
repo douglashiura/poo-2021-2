@@ -57,7 +57,6 @@ public class TelaComEtiqueQueMudaDeCor extends JFrame implements MouseListener {
 	@Override
 	public void mouseExited(MouseEvent e) {
 		meuNome.setForeground(Color.black);
-
 	}
 
 }
