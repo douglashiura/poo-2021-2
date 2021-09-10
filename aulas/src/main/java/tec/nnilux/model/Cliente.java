@@ -8,7 +8,7 @@ public class Cliente {
 	private String nome;
 	private String cpf;
 	private String email;
-	private String endereço;
+	private String endereco;
 	private ArrayList<Item> itens = new ArrayList<Item>();
 
 	public Integer getCodCliente() {
@@ -43,12 +43,12 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public String getEndereço() {
-		return endereço;
+	public String getEndereco() {
+		return endereco;
 	}
 
-	public void setEndereço(String endereço) {
-		this.endereço = endereço;
+	public void setEndereco(String endereco) {
+		this.endereco = endereco;
 	}
 
 	public ArrayList<Item> getItens() {

@@ -15,9 +15,8 @@ public class TelaPrincipal {
 		JFrame frame = new JFrame();
 		frame.setTitle("Nilux Technology - Outsourcing de TI");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(500, 300);
+		frame.setSize(900, 600);
 		frame.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
-		frame.setVisible(true);
 		frame.setLocationRelativeTo(null);
 		frame.getContentPane().setBackground(Color.WHITE);
 	
@@ -54,6 +53,8 @@ public class TelaPrincipal {
 		
 		JMenuItem item = new JMenuItem("Item");
 		menuCadastro.add(item);
+		
+		frame.setVisible(true);
 		
 	}
 

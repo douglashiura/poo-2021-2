@@ -21,7 +21,6 @@ public class TelaCadastroMarca extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.getContentPane().setBackground(Color.WHITE);
 		this.setLocationRelativeTo(null);
-		this.setVisible(true);
 
 		JPanel painel = new JPanel(null);
 
@@ -72,7 +71,8 @@ public class TelaCadastroMarca extends JFrame {
 		btConsultar.setBounds(400, 200, 120, 40);
 		painel.add(btConsultar, BorderLayout.CENTER);
 
-		add(painel);
+		getContentPane().add(painel);
+		this.setVisible(true);
 
 	}
 

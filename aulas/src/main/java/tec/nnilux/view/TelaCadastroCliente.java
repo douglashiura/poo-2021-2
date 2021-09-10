@@ -1,5 +1,4 @@
 package tec.nnilux.view;
-
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JFrame;
@@ -18,7 +17,7 @@ public class TelaCadastroCliente extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		this.getContentPane().setBackground(Color.WHITE);
 		this.setLocationRelativeTo(null);
-		this.setVisible(true);
+		
 
 		JPanel painel = new JPanel(null);
 
@@ -57,7 +56,8 @@ public class TelaCadastroCliente extends JFrame {
 		textBoxEmail.setBounds(108, 180, 300, 30);
 		painel.add(textBoxEmail);
 
-		add(painel);
+		getContentPane().add(painel);
+		this.setVisible(true);
 	}
 
 	public static void main(String[] args) {
