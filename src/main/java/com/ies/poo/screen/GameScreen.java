@@ -164,7 +164,7 @@ public class GameScreen extends JFrame {
 		for (int i = 0; i < (pairQuantities * 2); i++) {
 			Rectangle rectangle = new Rectangle(xPosition, yPosition, 75, 75);
 			positions.add(rectangle);
-			if(i % 5 == 0 && i > 0) {
+			if(isMaxWidthReached(i)) {
 				
 				yPosition += 80;
 				xPosition = 10;
@@ -172,5 +172,9 @@ public class GameScreen extends JFrame {
 				xPosition += 80;
 			}
 		}
+	}
+
+	private boolean isMaxWidthReached(int i) {
+		return i % 5 == 0 && i > 0;
 	}
 }
