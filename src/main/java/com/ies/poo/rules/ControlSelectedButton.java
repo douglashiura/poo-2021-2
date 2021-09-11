@@ -19,7 +19,6 @@ public class ControlSelectedButton {
 		if(this.isAllButtonsSelected()) {
 			changeAllButtonsState(ButtonState.EVEN_MATCH);
 		} else {
-			System.out.println("aqui");
 			changeButtonVisibility(button);
 		}
 	}
@@ -58,6 +57,10 @@ public class ControlSelectedButton {
 	private void changeButtonVisibility(JButton button) throws InterruptedException {
 		ButtonState buttonStatus = this.buttonsReference.get(button);
 		button.setOpaque(true);
+		setButtonStatus(button, buttonStatus);
+	}
+
+	private void setButtonStatus(JButton button, ButtonState buttonStatus) {
 		switch(buttonStatus) {
 			case NORMAL:
 				button.setBackground(null);
