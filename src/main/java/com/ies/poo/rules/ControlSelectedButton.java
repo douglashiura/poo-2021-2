@@ -14,16 +14,17 @@ public class ControlSelectedButton {
 		this.buttonsReference = new HashMap<>();
 	}
 	
-	public void executeButtonAction(JButton button, ButtonState selected) {
+	public void executeButtonAction(JButton button, ButtonState selected) throws InterruptedException {
 		alterButtonSelectedState(button, selected);
 		if(this.isAllButtonsSelected()) {
 			changeAllButtonsState(ButtonState.EVEN_MATCH);
 		} else {
+			System.out.println("aqui");
 			changeButtonVisibility(button);
 		}
 	}
 	
-	private void changeAllButtonsState(ButtonState buttonState) {
+	private void changeAllButtonsState(ButtonState buttonState) throws InterruptedException {
 		for (JButton button : this.buttonsReference.keySet()) {
 			alterButtonSelectedState(button, buttonState);
 			changeButtonVisibility(button);
@@ -54,12 +55,14 @@ public class ControlSelectedButton {
 		this.buttonsReference.put(button, buttonStatus);
 	}
 	
-	private void changeButtonVisibility(JButton button) {
+	private void changeButtonVisibility(JButton button) throws InterruptedException {
 		ButtonState buttonStatus = this.buttonsReference.get(button);
+		System.out.println(button);
 		button.setOpaque(true);
 		switch(buttonStatus) {
 			case NORMAL:
-				button.setBackground(Color.GRAY);
+				button.setBackground(null);
+				button.setText(this.buttonName);
 				button.setText("Game");
 				break;
 			case SELECTED:
@@ -74,8 +77,21 @@ public class ControlSelectedButton {
 		}
 	}
 	
-	public void clearSelection() {
+	public void clearSelection() throws InterruptedException {
+		System.out.println("aqui2");
 		changeAllButtonsState(ButtonState.NORMAL);
+	}
+	
+	public static void setTimeout(Runnable runnable, int delay){
+	    new Thread(() -> {
+	        try {
+	            Thread.sleep(delay);
+	            runnable.run();
+	        }
+	        catch (Exception e){
+	            System.err.println(e);
+	        }
+	    }).start();
 	}
 	
 	public Boolean isAllButtonsSelected() {

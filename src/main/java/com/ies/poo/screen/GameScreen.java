@@ -47,6 +47,18 @@ public class GameScreen extends JFrame {
 		this.add(panel);
 		panel.setLayout(null);
 	}
+	
+	public static void setTimeout(Runnable runnable, int delay){
+	    new Thread(() -> {
+	        try {
+	            Thread.sleep(delay);
+	            runnable.run();
+	        }
+	        catch (Exception e){
+	            System.err.println(e);
+	        }
+	    }).start();
+	}
 
 	private void setButtonAction() {
 		buttonAction = new ActionListener() {
@@ -57,17 +69,30 @@ public class GameScreen extends JFrame {
 				for (ControlSelectedButton control : controlList) {
 					if (control.getButtonsReference().get(button) != null) {
 						plays++;
-						control.executeButtonAction(button, ButtonState.SELECTED);
+						try {
+							control.executeButtonAction(button, ButtonState.SELECTED);
+						} catch (InterruptedException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
 						if (!selectedButtonList.contains(control)) {
 							selectedButtonList.add(control);
 						}
 						if (plays == PLAY_QUANTITIES_LIMIT) {
 							if (selectedButtonList.size() > 1) {
 								for (ControlSelectedButton selectedControl : selectedButtonList) {
-									selectedControl.clearSelection();
+									setTimeout(() -> {
+										try {
+											selectedControl.clearSelection();
+										} catch (InterruptedException e1) {
+											// TODO Auto-generated catch block
+											e1.printStackTrace();
+										}
+									}, 250);
 								}
 							}
 							plays = 0;
+							selectedButtonList.add(control);
 							selectedButtonList.clear();
 						}
 						break;
