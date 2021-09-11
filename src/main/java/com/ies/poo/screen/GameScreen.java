@@ -66,41 +66,52 @@ public class GameScreen extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				JButton button = (JButton) e.getSource();
 
-				for (ControlSelectedButton control : controlList) {
-					if (control.getButtonsReference().get(button) != null) {
-						plays++;
-						try {
-							control.executeButtonAction(button, ButtonState.SELECTED);
-						} catch (InterruptedException e1) {
-							// TODO Auto-generated catch block
-							e1.printStackTrace();
-						}
-						if (!selectedButtonList.contains(control)) {
-							selectedButtonList.add(control);
-						}
-						if (plays == PLAY_QUANTITIES_LIMIT) {
-							if (selectedButtonList.size() > 1) {
-								for (ControlSelectedButton selectedControl : selectedButtonList) {
-									setTimeout(() -> {
-										try {
-											selectedControl.clearSelection();
-										} catch (InterruptedException e1) {
-											// TODO Auto-generated catch block
-											e1.printStackTrace();
-										}
-									}, 250);
-								}
-							}
-							plays = 0;
-							selectedButtonList.add(control);
-							selectedButtonList.clear();
-						}
-						break;
-					}
-				}
-			};
+				setControlledButtonStatus(button);
+			}
 		};
 	}
+	
+	private void setControlledButtonStatus(JButton button) {
+		for (ControlSelectedButton control : controlList) {
+			if (control.getButtonsReference().get(button) != null) {
+				plays++;
+				try {
+					control.executeButtonAction(button, ButtonState.SELECTED);
+				} catch (InterruptedException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				if (!selectedButtonList.contains(control)) {
+					selectedButtonList.add(control);
+				}
+				setButtonStatusOnPlayLimit(control);
+				break;
+			}
+		}
+	}
+	
+	private void setButtonStatusOnPlayLimit(ControlSelectedButton control) {
+		if (plays == PLAY_QUANTITIES_LIMIT) {
+			if (selectedButtonList.size() > 1) {
+				clearControlSelectionList();
+			}
+			plays = 0;
+			selectedButtonList.add(control);
+			selectedButtonList.clear();
+		}
+	}
+	
+	private void clearControlSelectionList() {
+		for (ControlSelectedButton selectedControl : selectedButtonList) {
+			setTimeout(() -> {
+				try {
+					selectedControl.clearSelection();
+				} catch (InterruptedException e1) {
+					e1.printStackTrace();
+				}
+			}, 250);
+		}
+	};
 	
 	private void createGame(int pairQuantities) {
 		ControlSelectedButton control = null;

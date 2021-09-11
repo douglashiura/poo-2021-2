@@ -82,18 +82,6 @@ public class ControlSelectedButton {
 		changeAllButtonsState(ButtonState.NORMAL);
 	}
 	
-	public static void setTimeout(Runnable runnable, int delay){
-	    new Thread(() -> {
-	        try {
-	            Thread.sleep(delay);
-	            runnable.run();
-	        }
-	        catch (Exception e){
-	            System.err.println(e);
-	        }
-	    }).start();
-	}
-	
 	public Boolean isAllButtonsSelected() {
 		for(ButtonState button : this.buttonsReference.values()) {
 			if(button != ButtonState.SELECTED) {
