@@ -32,6 +32,23 @@ public class GameScreen extends JFrame {
 		controlList = new ArrayList<>();
 		selectedButtonList = new ArrayList<>();
 
+		setButtonAction();
+
+		setPanelConfig();
+
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		createGame(6);
+		this.setBounds(250, 250, 500, 500);
+		this.setVisible(true);
+	}
+
+	private void setPanelConfig() {
+		panel = new JPanel();
+		this.add(panel);
+		panel.setLayout(null);
+	}
+
+	private void setButtonAction() {
 		buttonAction = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -58,15 +75,6 @@ public class GameScreen extends JFrame {
 				}
 			};
 		};
-
-		panel = new JPanel();
-		this.add(panel);
-		panel.setLayout(null);
-
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		createGame(6);
-		this.setBounds(250, 250, 500, 500);
-		this.setVisible(true);
 	}
 	
 	private void createGame(int pairQuantities) {
@@ -79,8 +87,44 @@ public class GameScreen extends JFrame {
 		Random random = new Random();
 		
 		Integer buttonNumber = 0;
-		Integer buttonPosition = 0;
 		
+		positioningButtons(pairQuantities, positions, xPosition, yPosition);
+		
+		addButtons(pairQuantities, control, positions, random, buttonNumber);
+	}
+
+	private void addButtons(int pairQuantities, ControlSelectedButton control, List<Rectangle> positions, Random random,
+			Integer buttonNumber) {
+		for (int i = 0; i < (pairQuantities * 2); i++) {
+			if(isEven(i)) {
+				control = new ControlSelectedButton();
+				control.setButtonName("Button " + buttonNumber++);
+				this.controlList.add(control);
+			}
+			addButtonPanelAndController(control, positions, random);
+		}
+	}
+
+	private void addButtonPanelAndController(ControlSelectedButton control, List<Rectangle> positions, Random random) {
+		JButton button = new JButton("Game");
+		this.panel.add(button);
+		button.addActionListener(this.buttonAction);
+		int position = random.nextInt(setRandomPosition(positions));
+		button.setBounds(positions.get(position));
+		positions.remove(position);
+		
+		control.addButton(button);
+	}
+
+	private int setRandomPosition(List<Rectangle> positions) {
+		return (positions.size() - 1) > 0 ? positions.size() - 1 : 1;
+	}
+
+	private boolean isEven(int i) {
+		return i % 2 == 0;
+	}
+
+	private void positioningButtons(Integer pairQuantities, List<Rectangle> positions, Integer xPosition, Integer yPosition) {
 		for (int i = 0; i < (pairQuantities * 2); i++) {
 			Rectangle rectangle = new Rectangle(xPosition, yPosition, 75, 75);
 			positions.add(rectangle);
@@ -91,22 +135,6 @@ public class GameScreen extends JFrame {
 			} else {
 				xPosition += 80;
 			}
-		}
-		
-		for (int i = 0; i < (pairQuantities * 2); i++) {
-			if(i % 2 == 0) {
-				control = new ControlSelectedButton();
-				control.setButtonName("Button " + buttonNumber++);
-				this.controlList.add(control);
-			}
-			JButton button = new JButton("Game");
-			this.panel.add(button);
-			button.addActionListener(this.buttonAction);
-			int position = random.nextInt((positions.size() - 1) > 0 ? positions.size() - 1 : 1);
-			button.setBounds(positions.get(position));
-			positions.remove(position);
-			
-			control.addButton(button);
 		}
 	}
 }
