@@ -65,7 +65,6 @@ public class GameScreen extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JButton button = (JButton) e.getSource();
-
 				setControlledButtonStatus(button);
 			}
 		};
@@ -78,7 +77,6 @@ public class GameScreen extends JFrame {
 				try {
 					control.executeButtonAction(button, ButtonState.SELECTED);
 				} catch (InterruptedException e1) {
-					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				if (!selectedButtonList.contains(control)) {
