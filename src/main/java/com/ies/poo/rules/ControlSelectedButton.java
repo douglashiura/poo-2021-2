@@ -57,7 +57,6 @@ public class ControlSelectedButton {
 	
 	private void changeButtonVisibility(JButton button) throws InterruptedException {
 		ButtonState buttonStatus = this.buttonsReference.get(button);
-		System.out.println(button);
 		button.setOpaque(true);
 		switch(buttonStatus) {
 			case NORMAL:
@@ -78,7 +77,6 @@ public class ControlSelectedButton {
 	}
 	
 	public void clearSelection() throws InterruptedException {
-		System.out.println("aqui2");
 		changeAllButtonsState(ButtonState.NORMAL);
 	}
 	
