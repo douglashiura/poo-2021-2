@@ -14,9 +14,9 @@ public class Conexao {
 
 	public Conexao() {
 
-		url = "jdbc:postgresql://localhost:5432/Teste";
+		url = "jdbc:postgresql://localhost:5432/testConexao"; 
 		usuario = "postgres";
-		senha = "Testando123";
+		senha = "anatanyuyu";
 
 		try {
 
@@ -24,7 +24,7 @@ public class Conexao {
 
 			con = DriverManager.getConnection(url, usuario, senha);
 
-			System.out.println("Conexão Realizada com Sucesso!!!!!");
+			System.out.println("Conexao Realizada com Sucesso!!!!!");
 
 		} catch (Exception e) {
 
@@ -61,5 +61,7 @@ public class Conexao {
 		}
 		return null;
 	}
+	
+	
 
 }
