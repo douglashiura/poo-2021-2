@@ -10,7 +10,9 @@ import java.sql.Statement;
 public class ConexaoComBancoDeDado {
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		criarTabela();
+		//criarTabela();
+		consultaCompletaTabela();
+		consultaComFiltroTabela();
 	}
 	
 	public static Connection obterConexao() throws SQLException {
