@@ -14,7 +14,7 @@ public class Conexao {
 
 	public Conexao() {
 
-		url = "jdbc:postgresql://localhost:5432/testConexao"; 
+		url = "jdbc:postgresql://localhost:5432/testConexao";
 		usuario = "postgres";
 		senha = "anatanyuyu";
 
@@ -39,7 +39,7 @@ public class Conexao {
 
 			Statement stm = con.createStatement();
 			int res = stm.executeUpdate(sql);
-			con.close();
+			//con.close();
 			return res;
 
 		} catch (Exception e) {
@@ -54,14 +54,12 @@ public class Conexao {
 		try {
 			Statement stm = con.createStatement();
 			ResultSet rs = stm.executeQuery(sql);
-			con.close();
+			//con.close();
 			return rs;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		return null;
 	}
-	
-	
 
 }

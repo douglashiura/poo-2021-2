@@ -9,7 +9,7 @@ public class BancoPrincipal {
 		Conexao con = new Conexao();
 
 		String sql = "INSERT INTO pessoa (id, nome, sexo) VALUES (default, 'Maria', 'F')";
-		String sqlprint = "SELECT nome, sexo from pessoa";
+		// String sqlprint = "SELECT nome, sexo from pessoa";
 
 		int res = con.executaSQL(sql);
 
