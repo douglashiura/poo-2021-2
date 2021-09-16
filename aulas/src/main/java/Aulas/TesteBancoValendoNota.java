@@ -9,7 +9,7 @@ public class TesteBancoValendoNota {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		sequelConsult();
 		sequelWithFilter();
-	}
+}
 	
 	public static Connection makeConnectiob() throws SQLException {		
 		String url = "jdbc:postgresql://localhost:5432/testedb";
