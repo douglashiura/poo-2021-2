@@ -38,8 +38,7 @@ public class TesteBancoValendoNota {
 		String Funcionario = "Matheus";
 		Connection conn = makeConnectiob();
 		PreparedStatement  consult = conn.prepareStatement("Select * from empresa where Setor like '"+ Funcionario +"';");
-		ResultSet result = consult.executeQuery();
-		
+		ResultSet result = consult.executeQuery();		
 		conn.close();
 	}
 }
