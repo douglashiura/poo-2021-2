@@ -11,7 +11,15 @@
 			<version>1.0.6</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>42.2.23</version>
+		</dependency>
+		
 	</dependencies>
+	
+	
 
 	<build>
 		<finalName>poo-2021-2</finalName>

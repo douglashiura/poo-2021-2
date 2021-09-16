@@ -14,8 +14,7 @@ public class TesteBancoValendoNota {
 	public static Connection makeConnectiob() throws SQLException {		
 		String url = "jdbc:postgresql://localhost:5432/testedb";
 		String user = "postgres";
-		String senha = "matheus25";
-		
+		String senha = "matheus25";		
 		return DriverManager.getConnection(url, user, senha);
 		
 	}
