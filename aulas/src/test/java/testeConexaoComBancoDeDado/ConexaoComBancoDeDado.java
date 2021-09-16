@@ -13,6 +13,8 @@ public class ConexaoComBancoDeDado {
 		//criarTabela();
 		consultaCompletaTabela();
 		consultaComFiltroTabela();
+		updateCompletaTabela();
+		updateComFiltroTabela();
 	}
 	
 	public static Connection obterConexao() throws SQLException {
@@ -43,6 +45,21 @@ public class ConexaoComBancoDeDado {
 		Connection conn = obterConexao();
 		PreparedStatement  consulta = conn.prepareStatement("Select * from tbl_autores where Nome_Autor like '"+ nome +"';");
 		ResultSet resultado = consulta.executeQuery();
+		
+		conn.close();
+	}
+	public static void updateCompletaTabela() throws SQLException {
+		Connection conn = obterConexao();
+		PreparedStatement  ps = conn.prepareStatement("Update tbl_autores set Sobrenome_Autor = 'Petry';");
+		ResultSet resultado = ps.executeQuery();
+		conn.close();
+	}
+	public static void updateComFiltroTabela() throws SQLException {
+		String sobrenome = "Pauli";
+		Connection conn = obterConexao();
+		PreparedStatement  ps = conn.prepareStatement("Update tbl_autores set Sobrenome_Autor = 'Petry' where Sobrenome_Autor like ?;");
+		ps.setNString(1, sobrenome);
+		ResultSet resultado = ps.executeQuery();
 		
 		conn.close();
 	}
