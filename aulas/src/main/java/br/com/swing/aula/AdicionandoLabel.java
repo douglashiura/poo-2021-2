@@ -1,6 +1,5 @@
 package br.com.swing.aula;
 
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import javax.swing.JFrame;
