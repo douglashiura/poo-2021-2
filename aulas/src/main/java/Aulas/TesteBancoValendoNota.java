@@ -3,7 +3,6 @@ package Aulas;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class TesteBancoValendoNota {
@@ -31,14 +30,14 @@ public class TesteBancoValendoNota {
 	public static void sequelConsult() throws SQLException {
 		Connection conn = makeConnectiob();
 		PreparedStatement  consult = conn.prepareStatement("Select * from empresa;");
-		ResultSet result = consult.executeQuery();
+		consult.executeQuery();
 		conn.close();
 	}
 	public static void sequelWithFilter() throws SQLException {
 		String Funcionario = "Matheus";
 		Connection conn = makeConnectiob();
 		PreparedStatement  consult = conn.prepareStatement("Select * from empresa where Setor like '"+ Funcionario +"';");
-		ResultSet result = consult.executeQuery();		
+		consult.executeQuery();		
 		conn.close();
 	}
 }
