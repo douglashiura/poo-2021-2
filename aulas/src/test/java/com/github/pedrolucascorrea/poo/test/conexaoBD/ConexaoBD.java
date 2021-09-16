@@ -9,7 +9,7 @@ import java.sql.Statement;
 
 public class ConexaoBD {
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
-		selectFromWhere();
+		updateTable();
 	}
 
 	public static Connection conectarBanco() throws ClassNotFoundException, SQLException {
@@ -60,5 +60,13 @@ public class ConexaoBD {
 		}
 		c.close();
 	}
-
+	
+	public static void updateTable() throws ClassNotFoundException, SQLException{
+		Connection c = conectarBanco();
+		PreparedStatement update = c.prepareStatement("Update funcionarios set nome = 'João' where nome = 'Kleber'");
+		
+		update.executeUpdate();
+		c.close();
+		
+	}
 }
