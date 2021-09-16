@@ -25,7 +25,7 @@ Características/Regas:
 - A batida (quando acaba as cartas da mão do jogador) pode ocorrer até 2x por jogador: 
 	Na primeira o jogador pega um dos "morto" e na segunda termina a partida.
 - Há 2 tipos de batidas:
-	Batida Direta - quando acaba as cartas da mão sem jogar nenhuma fora, ou seja, todas as cartas 
+Batida Direta - quando acaba as cartas da mão sem jogar nenhuma fora, ou seja, todas as cartas 
 					vão para os jogos na mesa. Caso haja morto, o jogador irá pegá-lo e então continuará 
 					a jogar, sem comprar carta.
 	Batida Indireta - quando acaba as cartas da mão, tendo que descartar uma carta, pois a mesma
