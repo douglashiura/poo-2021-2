@@ -20,9 +20,9 @@ public class TesteBancoValendoNota {
 		return DriverManager.getConnection(url, user, senha);
 		
 	}
-	public static void criarTabela() throws SQLException {
+	public static void makeTable() throws SQLException {
 		Connection conn = makeConnectiob();
-		String sequel = "CREATE TABLE empresa (Id integer CONSTRAINT pk_id PRIMARY KEY,Funcionario varchar(150) NOT NULL, Setor varchar(40) NOT NULL,Funcao varchar(30);";
+		String sequel = "CREATE TABLE empresa (Id integer CONSTRAINT pk_id PRIMARY KEY,Funcionario varchar(150) NOT NULL,Setor varchar(40) NOT NULL,Funcao varchar(30);";
 		java.sql.Statement st = conn.createStatement();
 		st.executeUpdate(sequel);
 		conn.close();
