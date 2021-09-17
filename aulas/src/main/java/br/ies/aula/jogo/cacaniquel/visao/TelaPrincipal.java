@@ -1,9 +1,12 @@
 package br.ies.aula.jogo.cacaniquel.visao;
 
 
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -27,26 +30,23 @@ public class TelaPrincipal extends JPanel{
 	private ImageIcon coringajpg = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\coringao.jpg").getImage().getScaledInstance(200, 300, Image.SCALE_DEFAULT));
 
 	
-	public TelaPrincipal() throws InterruptedException {
-		configurarTela();
+	public TelaPrincipal() {
+		configuracaoTela();
+		labels();
+		botoes();
+		
+	}
 
-		btnSair.setBounds(1165, 1, 200, 24);
-		btnSair.setForeground(Color.white);
-		btnSair.setBackground(Color.blue);
-		btnSair.setVisible(true);
-		btnSair.validate();
+	public void configuracaoTela() {
+		setLayout(null);
+		setSize(700, 700);
+		setBackground(Color.black);
+		setVisible(true);
+		setName("PainelPrincipal");
 		
-		btnAjuda.setBounds(1, 1, 200, 24);
-		btnAjuda.setForeground(Color.white);
-		btnAjuda.setBackground(Color.blue);
-		btnAjuda.setVisible(true);
-		
-		btnAlavanca.setBounds(1100, 350, 120, 120);
-		btnAlavanca.setFont(new Font("Comic Sans", Font.BOLD, 15));
-		btnAlavanca.setBackground(Color.green);
-		btnAlavanca.setForeground(Color.black);
-		btnAlavanca.setBorder(BorderFactory.createLineBorder(Color.white, 1));
-		btnAlavanca.setVisible(true);
+	}
+	
+	public void labels() {
 		
 		labelEstorno.setBounds(450, 5, 480, 30);
 		labelEstorno.setForeground(Color.white);
@@ -84,20 +84,41 @@ public class TelaPrincipal extends JPanel{
 		add(labelCarta2);
 		add(labelCarta3);
 		add(labelPowered);
+	}
+
+	public void botoes() {
+		btnSair.setBounds(1165, 1, 200, 24);
+		btnSair.setForeground(Color.white);
+		btnSair.setBackground(Color.blue);
+		btnSair.setBorder(BorderFactory.createLineBorder(Color.black, 1));
+		btnSair.setVisible(true);
+		
+		btnSair.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent ev) {
+				System.exit(0);
+			}
+		});
+		
+		btnAjuda.setBounds(1, 1, 200, 24);
+		btnAjuda.setForeground(Color.white);
+		btnAjuda.setBorder(BorderFactory.createLineBorder(Color.black, 1));
+		btnAjuda.setBackground(Color.blue);
+		btnAjuda.setVisible(true);
+		
+		btnAlavanca.setBounds(1100, 350, 120, 120);
+		btnAlavanca.setFont(new Font("Comic Sans", Font.BOLD, 15));
+		btnAlavanca.setBackground(Color.green);
+		btnAlavanca.setForeground(Color.black);
+		btnAlavanca.setBorder(BorderFactory.createLineBorder(Color.white, 1));
+		btnAlavanca.setVisible(true);
+		
 		add(btnAlavanca);
 		add(btnSair);
 		add(btnAjuda);
 	}
-
-	public void configurarTela() {
-		setLayout(null);
-		setSize(700, 700);
-		setBackground(Color.black);
-		setVisible(true);
-		validate();
-	}
 	
-	public void movimentarCartas() throws InterruptedException {
+	public void movimentarCartas() throws InterruptedException{
 
 		for (int i = 0; i < 3000; i++) {
 			labelCarta1.setBounds(300, i%550, 200, 300);
@@ -111,15 +132,10 @@ public class TelaPrincipal extends JPanel{
 			labelCarta3.setBounds(730, i%550, 200, 300);
 			Thread.sleep(1);
 		}
-		
-		
-		
-		
-		
 	}
 		
-		
-	}
+			
+}
 	
 	
 	

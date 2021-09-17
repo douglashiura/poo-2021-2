@@ -3,49 +3,41 @@ package br.ies.aula.jogo.cacaniquel.visao;
 
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ComponentListener;
 
 import javax.swing.JFrame;
 
+import br.ies.aula.jogo.cacaniquel.modelo.Jogador;
+
+
 public class TesteTelas extends JFrame{
 	private static final long serialVersionUID = 1L;
-
+	private static TelaPrincipal telaPrincipal = new TelaPrincipal();
+	private static TelaInicial telaInicial = new TelaInicial();
+	private static Panel telaIniciall = new Panel();
+	
 	public TesteTelas() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(new GridLayout());
+		getContentPane().setBackground(Color.black);
 		setSize(700, 700);
 		setVisible(true);
+		
+		
+		
+	}
+		
+	
+	public static void main(String[] args) throws Exception {
+		
+		TesteTelas frame = new TesteTelas();
+
+		frame.getContentPane().add(telaIniciall);
+		
+	
 	}
 	
-	public static void main(String[] args) throws InterruptedException {
 
-		TelaPrincipal panelPrincipal = new TelaPrincipal();
-		TelaInicial panelInicial = new TelaInicial();
-		TesteTelas frame = new TesteTelas();
-		
-		for(int n=0; n<10; n++) {
-		
-		frame.getContentPane().revalidate();
-		frame.getContentPane().add(panelInicial);
-		frame.getContentPane().repaint();
-		Thread.sleep(1000);
-		
-		frame.getContentPane().remove(panelInicial);
-
-		frame.getContentPane().revalidate();
-		frame.getContentPane().add(panelPrincipal);
-		frame.getContentPane().repaint();
-		Thread.sleep(1000);
-		
-		frame.getContentPane().remove(panelPrincipal);
-		Thread.sleep(1000);
-		
-		
-		}
-		
-		
-		
-	}
-
+	
+	
 }

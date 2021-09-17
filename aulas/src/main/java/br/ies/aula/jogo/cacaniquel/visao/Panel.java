@@ -1,5 +1,6 @@
 package br.ies.aula.jogo.cacaniquel.visao;
 
+import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
@@ -12,9 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import br.ies.aula.jogo.cacaniquel.modelo.Jogador;
-
-public class TelaInicial extends JPanel{
+public class Panel extends JPanel{
 	private static final long serialVersionUID = 1L;
 	private ImageIcon rocketjpg = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\rocket.jpg").getImage().getScaledInstance(200, 70, Image.SCALE_DEFAULT));
 	private JLabel labelrocket = new JLabel();
@@ -24,11 +23,14 @@ public class TelaInicial extends JPanel{
 	private JButton btnMoeda5 = new JButton("5");
 	private JButton btnMoeda10 = new JButton("10");
 	private TelaPrincipal telaPrincipal = new TelaPrincipal();
+	CardLayout cardLayout = new CardLayout();
 
-	public TelaInicial() {
+	
+	public Panel() {
 		configuracaoTela();
-		labels();
 		botoes();
+		labels();
+		
 	}
 	
 	public void botoes() {
@@ -41,10 +43,8 @@ public class TelaInicial extends JPanel{
 		btnMoeda1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent ev) {
-
 			}
 		});
-		
 		
 		
 		btnMoeda5.setBackground(Color.green);
@@ -85,11 +85,12 @@ public class TelaInicial extends JPanel{
 		add(labelPowered);
 		add(labelInserirDinheiro);
 	}
+	
 	public void configuracaoTela() {
-		setLayout(null);
+		setLayout(cardLayout);
 		setSize(700, 700);
 		setBackground(Color.black);
 		setVisible(true);
 	}
 }
-	
+
