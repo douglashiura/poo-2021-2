@@ -1,16 +1,18 @@
 package br.com.jswing.aulas;
 
-import java.sql.DriverManager;
-import java.sql.SQLException;
-
-import com.sun.jdi.connect.spi.Connection;
-
 public class Aula7ConexaoBD {
 
-	public static void main(String[] args) throws ClassNotFoundException, SQLException{
-		Class.forName("org.postgresql.Driver");
-		Connection conexao = DriverManager.getConnection("");
-		
+	static String driverJDBC = "org.postgresql.Driver";
+
+	public static void main(String[] args) {
+
+		try {
+			System.out.println("Carregando Driver JDBC...");
+			Class.forName(driverJDBC);
+			System.out.println("Driver carregado com sucesso!");
+		} catch (Exception e) {
+			System.out.println("Falha no carregamento do Driver");
+		}
 
 	}
 
