@@ -1,10 +1,8 @@
 package br.com.jswing.exercicios;
 
-import static javax.swing.SwingConstants.CENTER;
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Font;
-import java.awt.GridLayout;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -24,16 +22,15 @@ public class ExE16 extends JFrame {
 
 		JTabbedPane tabbedPane = new JTabbedPane();
 		JLabel labelNome = new JLabel("Nome: ", SwingConstants.CENTER);
-		
+
 		JPanel panel1 = new JPanel();
 		panel1.setBackground(Color.GREEN);
 		panel1.add(labelNome);
 		tabbedPane.addTab("Dados Pessoais", null, panel1, "Primeiro Panel");
-		
-		JTextField nome = new JTextField(20);
-		panel1.add(nome);
-	
-		
+
+		JTextField nome = new JTextField();
+		nome.setColumns(20);
+
 		JLabel label2 = new JLabel("Emprego", SwingConstants.CENTER);
 		JPanel panel2 = new JPanel();
 		panel2.setBackground(Color.YELLOW);
@@ -45,9 +42,9 @@ public class ExE16 extends JFrame {
 		panel3.setBackground(Color.BLUE);
 		panel3.setLayout(new BorderLayout());
 		panel3.add(new JButton("Alterar Dados Pessoais"), BorderLayout.NORTH);
-		//panel3.add(new JButton("West"), BorderLayout.WEST);
-		//panel3.add(new JButton("East"), BorderLayout.EAST);
-		//panel3.add(new JButton("South"), BorderLayout.SOUTH);
+		// panel3.add(new JButton("West"), BorderLayout.WEST);
+		// panel3.add(new JButton("East"), BorderLayout.EAST);
+		// panel3.add(new JButton("South"), BorderLayout.SOUTH);
 		panel3.add(label3, BorderLayout.CENTER);
 		tabbedPane.addTab("Relatório", null, panel3, "Terceiro Panel");
 		add(tabbedPane);
