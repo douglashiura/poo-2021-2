@@ -1,0 +1,54 @@
+package testeJOptionPane;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+
+public class E16 extends JFrame{
+
+	private static final long serialVersionUID = 1L;
+
+	public E16() {
+		super("JTabbedPane Demo ");
+
+		JTabbedPane tabbedPane = new JTabbedPane();
+		JLabel labelNome = new JLabel("Nome: ", SwingConstants.CENTER);
+
+		JPanel panel1 = new JPanel();
+		panel1.setBackground(Color.GREEN);
+		panel1.add(labelNome);
+		tabbedPane.addTab("Dados Pessoais", null, panel1, "Primeiro Panel");
+
+		JTextField nome = new JTextField();
+		nome.setColumns(20);
+
+		JLabel label2 = new JLabel("Emprego", SwingConstants.CENTER);
+		JPanel panel2 = new JPanel();
+		panel2.setBackground(Color.YELLOW);
+		panel2.add(label2);
+		tabbedPane.addTab("Emprego", null, panel2, "Segundo Panel");
+
+		JLabel label3 = new JLabel();
+		JPanel panel3 = new JPanel();
+		panel3.setBackground(Color.BLUE);
+		panel3.setLayout(new BorderLayout());
+		panel3.add(new JButton("Relatório"), BorderLayout.NORTH);
+		panel3.add(label3, BorderLayout.CENTER);
+		tabbedPane.addTab("Relatório", null, panel3, "Terceiro Panel");
+		add(tabbedPane);
+	}
+
+	public static void main(String args[]) {
+		E16 tabbedPaneFrame = new E16();
+		tabbedPaneFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		tabbedPaneFrame.setSize(500, 350);
+		tabbedPaneFrame.setVisible(true);
+	}
+}
