@@ -72,7 +72,8 @@ public class CreateTable extends JFrame {
 		CreateTable ex = new CreateTable();
 		ex.setDefaultCloseOperation(EXIT_ON_CLOSE);
 		ex.setTitle("USANDO CREATE TABLE");
-		ex.setVisible(true);ex.setSize(400,300);
+		ex.setVisible(true);
+		ex.setSize(400,300);
 	}
 
 }

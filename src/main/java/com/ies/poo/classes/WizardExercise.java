@@ -4,6 +4,8 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.TextArea;
 import java.awt.TextField;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -17,6 +19,8 @@ public class WizardExercise {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("Wizard para criação de tabelas BD");
 		JPanel panel = new JPanel();
+		CreateTableE18 createTable = new CreateTableE18();
+		FormatActionListener forActionListener = new FormatActionListener(createTable);
 		JPanel infoPanel = new JPanel();
 		JPanel connectPanel = new JPanel();
 		JPanel inputPanelWrapper = new JPanel();
@@ -24,16 +28,17 @@ public class WizardExercise {
 		JPanel createPanel = new JPanel();
 		JPanel tablePanel = new JPanel();
 		frame.getContentPane().add(panel);
+		String user;
 		
 		JLabel label = new JLabel("Fonte de dados: ");
 		JLabel labelTwo = new JLabel("jdbc:postgresql://localhost:5432/java-bd-2");
 		JLabel userLabel = new JLabel("Usuário");
-		JLabel conectionStatusLabel = new JLabel("Não conectado");
+		JLabel conectionStatusLabel = new JLabel(createTable.getConnectionStatus());
 		JLabel tableNameLabel = new JLabel("Nome da Tebela");
 		JLabel nameLabel = new JLabel("Nome");
 		JLabel typeLabel = new JLabel("Tipo");
 		
-		JButton conectButton = new JButton("Conectar Banco");
+		JButton connectButton = new JButton("Conectar Banco");
 		JButton desconectButton = new JButton("Desconectar Banco");
 		JButton createTableButton = new JButton("Criar Tabela");
 		JButton clearListButton = new JButton("Limpar lista");
@@ -41,6 +46,15 @@ public class WizardExercise {
 		JButton deleteButton = new JButton("Excluir");
 		
 		TextField userField = new TextField();
+		
+		createTable.setUser("postgres");
+		
+		connectButton.addActionListener(forActionListener);
+		
+		userField.addActionListener(forActionListener);
+		
+		user = userField.getText();
+
 		TextField tableNameField = new TextField();
 		TextField nameField = new TextField();
 		TextField typeField = new TextField();
@@ -58,7 +72,7 @@ public class WizardExercise {
 		infoPanel.add(userField);
 		userField.setPreferredSize(new Dimension(90, 30));
 		
-		connectPanel.add(conectButton);
+		connectPanel.add(connectButton);
 		connectPanel.add(conectionStatusLabel);
 		connectPanel.add(desconectButton);
 		
@@ -89,7 +103,6 @@ public class WizardExercise {
         frame.setSize(800, 520);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
 	}
 
 }

@@ -1,0 +1,83 @@
+package com.ies.poo.classes;
+import java.awt.*;
+import java.sql.*;
+
+public class CreateTableE18 {
+	private static final long serialVersionUID = 1L;
+	private Statement statment;
+	private String user;
+	private String driver;
+	private String password;
+	private String fonte;
+	private Connection connection;
+	private String connectionStatus;
+	
+	public CreateTableE18() {
+		this.driver = "org.postgresql.Driver";
+		this.password = "postgres";
+		this.fonte = "jdbc:postgresql://localhost:5432/java-bd-2";
+	}
+
+	public CreateTableE18(String user) {
+		this.driver = "org.postgresql.Driver";
+		this.password = "postgres";
+		this.fonte = "jdbc:postgresql://localhost:5432/java-bd-2";
+		this.user = user;
+	}
+	
+	public void connectToDatabase() {
+		try {
+			Class.forName(driver);
+			System.out.println(user);
+			this.connection = DriverManager.getConnection(fonte, user, password);
+			this.connectionStatus = "Conectado";
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void desconnectFromDatabase() {
+		try {
+			Class.forName(driver);
+			setConnectionStatus("Não conectado");
+			statment.close();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void createDatabaseTable(String tableName) {
+		if(tableName == null) {
+			return;
+		}
+		
+		String sentenceSQL = "CREATE TABLE " + tableName + " (codigo integer PRIMARY KEY , nome VARCHAR(50));";
+		try {
+			this.statment = this.connection.createStatement();
+			this.statment.executeUpdate(sentenceSQL);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void createDatabaseBySQL(String sentenceSQL) {
+		try {
+			this.statment = this.connection.createStatement();
+			this.statment.executeUpdate(sentenceSQL);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void setUser(String user) {
+		this.user = user;
+	}
+	
+	public String getConnectionStatus() {
+		return connectionStatus;
+	}
+
+	public void setConnectionStatus(String connectionStatus) {
+		this.connectionStatus = connectionStatus;
+	}
+}
