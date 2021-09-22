@@ -35,26 +35,42 @@ public class CalculatorView {
       inputBox = new JTextField(10);        
       inputBox.setEditable(false);
 
-      JButton button0 = new JButton("0");JButton button1 = new JButton("1");
-      JButton button2 = new JButton("2");JButton button3 = new JButton("3");
-      JButton button4 = new JButton("4");JButton button5 = new JButton("5");
-      JButton button6 = new JButton("6");JButton button7 = new JButton("7");
-      JButton button8 = new JButton("8");JButton button9 = new JButton("9");
+      JButton button0 = new JButton("0");
+	  JButton button1 = new JButton("1");
+      JButton button2 = new JButton("2");
+	  JButton button3 = new JButton("3");
+      JButton button4 = new JButton("4");
+	  JButton button5 = new JButton("5");
+      JButton button6 = new JButton("6");
+	  JButton button7 = new JButton("7");
+      JButton button8 = new JButton("8");
+	  JButton button9 = new JButton("9");
 
-      JButton buttonPlus = new JButton("+");JButton buttonMinus = new JButton("-");
-      JButton buttonDivide = new JButton("/");JButton buttonMultiply = new JButton("x");
-      JButton buttonClear = new JButton("C");JButton buttonDot = new JButton(".");
+      JButton buttonPlus = new JButton("+");
+	  JButton buttonMinus = new JButton("-");
+      JButton buttonDivide = new JButton("/");
+	  JButton buttonMultiply = new JButton("x");
+      JButton buttonClear = new JButton("C");
+	  JButton buttonDot = new JButton(".");
       JButton buttonEquals = new JButton("=");
 
-      button1.addActionListener(calculator);button2.addActionListener(calculator);
-      button3.addActionListener(calculator);button4.addActionListener(calculator);
-      button5.addActionListener(calculator);button6.addActionListener(calculator);
-      button7.addActionListener(calculator);button8.addActionListener(calculator);
-      button9.addActionListener(calculator);button0.addActionListener(calculator);
+      button1.addActionListener(calculator);
+	  button2.addActionListener(calculator);
+      button3.addActionListener(calculator);
+	  button4.addActionListener(calculator);
+      button5.addActionListener(calculator);
+	  button6.addActionListener(calculator);
+      button7.addActionListener(calculator);
+	  button8.addActionListener(calculator);
+      button9.addActionListener(calculator);
+	  button0.addActionListener(calculator);
 
-      buttonPlus.addActionListener(calculator);buttonMinus.addActionListener(calculator);
-      buttonDivide.addActionListener(calculator);buttonMultiply.addActionListener(calculator);
-      buttonClear.addActionListener(calculator);buttonDot.addActionListener(calculator);
+      buttonPlus.addActionListener(calculator);
+	  buttonMinus.addActionListener(calculator);
+      buttonDivide.addActionListener(calculator);
+	  buttonMultiply.addActionListener(calculator);
+      buttonClear.addActionListener(calculator);
+	  buttonDot.addActionListener(calculator);
       buttonEquals.addActionListener(calculator);
 
       gbc.fill = GridBagConstraints.HORIZONTAL;
