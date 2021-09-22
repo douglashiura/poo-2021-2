@@ -73,9 +73,9 @@ public class ExE16 extends JFrame implements ActionListener {
 				texto.setText(tabela.getValueAt(tabela.getSelectedRow(), tabela.getSelectedColumn()).toString());
 		}
 		
-		public static void main (String args[]){
+		public static void main(String args[]){
 			ExE16 fr = new ExE16();
 			fr.setVisible(true);
-			}
+		}
 	}
 }
