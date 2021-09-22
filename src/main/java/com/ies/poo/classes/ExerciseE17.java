@@ -7,11 +7,11 @@ import java.awt.GridLayout;
 
 import javax.swing.*;
 
-public class ExerciseE16 extends JFrame {
+public class ExerciseE17 extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 
-	public ExerciseE16() {
+	public ExerciseE17() {
 		super("JTabbedPane Demo ");
 
 		JPanel panel = new JPanel();
@@ -63,7 +63,7 @@ public class ExerciseE16 extends JFrame {
 	}
 
 	public static void main(String args[]) {
-		ExerciseE16 tabbedPaneFrame = new ExerciseE16();
+		ExerciseE17 tabbedPaneFrame = new ExerciseE17();
 		tabbedPaneFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		tabbedPaneFrame.setSize(500, 350);
 		tabbedPaneFrame.setVisible(true);
