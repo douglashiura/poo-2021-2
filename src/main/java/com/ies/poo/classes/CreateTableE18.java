@@ -3,7 +3,6 @@ import java.awt.*;
 import java.sql.*;
 
 public class CreateTableE18 {
-	private static final long serialVersionUID = 1L;
 	private Statement statment;
 	private String user;
 	private String driver;

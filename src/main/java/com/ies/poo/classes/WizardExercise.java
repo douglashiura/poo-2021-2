@@ -113,6 +113,16 @@ public class WizardExercise {
 			}
 			
 		});
+		
+		clearListButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				tableQueryField.setText("");
+				
+			}
+			
+		});
 	
 		
 		TextField nameField = new TextField();
@@ -162,8 +172,6 @@ public class WizardExercise {
         frame.setSize(800, 520);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		System.out.println(createTable.getConnectionStatus());
 	}
 
 }
