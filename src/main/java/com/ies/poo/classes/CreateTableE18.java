@@ -28,11 +28,11 @@ public class CreateTableE18 {
 	public void connectToDatabase() {
 		try {
 			Class.forName(driver);
-			System.out.println(user);
 			this.connection = DriverManager.getConnection(fonte, user, password);
 			this.connectionStatus = "Conectado";
 		} catch(Exception e) {
 			e.printStackTrace();
+			this.connectionStatus = "Não conectado - Erro Auth";
 		}
 	}
 	
@@ -40,7 +40,9 @@ public class CreateTableE18 {
 		try {
 			Class.forName(driver);
 			setConnectionStatus("Não conectado");
+			statment = connection.createStatement();
 			statment.close();
+			connection.close();
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
@@ -53,8 +55,8 @@ public class CreateTableE18 {
 		
 		String sentenceSQL = "CREATE TABLE " + tableName + " (codigo integer PRIMARY KEY , nome VARCHAR(50));";
 		try {
-			this.statment = this.connection.createStatement();
-			this.statment.executeUpdate(sentenceSQL);
+			statment = connection.createStatement();
+			statment.executeUpdate(sentenceSQL);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -62,14 +64,16 @@ public class CreateTableE18 {
 	
 	public void createDatabaseBySQL(String sentenceSQL) {
 		try {
-			this.statment = this.connection.createStatement();
-			this.statment.executeUpdate(sentenceSQL);
+			statment = connection.createStatement();
+			statment.executeUpdate(sentenceSQL);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 	
 	public void setUser(String user) {
+		System.out.println(user);
+		System.out.println("chamou");
 		this.user = user;
 	}
 	
