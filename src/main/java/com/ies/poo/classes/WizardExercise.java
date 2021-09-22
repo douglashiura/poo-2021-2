@@ -21,6 +21,7 @@ public class WizardExercise {
 		JPanel panel = new JPanel();
 		CreateTableE18 createTable = new CreateTableE18();
 		InsertIntoTableE18 insertIntoTable = new InsertIntoTableE18();
+		DeleteIntoTableE18 deleteIntoTable = new DeleteIntoTableE18();
 		JPanel infoPanel = new JPanel();
 		JPanel credentials = new JPanel();
 		JPanel connectPanel = new JPanel();
@@ -167,6 +168,20 @@ public class WizardExercise {
 						tableNameField.getText(), 
 						nameField.getText(), 
 						typeField.getText());
+				
+			}
+			
+		});
+		
+		deleteButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				deleteIntoTable.deleteIntoDatabase(
+						userField.getText(),
+						userPasswordField.getText(),
+						tableNameField.getText(), 
+						nameField.getText()); 
 				
 			}
 			
