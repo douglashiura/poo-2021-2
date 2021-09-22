@@ -13,13 +13,11 @@ public class CreateTableE18 {
 	
 	public CreateTableE18() {
 		this.driver = "org.postgresql.Driver";
-		this.password = "postgres";
 		this.fonte = "jdbc:postgresql://localhost:5432/java-bd-2";
 	}
 
 	public CreateTableE18(String user) {
 		this.driver = "org.postgresql.Driver";
-		this.password = "postgres";
 		this.fonte = "jdbc:postgresql://localhost:5432/java-bd-2";
 		this.user = user;
 	}
@@ -82,5 +80,13 @@ public class CreateTableE18 {
 
 	public void setConnectionStatus(String connectionStatus) {
 		this.connectionStatus = connectionStatus;
+	}
+	
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

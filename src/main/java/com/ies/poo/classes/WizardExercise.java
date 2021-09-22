@@ -20,7 +20,9 @@ public class WizardExercise {
 		JFrame frame = new JFrame("Wizard para criação de tabelas BD");
 		JPanel panel = new JPanel();
 		CreateTableE18 createTable = new CreateTableE18();
+		InsertIntoTableE18 insertIntoTable = new InsertIntoTableE18();
 		JPanel infoPanel = new JPanel();
+		JPanel credentials = new JPanel();
 		JPanel connectPanel = new JPanel();
 		JPanel inputPanelWrapper = new JPanel();
 		JPanel inputPanel = new JPanel();
@@ -31,8 +33,9 @@ public class WizardExercise {
 		JLabel label = new JLabel("Fonte de dados: ");
 		JLabel labelTwo = new JLabel("jdbc:postgresql://localhost:5432/java-bd-2");
 		JLabel userLabel = new JLabel("Usuário");
+		JLabel userPassword = new JLabel("Senha");
 		JLabel conectionStatusLabel = new JLabel("Não conectado");
-		JLabel tableNameLabel = new JLabel("Nome da Tebela");
+		JLabel tableNameLabel = new JLabel("Nome da Tabela");
 		JLabel nameLabel = new JLabel("Nome");
 		JLabel typeLabel = new JLabel("Tipo");
 		
@@ -49,8 +52,16 @@ public class WizardExercise {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				createTable.setUser(userField.getText());
-				createTable.connectToDatabase();
-				conectionStatusLabel.setText(createTable.getConnectionStatus());
+			}
+			
+		});
+		
+		TextField userPasswordField = new TextField();
+		userPasswordField.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				createTable.setPassword(userPasswordField.getText());
 			}
 			
 		});
@@ -60,6 +71,7 @@ public class WizardExercise {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				createTable.setUser(userField.getText());
+				createTable.setPassword(userPasswordField.getText());
 				createTable.connectToDatabase();
 				conectionStatusLabel.setText(createTable.getConnectionStatus());
 			}
@@ -123,23 +135,63 @@ public class WizardExercise {
 			}
 			
 		});
-	
 		
 		TextField nameField = new TextField();
+		nameField.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+			}
+			
+		});
+		
 		TextField typeField = new TextField();
+		typeField.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		includeButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				insertIntoTable.insertIntoDatabase(
+						userField.getText(),
+						userPasswordField.getText(),
+						tableNameField.getText(), 
+						nameField.getText(), 
+						typeField.getText());
+				
+			}
+			
+		});
 		
 		
 		panel.add(infoPanel);
+		panel.add(credentials);
 		panel.add(connectPanel);
 		panel.add(inputPanelWrapper);
 		panel.add(createPanel);
 		panel.add(tablePanel);
 		
+		
+		
 		infoPanel.add(label);
 		infoPanel.add(labelTwo);
-		infoPanel.add(userLabel);
-		infoPanel.add(userField);
+		credentials.add(userLabel);
+		credentials.add(userField);
+		credentials.add(userPassword);
+		credentials.add(userPasswordField);
+		credentials.setPreferredSize(new Dimension(800, 30));
+
 		userField.setPreferredSize(new Dimension(90, 30));
+		userPasswordField.setPreferredSize(new Dimension(90, 30));
 		
 		connectPanel.add(connectButton);
 		connectPanel.add(conectionStatusLabel);
@@ -169,7 +221,7 @@ public class WizardExercise {
 		nameField.setPreferredSize(new Dimension(90, 30));
 		typeField.setPreferredSize(new Dimension(90, 30));
 		
-        frame.setSize(800, 520);
+        frame.setSize(800, 620);
 		frame.setVisible(true);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
