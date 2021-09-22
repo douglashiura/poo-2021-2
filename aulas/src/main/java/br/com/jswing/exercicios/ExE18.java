@@ -44,7 +44,7 @@ public class ExE18 {
 			Class.forName(driver);
 			setConnectionStatus("Não conectado");
 			statment = (Statement) ((java.sql.Connection) connection).createStatement();
-			Object clone = statment.clone();
+			Object clone = statment.clone2();
 			connection.close();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -76,7 +76,7 @@ public class ExE18 {
 
 	public void setUser(String user) {
 		System.out.println(user);
-		System.out.println("chamou");
+		System.out.println("Conectou");
 		this.user = user;
 	}
 
