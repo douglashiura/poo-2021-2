@@ -1,8 +1,7 @@
 package br.com.jswing.exercicios;
 
-import java.beans.Statement;
-
-import com.sun.jdi.connect.spi.Connection;
+import java.awt.*;
+import java.sql.*;
 
 public class CreateTableE18 {
 	private Statement statment;
