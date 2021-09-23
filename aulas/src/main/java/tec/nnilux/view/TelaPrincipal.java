@@ -2,65 +2,83 @@ package tec.nnilux.view;
 
 import java.awt.Color;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+public class TelaPrincipal extends JFrame {
 
-public class TelaPrincipal {
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	public TelaPrincipal() {
-		
-		JFrame frame = new JFrame();
-		frame.setTitle("Nilux Technology - Outsourcing de TI");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(900, 600);
-		frame.setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
-		frame.setLocationRelativeTo(null);
-		frame.getContentPane().setBackground(Color.WHITE);
-	
-		
-		// Barra de Menu
+		componentesTela();
+	}
+
+	private void componentesTela() {
+
 		JMenuBar menuBarTelaPrincipal = new JMenuBar();
-		frame.setJMenuBar(menuBarTelaPrincipal);
 
 		JMenu menuLocacao = new JMenu("Locação");
+		menuLocacao.setFont(new Font("Ubuntu", 0, 18));
+
+		JMenuItem itemAlugar = new JMenuItem("Alugar");
+		itemAlugar.setFont(new Font("Ubuntu", 0, 18));
+		menuLocacao.add(itemAlugar);
+
+		JMenuItem itemConsultar = new JMenuItem("Consultar");
+		itemConsultar.setFont(new Font("Ubuntu", 0, 18));
+		menuLocacao.add(itemConsultar);
+
 		menuBarTelaPrincipal.add(menuLocacao);
 
 		JMenu menuCadastro = new JMenu("Cadastro");
+		menuCadastro.setFont(new Font("Ubuntu", 0, 18));
+
+		JMenuItem itemAtor = new JMenuItem("Marca");
+		itemAtor.setFont(new Font("Ubuntu", 0, 18));
+		menuCadastro.add(itemAtor);
+
+		JMenuItem itemCliente = new JMenuItem("Cliente");
+		itemCliente.setFont(new Font("Ubuntu", 0, 18));
+		menuCadastro.add(itemCliente);
+
+		JMenuItem itemFilme = new JMenuItem("Equipamento");
+		itemFilme.setFont(new Font("Ubuntu", 0, 18));
+		menuCadastro.add(itemFilme);
+
+		JMenuItem item = new JMenuItem("Item");
+		item.setFont(new Font("Ubuntu", 0, 18));
+		menuCadastro.add(item);
+
 		menuBarTelaPrincipal.add(menuCadastro);
 
 		JMenu menuSair = new JMenu("Sair");
+		menuSair.setFont(new Font("Ubuntu", 0, 18));
 		menuBarTelaPrincipal.add(menuSair);
 
-		// Itens Menus
+		setTitle("Nilux Technology - Outsourcing de TI");
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setLayout(new FlowLayout(FlowLayout.CENTER, 10, 10));
+		getContentPane().setBackground(Color.LIGHT_GRAY);
 
-		JMenuItem alugar = new JMenuItem("Alugar");
-		menuLocacao.add(alugar);
+		setJMenuBar(menuBarTelaPrincipal);
+		pack();
 
-		JMenuItem consultar = new JMenuItem("Consultar");
-		menuLocacao.add(consultar);
+		setSize(900, 600);
+		setLocationRelativeTo(null);
+		setVisible(true);
 
-		JMenuItem marca = new JMenuItem("Marca");
-		menuCadastro.add(marca);
-
-		JMenuItem cliente = new JMenuItem("Cliente");
-		menuCadastro.add(cliente);
-
-		JMenuItem equipamento = new JMenuItem("Equipamento");
-		menuCadastro.add(equipamento);
-		
-		JMenuItem item = new JMenuItem("Item");
-		menuCadastro.add(item);
-		
-		frame.setVisible(true);
-		
 	}
 
 	public static void main(String[] args) {
 
 		new TelaPrincipal();
+		;
 
 	}
 
