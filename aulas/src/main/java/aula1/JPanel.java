@@ -1,4 +1,4 @@
-package aulas;
+package aula1;
 
 import java.awt.BorderLayout;
 import javax.swing.JFrame;
