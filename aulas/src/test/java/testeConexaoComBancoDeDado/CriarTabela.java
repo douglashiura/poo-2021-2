@@ -15,7 +15,7 @@ public class CriarTabela extends JFrame {
 	public CriarTabela() {
 		String driver = "org.postgresql.Driver";  
 		String sUsuario = "postgres";  
-		String sSenha = "postgres";  
+		String sSenha = "1234567bobi";  
 		String sFonte = "jdbc:postgresql://localhost:5432/AulasJava";
 		
 		try{
