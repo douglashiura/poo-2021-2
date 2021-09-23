@@ -2,16 +2,10 @@ package br.com.jswing.exercicios;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-
-import jdk.internal.platform.Container;
+import javax.swing.*;
+import javax.swing.table.*; 
+import java.awt.*; 
+import java.awt.event.*;
 
 public class ExE16 extends JFrame implements ActionListener {
 	/**
@@ -27,7 +21,8 @@ public class ExE16 extends JFrame implements ActionListener {
 		setTitle("Tabela");
 		setSize(441, 300);
 		setLocation(100, 50);
-		java.awt.Container P = getContentPane();
+		Container P = getContentPane();
+		tabela = new JTable();
 		tabela.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "ID", "Nome" }));
 
 		tabela.getColumnModel().getColumn(0).setPreferredWidth(20);
@@ -72,10 +67,10 @@ public class ExE16 extends JFrame implements ActionListener {
 			if (tabela.getSelectedRow() >= 0)
 				texto.setText(tabela.getValueAt(tabela.getSelectedRow(), tabela.getSelectedColumn()).toString());
 		}
-		
-		public static void main(String args[]){
-			ExE16 fr = new ExE16();
-			fr.setVisible(true);
-		}
+	}
+	
+	public static void main (String args[]){
+		ExE16 fr = new ExE16();
+		fr.setVisible(true);
 	}
 }
