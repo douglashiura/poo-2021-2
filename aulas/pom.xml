@@ -7,6 +7,7 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<dependencies>
+	
 		<dependency>
 			<groupId>com.github.douglashiura</groupId>
 			<artifactId>picon</artifactId>
@@ -23,13 +24,8 @@
 			<version>42.2.23</version>
 
 		</dependency>
+		
 	</dependencies>
-
-
-
-
-
-
 
 	<build>
 		<finalName>poo-2021-2</finalName>
@@ -45,7 +41,5 @@
 			</plugin>
 		</plugins>
 	</build>
-
-
 
 </project>
