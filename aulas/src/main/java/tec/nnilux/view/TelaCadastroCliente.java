@@ -5,7 +5,10 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.text.ParseException;
+
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
@@ -88,21 +91,65 @@ public class TelaCadastroCliente extends JFrame {
 		btnSalvar.setFont(new Font("Ubuntu", 1, 16));
 		btnSalvar.setBounds(50, 300, 100, 40);
 		cadastroCliente.add(btnSalvar, BorderLayout.CENTER);
+		btnSalvar.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				salvarCadastro(evt);
+				
+			}
+
+			private void salvarCadastro(ActionEvent evt) {
+				System.out.println("BOTÃO SALVAR ADICIONADO");
+				
+			}
+		});
 
 		JButton btnLimpar = new JButton("Limpar");
 		btnLimpar.setFont(new Font("Ubuntu", 1, 16));
 		btnLimpar.setBounds(160, 300, 100, 40);
 		cadastroCliente.add(btnLimpar, BorderLayout.CENTER);
+		btnLimpar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				limparTela(evt);
+
+			}
+
+			private void limparTela(ActionEvent evt) {
+				txtNome.setText("");
+				txtCpf.setText(null);
+				txtEmail.setText("");
+				txtEndereco.setText("");
+				System.out.println("DADOS LIMPOS");
+			}
+		});
 
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setFont(new Font("Ubuntu", 1, 16));
 		btnCancelar.setBounds(280, 300, 100, 40);
 		cadastroCliente.add(btnCancelar, BorderLayout.CENTER);
+		btnCancelar.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				cancelarCadastro(evt);
+
+			}
+
+			private void cancelarCadastro(ActionEvent evt) {
+				System.out.println("INSERÇÃO DE DADOS CANCELADA");
+
+			}
+
+		});
 
 		JButton btnConsultar = new JButton("Consultar");
 		btnConsultar.setFont(new Font("Ubuntu", 1, 16));
 		btnConsultar.setBounds(400, 300, 120, 40);
 		cadastroCliente.add(btnConsultar, BorderLayout.CENTER);
+		// btnConsultar.addActionListener((ActionListener) this);
 
 		setTitle("Nilux Technology - Outsourcing de TI");
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);

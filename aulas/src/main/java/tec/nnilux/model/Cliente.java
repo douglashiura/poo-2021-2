@@ -10,6 +10,15 @@ public class Cliente {
 	private String email;
 	private String endereco;
 	private ArrayList<Item> itens = new ArrayList<Item>();
+	
+	public Cliente() {}
+	
+	public Cliente(String nome, String cpf, String email, String endereco) {
+		this.nome = nome;
+		this.cpf = cpf;
+		this.email = email;
+		this.endereco = endereco;
+	}
 
 	public Integer getCodCliente() {
 		return codCliente;
@@ -57,6 +66,11 @@ public class Cliente {
 
 	public void setItens(ArrayList<Item> itens) {
 		this.itens = itens;
+	}
+	
+	public void cadastrarCliente(Cliente cliente) {
+		
+		
 	}
 
 }
