@@ -8,15 +8,17 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
-
 import javax.swing.JButton;
 import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.DefaultFormatterFactory;
 import javax.swing.text.MaskFormatter;
+
+import tec.nnilux.controller.ClienteController;
 
 public class TelaCadastroCliente extends JFrame {
 
@@ -92,15 +94,35 @@ public class TelaCadastroCliente extends JFrame {
 		btnSalvar.setBounds(50, 300, 100, 40);
 		cadastroCliente.add(btnSalvar, BorderLayout.CENTER);
 		btnSalvar.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent evt) {
 				salvarCadastro(evt);
-				
+
 			}
 
 			private void salvarCadastro(ActionEvent evt) {
-				System.out.println("BOTÃO SALVAR ADICIONADO");
+				boolean sucesso;
+
+				try {
+					sucesso = ClienteController.clienteController(txtNome.getText(), txtCpf.getText(),
+							txtEmail.getText(), txtEndereco.getText());
+					if (sucesso) {
+						JOptionPane.showMessageDialog(null, "CADASTRO EFETUADO COM SUCESSO");
+						this.limparTela(evt);
+						
+					} else {
+						JOptionPane.showMessageDialog(null, "CAMPOS INCORRETOS");
+					}
+
+				} catch (Exception e) {
+					JOptionPane.showMessageDialog(null, "Error" + e);
+				}
+
+			}
+
+			private void limparTela(ActionEvent evt) {
+				limparTela(evt);
 				
 			}
 		});

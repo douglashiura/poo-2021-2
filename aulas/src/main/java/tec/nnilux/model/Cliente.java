@@ -10,6 +10,7 @@ public class Cliente {
 	private String email;
 	private String endereco;
 	private ArrayList<Item> itens = new ArrayList<Item>();
+	private Cliente cadastrarCliente;
 	
 	public Cliente() {}
 	

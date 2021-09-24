@@ -44,7 +44,7 @@ public class TelaPrincipal extends JFrame {
 		itemCliente.setFont(new Font("Ubuntu", 0, 18));
 		menuCadastro.add(itemCliente);
 
-		JMenuItem itemFilme = new JMenuItem("Equipamento");
+		JMenuItem itemFilme = new JMenuItem("Equipamentos");
 		itemFilme.setFont(new Font("Ubuntu", 0, 18));
 		menuCadastro.add(itemFilme);
 

@@ -11,11 +11,8 @@ public class ClienteController {
 
 			Cliente cliente = new Cliente(nome, cpf, email, endereco);
 			cliente.cadastrarCliente(cliente);
-		} else {
-			throw new Exception("Preencha os dados corretamente");
 		}
-		
-
+		throw new Exception("PREENCHA OS DADOS CORRETAMENTE!");
 	}
 
 	public boolean validarCPF(String cpf) {
@@ -27,6 +24,13 @@ public class ClienteController {
 
 		}
 		return true;
+	}
+
+	public static boolean clienteController(String nome, String cpf, String email, String endereco) {
+		
+		return false;
+		
+		
 	}
 
 }
