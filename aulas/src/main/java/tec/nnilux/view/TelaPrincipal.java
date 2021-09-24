@@ -3,6 +3,9 @@ package tec.nnilux.view;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -38,20 +41,45 @@ public class TelaPrincipal extends JFrame {
 
 		JMenu menuCadastro = new JMenu("Cadastro");
 		menuCadastro.setFont(new Font("Ubuntu", 0, 18));
-		
 
 		JMenuItem itemCliente = new JMenuItem("Cliente");
 		itemCliente.setFont(new Font("Ubuntu", 0, 18));
 		menuCadastro.add(itemCliente);
 
-		JMenuItem itemFilme = new JMenuItem("Equipamentos");
-		itemFilme.setFont(new Font("Ubuntu", 0, 18));
-		menuCadastro.add(itemFilme);
+		JMenuItem itemEquipamentos = new JMenuItem("Equipamentos");
+		itemEquipamentos.setFont(new Font("Ubuntu", 0, 18));
+		itemEquipamentos.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				itemEquipamentos(evt);
+
+			}
+
+			private void itemEquipamentos(ActionEvent evt) {
+				new TelaCadastroEquipamento().setVisible(true);
+
+			}
+		});
+
+		menuCadastro.add(itemEquipamentos);
 
 		menuBarTelaPrincipal.add(menuCadastro);
 
 		JMenu menuSair = new JMenu("Sair");
 		menuSair.setFont(new Font("Ubuntu", 0, 18));
+		menuSair.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent evt) {
+				menuSair(evt);
+			}
+
+			private void menuSair(ActionEvent evt) {
+				System.exit(0);
+				
+			}
+		});
 		menuBarTelaPrincipal.add(menuSair);
 
 		setTitle("Nilux Technology - Outsourcing de TI");
