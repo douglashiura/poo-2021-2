@@ -1,15 +1,23 @@
 package tec.nnilux.model;
 
-import java.util.ArrayList;
+import tec.nnilux.dao.EquipamentoDAO;
+import tec.nnilux.dao.ExceptionDAO;
 
 public class Equipamento {
 
 	private Integer codEquipamento;
 	private String nome;
-	private String modelo;
-	private Integer ano;
-	private ArrayList<Item> itens = new ArrayList<Item>();
-	private ArrayList<Marca> marcas = new ArrayList<Marca>();
+	private String tipo;
+	
+	public Equipamento() {
+		
+	}
+	
+	public Equipamento(String nome, String tipo) {
+		this.nome = nome;
+		this.tipo = tipo;
+	}
+
 
 	public Integer getCodEquipamento() {
 		return codEquipamento;
@@ -27,36 +35,20 @@ public class Equipamento {
 		this.nome = nome;
 	}
 
-	public String getModelo() {
-		return modelo;
+	
+
+	public String getTipo() {
+		return tipo;
 	}
 
-	public void setModelo(String modelo) {
-		this.modelo = modelo;
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
 	}
 
-	public Integer getAno() {
-		return ano;
-	}
-
-	public void setAno(Integer ano) {
-		this.ano = ano;
-	}
-
-	public ArrayList<Item> getItens() {
-		return itens;
-	}
-
-	public void setItens(ArrayList<Item> itens) {
-		this.itens = itens;
-	}
-
-	public ArrayList<Marca> getMarcas() {
-		return marcas;
-	}
-
-	public void setMarcas(ArrayList<Marca> marcas) {
-		this.marcas = marcas;
+	public void cadastrarEquipamento(Equipamento equipamento) throws ExceptionDAO{
+		new EquipamentoDAO().cadastrarEquipamento(equipamento);
+		
+		
 	}
 
 }
