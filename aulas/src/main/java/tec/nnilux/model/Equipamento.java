@@ -1,5 +1,8 @@
 package tec.nnilux.model;
 
+import java.io.IOException;
+import java.sql.SQLException;
+
 import tec.nnilux.dao.EquipamentoDAO;
 import tec.nnilux.dao.ExceptionDAO;
 
@@ -45,7 +48,7 @@ public class Equipamento {
 		this.tipo = tipo;
 	}
 
-	public void cadastrarEquipamento(Equipamento equipamento) throws ExceptionDAO{
+	public void cadastrarEquipamento(Equipamento equipamento) throws ExceptionDAO, IOException, SQLException{
 		new EquipamentoDAO().cadastrarEquipamento(equipamento);
 		
 		

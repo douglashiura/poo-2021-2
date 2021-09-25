@@ -161,6 +161,7 @@ public class TelaCadastroCliente extends JFrame {
 			}
 
 			private void cancelarCadastro(ActionEvent evt) {
+				System.exit(0);
 				System.out.println("INSERÇÃO DE DADOS CANCELADA");
 
 			}

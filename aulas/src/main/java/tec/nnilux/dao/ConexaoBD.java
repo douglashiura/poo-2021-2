@@ -1,30 +1,35 @@
 package tec.nnilux.dao;
 
+import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.SQLException;
-
-import com.sun.jdi.connect.spi.Connection;
 
 public class ConexaoBD {
 
-	public Connection getConnection() {
+	private Connection connection;
 
-		Connection conn = null;
+	public ConexaoBD() {
 
+	}
+
+	public void connectToDatabase() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
+			Class.forName("org.postgresql.Driver");
+			this.connection = (Connection) DriverManager.getConnection("jdbc:postgresql://172.17.0.2/docker", "docker",
+					"1234");
+			System.out.println("Conectado");
 
-		}
-
-		try {
-			conn = (Connection) DriverManager.getConnection("jdbc://localhost:3306/ti", "root", null);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
-			System.out.println(e);
 
 		}
-		return conn;
+	}
+
+	public Connection getConnection() {
+		return connection;
+	}
+
+	public void setConnection(Connection connection) {
+		this.connection = connection;
 	}
 
 }

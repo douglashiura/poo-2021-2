@@ -2,13 +2,12 @@ package tec.nnilux.dao;
 
 public class ExceptionDAO extends Exception{
 	
-	/**
-	 * 
-	 */
+
 	private static final long serialVersionUID = 1L;
 
 	public ExceptionDAO(String mensagem) {
 		super(mensagem);
 	}
+	
 
 }

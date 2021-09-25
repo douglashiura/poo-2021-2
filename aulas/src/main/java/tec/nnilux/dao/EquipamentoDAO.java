@@ -3,27 +3,31 @@ package tec.nnilux.dao;
 import tec.nnilux.model.Equipamento;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.io.IOException;
 import java.sql.Connection;
+import java.sql.ConnectionBuilder;
 import java.sql.ResultSet;
 
 public class EquipamentoDAO {
-
-	public void cadastrarEquipamento(Equipamento equipamento) throws ExceptionDAO {
-
-		String sql = "insert into equipamento (nome,tipo)values (?,?)";
-		PreparedStatement stmt = null;
-		Connection connection = null;
+	
+	String sql = "insert into equipamento (nome,tipo)values (?,?)";
+	PreparedStatement stmt;
+	ConexaoBD connectionBD;
+	
+	public void cadastrarEquipamento(Equipamento equipamento) throws ExceptionDAO, IOException, SQLException {
 		
         try {
-            connection = (Connection) new ConexaoBD().getConnection();
-            stmt = connection.prepareStatement(sql);
+            //connection = (Connection) new ConexaoBD().getConnection();
+            connectionBD = new ConexaoBD();
+            connectionBD.connectToDatabase();
+        	stmt = ((Connection) connectionBD.getConnection()).prepareStatement(sql);
             stmt.setString(1, equipamento.getNome());
             stmt.setString(2, equipamento.getTipo());
             stmt.execute();
 
         } catch (SQLException e) {
-            e.printStackTrace();
-            throw new ExceptionDAO("ERRO AO CADASTRAR O PROFISSIONAL:" + e);
+            //e.printStackTrace();
+            throw new ExceptionDAO("ERRO AO CADASTRAR O EQUIPAMENTO:" + e);
 
         } finally {
 
@@ -32,15 +36,16 @@ public class EquipamentoDAO {
 					stmt.close();
 				}
 			} catch (SQLException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
+				throw new ExceptionDAO("ERROR STATEMENT");
+			}
+			try {
+				if (connectionBD.getConnection() != null) {
+					connectionBD.getConnection().close();
 			}
 
-			try {
-				if (connection != null) {
-					connection.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
+			}catch (SQLException e) {
+				throw new ExceptionDAO("ERRO AO FECHAR A CONEXÃO");
 			}
 		}
 	}
