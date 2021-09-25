@@ -12,7 +12,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 import javax.swing.border.EtchedBorder;
+import javax.swing.table.DefaultTableModel;
 
 public class WizardExercise {
 
@@ -102,37 +105,52 @@ public class WizardExercise {
 			
 		});
 		
-		TextField tableQueryField = new TextField();
 		
-		tableQueryField.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-		});
+		JTable table = new JTable(); 
+		table.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "Column name", "Column Type" }));
+		  
+		table.getColumnModel().getColumn(0).setPreferredWidth(20);
+		table.getColumnModel().getColumn(0).setResizable(false);
+		table.getColumnModel().getColumn(1).setPreferredWidth(150);
+		table.getColumnModel().getColumn(1).setResizable(true);
+		  
+		JScrollPane tableRoll = new JScrollPane(table);
+		inputPanel.add(tableRoll, "Center");
 		
 		createTableButton.addActionListener(new ActionListener() {
+			String sentenceSQL;
+			String columnAndType = "";
+			
+			//ALTER TABLE table_name
+			//ADD last_name VARCHAR(50),
+		    //first_name VARCHAR(40);
+			
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(tableNameField.getText().isEmpty()) {
-					createTable.createDatabaseBySQL(tableQueryField.getText());
-				} else {
-					createTable.createDatabaseTable(tableNameField.getText());
+				sentenceSQL = "CREATE TABLE " + tableNameField.getText() + " (";
+				for (int count = 0; count < table.getRowCount(); count++){
+						if(count == table.getRowCount() - 1) {
+							columnAndType += " " + table.getValueAt(count, 0).toString() + " " + table.getValueAt(count, 1).toString();
+						} else {
+							columnAndType += " " + table.getValueAt(count, 0).toString() + " " + table.getValueAt(count, 1).toString() + ",";
+						}
 				}
+				
+				sentenceSQL = sentenceSQL + columnAndType + ");";
+				
+				System.out.println(columnAndType);
+				
+				createTable.createDatabaseBySQL(sentenceSQL);
 			}
 			
 		});
 		
 		clearListButton.addActionListener(new ActionListener() {
 
-			@Override
 			public void actionPerformed(ActionEvent e) {
-				tableQueryField.setText("");
-				
+				DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+				dtm.setRowCount(0);
 			}
 			
 		});
@@ -162,13 +180,8 @@ public class WizardExercise {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				insertIntoTable.insertIntoDatabase(
-						userField.getText(),
-						userPasswordField.getText(),
-						tableNameField.getText(), 
-						nameField.getText(), 
-						typeField.getText());
-				
+				DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+				dtm.addRow(new Object[] { nameField.getText(), typeField.getText() });				
 			}
 			
 		});
@@ -177,12 +190,10 @@ public class WizardExercise {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				deleteIntoTable.deleteIntoDatabase(
-						userField.getText(),
-						userPasswordField.getText(),
-						tableNameField.getText(), 
-						nameField.getText()); 
-				
+				DefaultTableModel dtm = (DefaultTableModel) table.getModel();
+				System.out.println(table.getSelectedRow());
+				deleteIntoTable.deleteIntoDatabase(userField.getText(), userPasswordField.getText(), tableNameField.getText(), (String) dtm.getValueAt(table.getSelectedRow(), 0));
+				dtm.removeRow(table.getSelectedRow());
 			}
 			
 		});
@@ -218,11 +229,10 @@ public class WizardExercise {
 		inputPanelWrapper.add(inputPanel);
 		inputPanelWrapper.add(createPanel);
 		
-		inputPanel.add(tableNameLabel);
-		inputPanel.add(tableNameField);
-		inputPanel.add(tableQueryField);
+		createPanel.add(tableNameLabel);
+		createPanel.add(tableNameField);
+		inputPanel.setPreferredSize(new Dimension(800, 200));
 		tableNameField.setPreferredSize(new Dimension(90, 30));
-		tableQueryField.setPreferredSize(new Dimension(300, 200));
 		
 		createPanel.add(createTableButton);
 		createPanel.add(clearListButton);
