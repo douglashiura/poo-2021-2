@@ -7,62 +7,76 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.border.EtchedBorder;
 import javax.swing.table.DefaultTableModel;
 
-public class WizardBDE18 {
-	public static void main(String[] args) {
-		JFrame frame = new JFrame("Wizard para criação de tabelas BD");
-		JPanel panel = new JPanel();
+@SuppressWarnings("serial")
+public class WizardBDE18 extends JFrame {
+
+	public WizardBDE18() {
 		CreateTableE18 createTable = new CreateTableE18();
 		DeleteIntoTableE18 deleteIntoTable = new DeleteIntoTableE18();
-		JPanel infoPanel = new JPanel();
-		infoPanel.setBackground(Color.yellow);
-		JPanel credentials = new JPanel();
-		JPanel connectPanel = new JPanel();
+
+		// Panels
+		JPanel panel = new JPanel();
+		JPanel login = new JPanel();
+		JPanel panelDeConexão = new JPanel();
 		JPanel inputPanelWrapper = new JPanel();
 		JPanel inputPanel = new JPanel();
 		JPanel createPanel = new JPanel();
-		JPanel tablePanel = new JPanel();
-		frame.getContentPane().add(panel);
+		JPanel columnsPanel = new JPanel();
 
-		JLabel label = new JLabel("Fonte de dados: ");
-		JLabel labelTwo = new JLabel("jdbc:postgresql://localhost:5432/java-bd-2");
+		// Labels
 		JLabel userLabel = new JLabel("Usuário");
 		JLabel userPassword = new JLabel("Senha");
 		JLabel conectionStatusLabel = new JLabel("Não conectado");
-		JLabel tableNameLabel = new JLabel("Nome da Tabela");
+		JLabel labelNomeDaTabela = new JLabel("Nome da Tabela");
 		JLabel nameLabel = new JLabel("Nome");
 		JLabel typeLabel = new JLabel("Tipo");
 
-		JButton connectButton = new JButton("Conectar Banco");
-		connectButton.setBackground(Color.green);
-		JButton desconectButton = new JButton("Desconectar Banco");
-		desconectButton.setBackground(Color.red);
-		desconectButton.setForeground(Color.white);
+		// Buttons
+		JButton connectButton = new JButton("Conectar");
+		JButton desconectButton = new JButton("Desconectar");
 		JButton createTableButton = new JButton("Criar Tabela");
 		JButton clearListButton = new JButton("Limpar lista");
 		JButton includeButton = new JButton("Incluir");
 		JButton deleteButton = new JButton("Excluir");
 
-		TextField userField = new TextField();
-		userField.addActionListener(new ActionListener() {
+		// TextFields
+		TextField fieldUsuario = new TextField();
+		TextField userPasswordField = new TextField();
+		TextField fieldNomeDaTabela = new TextField();
+		TextField nameField = new TextField();
+		TextField typeField = new TextField();
+
+		// JTable
+		JTable table = new JTable();
+		table.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "Column name", "Column Type" }));
+
+		table.getColumnModel().getColumn(0).setPreferredWidth(20);
+		table.getColumnModel().getColumn(0).setResizable(false);
+		table.getColumnModel().getColumn(1).setPreferredWidth(150);
+		table.getColumnModel().getColumn(1).setResizable(true);
+
+		// JScrollPane
+		JScrollPane tableRoll = new JScrollPane(table);
+		inputPanel.add(tableRoll, "Center");
+
+		// ActionListeners
+		fieldUsuario.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				createTable.setUser(userField.getText());
+				createTable.setUser(fieldUsuario.getText());
 			}
 
 		});
 
-		TextField userPasswordField = new TextField();
 		userPasswordField.addActionListener(new ActionListener() {
 
 			@Override
@@ -76,7 +90,7 @@ public class WizardBDE18 {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				createTable.setUser(userField.getText());
+				createTable.setUser(fieldUsuario.getText());
 				createTable.setPassword(userPasswordField.getText());
 				createTable.connectToDatabase();
 				conectionStatusLabel.setText(createTable.getConnectionStatus());
@@ -94,9 +108,7 @@ public class WizardBDE18 {
 
 		});
 
-		TextField tableNameField = new TextField();
-
-		tableNameField.addActionListener(new ActionListener() {
+		fieldNomeDaTabela.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -104,17 +116,6 @@ public class WizardBDE18 {
 			}
 
 		});
-
-		JTable table = new JTable();
-		table.setModel(new DefaultTableModel(new Object[][] {}, new String[] { "Column name", "Column Type" }));
-
-		table.getColumnModel().getColumn(0).setPreferredWidth(20);
-		table.getColumnModel().getColumn(0).setResizable(false);
-		table.getColumnModel().getColumn(1).setPreferredWidth(150);
-		table.getColumnModel().getColumn(1).setResizable(true);
-
-		JScrollPane tableRoll = new JScrollPane(table);
-		inputPanel.add(tableRoll, "Center");
 
 		createTableButton.addActionListener(new ActionListener() {
 			String sentenceSQL;
@@ -126,7 +127,7 @@ public class WizardBDE18 {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				sentenceSQL = "CREATE TABLE " + tableNameField.getText() + " (";
+				sentenceSQL = "CREATE TABLE " + fieldNomeDaTabela.getText() + " (";
 				for (int count = 0; count < table.getRowCount(); count++) {
 					if (count == table.getRowCount() - 1) {
 						columnAndType += " " + table.getValueAt(count, 0).toString() + " "
@@ -155,7 +156,6 @@ public class WizardBDE18 {
 
 		});
 
-		TextField nameField = new TextField();
 		nameField.addActionListener(new ActionListener() {
 
 			@Override
@@ -165,7 +165,6 @@ public class WizardBDE18 {
 
 		});
 
-		TextField typeField = new TextField();
 		typeField.addActionListener(new ActionListener() {
 
 			@Override
@@ -191,61 +190,70 @@ public class WizardBDE18 {
 			public void actionPerformed(ActionEvent e) {
 				DefaultTableModel dtm = (DefaultTableModel) table.getModel();
 				System.out.println(table.getSelectedRow());
-				deleteIntoTable.deleteIntoDatabase(userField.getText(), userPasswordField.getText(),
-						tableNameField.getText(), (String) dtm.getValueAt(table.getSelectedRow(), 0));
+				deleteIntoTable.deleteIntoDatabase(fieldUsuario.getText(), userPasswordField.getText(),
+						fieldNomeDaTabela.getText(), (String) dtm.getValueAt(table.getSelectedRow(), 0));
 				dtm.removeRow(table.getSelectedRow());
 			}
 
 		});
 
-		panel.add(infoPanel);
-		panel.add(credentials);
-		panel.add(connectPanel);
+		connectButton.setBackground(Color.green);
+		desconectButton.setBackground(Color.red);
+		desconectButton.setForeground(Color.white);
+
+		panel.add(login);
+		panel.add(panelDeConexão);
 		panel.add(inputPanelWrapper);
 		panel.add(createPanel);
-		panel.add(tablePanel);
+		panel.add(columnsPanel);
 
-		infoPanel.add(label);
-		infoPanel.add(labelTwo);
-		credentials.add(userLabel);
-		credentials.add(userField);
-		credentials.add(userPassword);
-		credentials.add(userPasswordField);
-		credentials.setPreferredSize(new Dimension(800, 30));
+		login.add(userLabel);
+		login.add(fieldUsuario);
+		login.add(userPassword);
+		login.add(userPasswordField);
+		login.setPreferredSize(new Dimension(800, 30));
 
-		userField.setPreferredSize(new Dimension(90, 30));
+		fieldUsuario.setPreferredSize(new Dimension(90, 30));
 		userPasswordField.setPreferredSize(new Dimension(90, 30));
+		userPasswordField.setEchoChar('$');
 
-		connectPanel.add(connectButton);
-		connectPanel.add(conectionStatusLabel);
-		connectPanel.add(desconectButton);
+		panelDeConexão.add(connectButton);
+		panelDeConexão.add(conectionStatusLabel);
+		panelDeConexão.add(desconectButton);
 
-		inputPanelWrapper.setBorder(BorderFactory.createEtchedBorder(EtchedBorder.LOWERED));
 		inputPanelWrapper.setPreferredSize(new Dimension(800, 350));
 		inputPanelWrapper.setLayout(new GridLayout(2, 1));
 		inputPanelWrapper.add(inputPanel);
 		inputPanelWrapper.add(createPanel);
 
-		createPanel.add(tableNameLabel);
-		createPanel.add(tableNameField);
+		createPanel.add(labelNomeDaTabela);
+		createPanel.add(fieldNomeDaTabela);
 		inputPanel.setPreferredSize(new Dimension(800, 200));
-		tableNameField.setPreferredSize(new Dimension(90, 30));
+		fieldNomeDaTabela.setPreferredSize(new Dimension(90, 30));
 
 		createPanel.add(createTableButton);
 		createPanel.add(clearListButton);
 
-		tablePanel.add(nameLabel);
-		tablePanel.add(nameField);
-		tablePanel.add(typeLabel);
-		tablePanel.add(typeField);
-		tablePanel.add(includeButton);
-		tablePanel.add(deleteButton);
+		columnsPanel.add(nameLabel);
+		columnsPanel.add(nameField);
+		columnsPanel.add(typeLabel);
+		columnsPanel.add(typeField);
+		columnsPanel.add(includeButton);
+		columnsPanel.add(deleteButton);
 		nameField.setPreferredSize(new Dimension(90, 30));
 		typeField.setPreferredSize(new Dimension(90, 30));
 
-		frame.setSize(800, 620);
-		frame.setVisible(true);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		// Configuracoes JFrame
+		setTitle("Wizard para criação de tabelas BD");
+		getContentPane().add(panel);
+		setSize(800, 620);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public static void main(String[] args) {
+		WizardBDE18 manipularBD = new WizardBDE18();
+		manipularBD.setVisible(true);
+
 	}
 
 }

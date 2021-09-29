@@ -20,7 +20,7 @@ public class SwingE16 extends JFrame implements ActionListener {
 	private JTable tabela;
 	private JTextField texto;
 	private JButton incluirButton, excluirButton, mostrarButton;
-	private int incCod = 0;
+	private Integer contador = 0;
 
 	public SwingE16() {
 		
@@ -58,19 +58,16 @@ public class SwingE16 extends JFrame implements ActionListener {
 		excluirButton.addActionListener(this);
 		mostrarButton.addActionListener(this);
 
-		
-		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 	}
 
-	@SuppressWarnings("deprecation")
 	@Override
 	public void actionPerformed(ActionEvent evt) {
 		Object origem = evt.getSource();
 		if (origem == incluirButton) {
 			DefaultTableModel dtm = (DefaultTableModel) tabela.getModel();
-			dtm.addRow(new Object[] { new Integer(++incCod), "Cliente " + incCod});
+			dtm.addRow(new Object[] { Integer.valueOf(++contador), "Cliente " + contador});
 			tabela.setBackground(Color.green);
 		}
 		if (origem == excluirButton) {
