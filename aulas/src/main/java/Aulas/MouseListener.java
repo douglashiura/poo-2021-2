@@ -3,15 +3,16 @@ package Aulas;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
-public class Frame extends JFrame {
+public class MouseListener extends JFrame {
 	private JPanel contentPane;
 	
 	public static void main(String[] args ) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Frame frame = new Frame();
+					MouseListener frame = new MouseListener();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -20,7 +21,7 @@ public class Frame extends JFrame {
 		});
 	}
 	
-	public Frame() {
+	public MouseListener() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
