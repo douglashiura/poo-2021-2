@@ -1,4 +1,4 @@
-package moduloCinco;
+package moduloCinco.eOneSix;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
@@ -13,16 +13,16 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
-public class Table extends JFrame implements ActionListener {
+public class TableOneSix extends JFrame implements ActionListener {
 
 	private JButton buttonDelete, buttonInclude, buttonShow;
 	private JTextField text;
 	private JTable table;
 	private int incCod = 0;
 
-	public Table() { 
+	public TableOneSix() {
 
-		setTitle("Table"); 
+		setTitle("Table");
 		setSize(441, 300);
 		setLocation(100, 50);
 		Container p = getContentPane();
