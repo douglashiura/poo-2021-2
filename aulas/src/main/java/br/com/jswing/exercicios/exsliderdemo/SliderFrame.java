@@ -8,7 +8,6 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JSlider;
 import javax.swing.SwingConstants;
-import javax.swing.border.Border;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 

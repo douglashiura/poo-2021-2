@@ -18,6 +18,7 @@ public class ExE17 extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public ExE17() {
+		
 		JPanel panel = new JPanel();
 		this.getContentPane().add(panel);
 		JTabbedPane tabbedPane = new JTabbedPane();
@@ -66,6 +67,7 @@ public class ExE17 extends JFrame {
 	}
 
 	public static void main(String args[]) {
+		
 		ExE17 tabbedPaneFrame = new ExE17();
 		tabbedPaneFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		tabbedPaneFrame.setSize(500, 350);

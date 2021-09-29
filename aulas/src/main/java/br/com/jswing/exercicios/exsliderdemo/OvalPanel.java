@@ -2,15 +2,10 @@
 
 package br.com.jswing.exercicios.exsliderdemo;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JSlider;
-import javax.swing.SwingConstants;
 
 public class OvalPanel extends JPanel {
 
