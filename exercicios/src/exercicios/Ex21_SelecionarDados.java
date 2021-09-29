@@ -39,7 +39,7 @@ public class Ex21_SelecionarDados extends JFrame {
 		ResultSetMetaData metaData = resultSet.getMetaData();
 		int numberOfColumns = metaData.getColumnCount();
 		System.out.println("Relação de pessoas cadastradas");
-		for (int i = 1; i <= numberOfColumns; i++) {// exibeo nomedoscamposdatabela
+		for (int i = 1; i <= numberOfColumns; i++) {// exibeo nomedoscamposdatabelade
 			System.out.printf("%-8s\t", metaData.getColumnName(i));
 		}
 		while (resultSet.next()) {
