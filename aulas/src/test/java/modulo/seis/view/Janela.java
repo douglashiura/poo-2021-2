@@ -28,7 +28,7 @@ public class Janela extends JFrame {
 		janela.getContentPane().setLayout(null);
 		textCreate.setBounds(20, 120, 80, 30);
 		textCreate.setVisible(true);
-		textCreate.setText("CREATE TABLE tabela27 (id Integer, nome VARCHAR(50));");
+		textCreate.setText("");
 
 		JButton btn_C = new JButton("Create");
 		janela.getContentPane().add(btn_C);
@@ -54,7 +54,7 @@ public class Janela extends JFrame {
 		janela.getContentPane().setLayout(null);
 		textInsert.setBounds(110, 120, 80, 30);
 		textInsert.setVisible(true);
-		textInsert.setText("INSERT INTO tabela27 (id, nome) VALUES (20, 'Maria');");
+		textInsert.setText("");
 
 		JButton btn_I = new JButton("Insert");
 		janela.getContentPane().add(btn_I);
@@ -80,7 +80,7 @@ public class Janela extends JFrame {
 		janela.getContentPane().setLayout(null);
 		textSelect.setBounds(200, 120, 80, 30);
 		textSelect.setVisible(true);
-		textSelect.setText("SELECT * FROM tabela27;");
+		textSelect.setText("");
 
 		JButton btn_S = new JButton("Select");
 		janela.getContentPane().add(btn_S);
@@ -106,7 +106,7 @@ public class Janela extends JFrame {
 		janela.getContentPane().setLayout(null);
 		textDelete.setBounds(290, 120, 80, 30);
 		textDelete.setVisible(true);
-		textDelete.setText("DELETE FROM tabela27 WHERE nome='Maria';");
+		textDelete.setText("");
 
 		JButton btn_D = new JButton("Delete");
 		janela.getContentPane().add(btn_D);

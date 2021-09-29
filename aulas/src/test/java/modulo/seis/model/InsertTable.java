@@ -27,7 +27,7 @@ public class InsertTable extends JFrame {
 		}
 
 		String insert = valor;
-		
+	
 		try {
 			st = con.createStatement();
 			st.executeUpdate(insert);

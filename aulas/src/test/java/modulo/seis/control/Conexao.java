@@ -1,7 +1,7 @@
 package modulo.seis.control;
 
 public class Conexao {
-
+	
 	public static void main(String[] args) {
 		try {
 			Class.forName("org.postgresql.Driver");
