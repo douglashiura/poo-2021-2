@@ -14,9 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 public class ExE17 extends JFrame {
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	public ExE17() {
