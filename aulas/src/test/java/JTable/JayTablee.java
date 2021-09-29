@@ -1,6 +1,8 @@
 package JTable;
 
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -8,7 +10,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -16,10 +21,10 @@ import javax.swing.JTable;
 	
 	public class JayTablee extends JFrame {
 		private static final long serialVersionUID = 1L;
-		JPanel painel;
+		JPanel painel= new JPanel();
 		JTable tabela = new JTable();
 		JScrollPane barraRolagem = new JScrollPane();
-		String[] colunas = {"codigo", "nome", "email"};
+		String[] colunas = {"Codigo", "Nome", "Email"};
 		List<Pessoa> listaPessoas = new ArrayList<>();
 		
 		public JayTablee() throws Exception {
@@ -28,12 +33,12 @@ import javax.swing.JTable;
 	        setDefaultCloseOperation(EXIT_ON_CLOSE);
 	        setSize(500, 120);
 	        setVisible(true);
-	        painel = new JPanel();
+
+	        painel.setLayout(new GridLayout());
 	        getContentPane().add(painel);
 	        
-	        painel.setLayout(new GridLayout(1, 1));
 	        popularTabela();
-	       
+	        
 	    }
 
 	    public void popularTabela() throws Exception {
@@ -57,7 +62,6 @@ import javax.swing.JTable;
 	    	barraRolagem = new JScrollPane(tabela);
 	    	painel.add(barraRolagem);
 	    	painel.revalidate();
-	    	
 	    }
 	    	
 	    public Connection conectar() throws SQLException {

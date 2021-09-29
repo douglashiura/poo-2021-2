@@ -2,25 +2,21 @@ package aulas.bibliotecaswing.exercicios;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.LayoutManager;
 
 import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
-public class TabbedPane extends JTabbedPane  {
+public class Ex17 extends JTabbedPane  {
 	private static final long serialVersionUID = 1L;
 	private JPanel panelDados = new JPanel();
 	private JPanel panelEmprego = new JPanel();
 	private JPanel panelRelatorio = new JPanel();
-	
+	JTabbedPane abas = new JTabbedPane();
 
-	TabbedPane(){
-		setBackground(Color.white);
+	public Ex17(){
 		
 		panelDados();
 		panelEmprego();

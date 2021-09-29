@@ -46,21 +46,7 @@ public class Model extends AbstractTableModel {
 	@Override
 	public String getColumnName(int indice) {
 		return nomeColunas[indice];
-		
 	}
 
-	public Class getColClass(int coluna) {
-		
-		switch (coluna) {
-		case 0: 
-			return Integer.class;
-		case 1: 
-			return String.class;
-		case 2: 
-			return String.class;
-		default: 
-			return null;
-		}
-	}
 
 }

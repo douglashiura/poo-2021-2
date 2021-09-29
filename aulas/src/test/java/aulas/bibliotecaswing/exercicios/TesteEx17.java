@@ -4,23 +4,20 @@ import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
 
-public class TesteTabbedPanel extends JFrame{
-	TabbedPane abas = new TabbedPane();
+public class TesteEx17 extends JFrame{
+	private static final long serialVersionUID = 1L;
+	Ex17 abas = new Ex17();
 	
 	
-	public TesteTabbedPanel() {
-		configuracao();
-		add(BorderLayout.CENTER, abas);
-	}
-	
-	public void configuracao() {
+	public TesteEx17() {
 		setSize(500, 500);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
+		add(BorderLayout.CENTER, abas);
 	}
 	
 	public static void main(String[] args) {
-		TesteTabbedPanel frame = new TesteTabbedPanel();
+		new TesteEx17();
 		
 		
 	}

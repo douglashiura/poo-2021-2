@@ -1,17 +1,14 @@
 package aulas.bibliotecaswing.exercicios;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
-import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class Exercicio05 {
+public class Ex05 {
 
 	
 public static void main(String[] args) {
@@ -30,7 +27,6 @@ public static void main(String[] args) {
 		JLabel label = new JLabel("Ronaldo");
 		JLabel label2 = new JLabel("Ronaldo");
 		JLabel label3 = new JLabel("Ronaldo");
-		JLabel label4 = new JLabel("Ronaldo");
 		
 		panel.setBorder(BorderFactory.createLineBorder(Color.white, 30));
 		panel2.setBorder(BorderFactory.createLineBorder(Color.white));

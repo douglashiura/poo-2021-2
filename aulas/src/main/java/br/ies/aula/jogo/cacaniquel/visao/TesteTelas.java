@@ -22,9 +22,6 @@ public class TesteTelas extends JFrame{
 		getContentPane().setBackground(Color.black);
 		setSize(700, 700);
 		setVisible(true);
-		
-		
-		
 	}
 		
 	
@@ -32,7 +29,7 @@ public class TesteTelas extends JFrame{
 		
 		TesteTelas frame = new TesteTelas();
 
-		frame.getContentPane().add(telaIniciall);
+		frame.getContentPane().add(telaPrincipal);
 		
 	
 	}

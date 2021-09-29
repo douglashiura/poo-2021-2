@@ -1,8 +1,6 @@
 package aulas.bibliotecaswing.exercicios;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.GridLayout;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFrame;
@@ -10,7 +8,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 // bordas do jPanel
-public class Exercicio04 {
+public class Ex04 {
 
 	
 	public static void main(String[] args) {

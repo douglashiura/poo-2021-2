@@ -8,7 +8,7 @@ import javax.swing.JLabel;
 
 //exercício03: montar 5 labels dentro de um frame para gerenciá-los dentro de um tipo de layout.
 
-public class Exercicio03 {
+public class Ex03 {
 	
 	
 	public static void main(String[] args) {
