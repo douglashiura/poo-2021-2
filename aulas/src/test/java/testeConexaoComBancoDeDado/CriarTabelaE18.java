@@ -6,7 +6,6 @@ import java.sql.Statement;
 
 public class CriarTabelaE18 {
 
-	private static final long serialVersionUID = 1L;
 	private Statement statment;
 	private String user;
 	private String driver;

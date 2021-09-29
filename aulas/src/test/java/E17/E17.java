@@ -17,11 +17,14 @@ import javax.swing.table.DefaultTableModel;
 import testeConexaoComBancoDeDado.ConexaoComBancoDeDado;
 
 public class E17 extends JFrame implements ActionListener {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JButton btnExcluir, btnIncluir, btnMostrar, btnSalvar;
 	private JTextField texto;
 	private JTable tabela;
 	private int incCod = 0;
-	ConexaoComBancoDeDado banco = new ConexaoComBancoDeDado();
 
 	public E17() throws SQLException{
 	setTitle("Tabela");
@@ -32,19 +35,17 @@ public class E17 extends JFrame implements ActionListener {
 	tabela = new JTable();
 	tabela.setModel(new DefaultTableModel( new Object [][] { },
 	new String [] { "ID", "Nome", "Sobrenome", "Valor" }));
-	//define largura das colunas -- permite ou não, ajustar a largura
 	tabela.getColumnModel().getColumn(0).setPreferredWidth(20);
 	tabela.getColumnModel().getColumn(0).setResizable(false);
 	tabela.getColumnModel().getColumn(1).setPreferredWidth(150);
 	tabela.getColumnModel().getColumn(1).setResizable(true);
-	ResultSet rs = banco.consultaCompletaTabelaE17();
+	ResultSet rs = ConexaoComBancoDeDado.consultaCompletaTabelaE17();
 	while (rs.next()) {
 		DefaultTableModel dtmm = (DefaultTableModel) tabela.getModel();
 		dtmm.addRow(new String[] {rs.getString("id"), rs.getString("nome"), rs.getString("sobrenome"), rs.getString("value") });
 				}
 	JScrollPane rolagemTabela = new JScrollPane(tabela);
 	P.add(rolagemTabela,"Center");
-	// criação do Painel de baixo
 	JPanel PTabSul = new JPanel();
 	btnIncluir = new JButton("Incluir");
 	 PTabSul.add(btnIncluir);
@@ -65,7 +66,7 @@ public class E17 extends JFrame implements ActionListener {
 		Object origem = evt.getSource();
 		if (origem == btnIncluir) {
 			DefaultTableModel dtm = (DefaultTableModel) tabela.getModel();
-			dtm.addRow(new Object[] { new Integer(++incCod), "Cliente " + incCod });
+			dtm.addRow(new Object[] { Integer.valueOf(++incCod), "Cliente " + incCod });
 			
 		}
 		if (origem == btnExcluir) {
@@ -73,7 +74,7 @@ public class E17 extends JFrame implements ActionListener {
 			DefaultTableModel dtm = (DefaultTableModel) tabela.getModel();
 			for (int i = (linhas.length - 1); i >= 0; i--) {
 				try {
-					banco.deleteE17(Integer.parseInt(tabela.getValueAt(linhas[0], 0).toString()));
+					ConexaoComBancoDeDado.deleteE17(Integer.parseInt(tabela.getValueAt(linhas[0], 0).toString()));
 				} catch (NumberFormatException | SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -87,10 +88,9 @@ public class E17 extends JFrame implements ActionListener {
 		}
 		if (origem == btnSalvar) {
 			int linhas[] = tabela.getSelectedRows();
-			DefaultTableModel dtm = (DefaultTableModel) tabela.getModel();
 			for (int i = (linhas.length - 1); i >= 0; i--)
 				try {
-					banco.insertE17(tabela, linhas[i]);
+					ConexaoComBancoDeDado.insertE17(tabela, linhas[i]);
 				} catch (SQLException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
