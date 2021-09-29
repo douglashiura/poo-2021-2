@@ -16,6 +16,9 @@ public class Conteiner {
 		janela.setVisible(true);
 		janela.setTitle("Conteiner");
 
+		
+
+
 		JLabel um = new JLabel("1");
 		JLabel dois = new JLabel("2");
 		JLabel tres = new JLabel("3");
