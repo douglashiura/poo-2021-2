@@ -1,5 +1,5 @@
 package com.ies.poo.classes;
-import java.awt.*;
+
 import java.sql.*;
 
 public class CreateTableE18 {
