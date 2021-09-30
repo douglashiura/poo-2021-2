@@ -33,7 +33,7 @@ public class PaneOneSeven extends JFrame {
 		JLabel label2 = new JLabel("Empresa", SwingConstants.CENTER);
 		JLabel label2_2 = new JLabel("Função", SwingConstants.CENTER);
 		JPanel panel2 = new JPanel();
-		JTextField text1_1 = new JTextField(25);
+		JTextField text1_1 = new JTextField(10);
 		JTextField text2_2 = new JTextField(25);
 		panel2.setBackground(Color.YELLOW);
 		panel2.add(label2);
