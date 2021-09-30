@@ -1,15 +1,17 @@
 package aulas.bibliotecaswing.exercicios;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextField;
 
-public class Ex17 extends JTabbedPane  {
+public class Ex17 extends JFrame  {
 	private static final long serialVersionUID = 1L;
 	private JPanel panelDados = new JPanel();
 	private JPanel panelEmprego = new JPanel();
@@ -17,14 +19,18 @@ public class Ex17 extends JTabbedPane  {
 	JTabbedPane abas = new JTabbedPane();
 
 	public Ex17(){
+		setSize(500, 500);
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true);
+		add(BorderLayout.CENTER, abas);
 		
 		panelDados();
 		panelEmprego();
 		panelRelatorio();
 		
-		addTab("Dados Pessoais", panelDados);
-		addTab("Emprego", panelEmprego);
-		addTab("Relatório", panelRelatorio);
+		abas.addTab("Dados Pessoais", panelDados);
+		abas.addTab("Emprego", panelEmprego);
+		abas.addTab("Relatório", panelRelatorio);
 	}
 
 	public void panelDados() {
