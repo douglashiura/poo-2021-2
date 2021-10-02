@@ -1,6 +1,5 @@
 package br.ies.aula.jogo.cacaniquel.modelo;
 
-import java.util.Objects;
 import java.util.Random;
 
 public abstract class Acao {
@@ -8,7 +7,6 @@ public abstract class Acao {
 	private Integer n1;
 	private Integer n2;
 	private Integer n3;
-	private Integer reembolso;
 	private boolean recompensa = false;
 
 	public void colocarMoeda(Jogador jogador) {

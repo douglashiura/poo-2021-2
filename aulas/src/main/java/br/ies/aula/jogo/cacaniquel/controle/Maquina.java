@@ -1,15 +1,9 @@
 package br.ies.aula.jogo.cacaniquel.controle;
 
 import org.junit.Test;
-
 import br.ies.aula.jogo.cacaniquel.modelo.Acao;
 import br.ies.aula.jogo.cacaniquel.modelo.Jogador;
-import br.ies.aula.jogo.cacaniquel.visao.TelaInicial;
-import br.ies.aula.jogo.cacaniquel.visao.TelaPrincipal;
-import br.ies.aula.jogo.cacaniquel.visao.TesteTelas;
-
 import static org.junit.Assert.*;
-
 
 
 public class Maquina extends Acao {

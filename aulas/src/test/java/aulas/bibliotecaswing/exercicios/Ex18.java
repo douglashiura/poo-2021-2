@@ -19,24 +19,24 @@ import testeconexao.ConexaoBD;
 
 public class Ex18 extends JFrame {
 	private static final long serialVersionUID = 1L;
-	JPanel painel = new JPanel();
-	JPanel painel2 = new JPanel();
-	JPanel painel3 = new JPanel();
-	JTextField txtNomeTabela = new JTextField();
-	JTextField txtNomeColuna = new JTextField(7);
-	JTextField txtTipoColuna = new JTextField(7);
-	JLabel lblFonteDados = new JLabel("Fonte de dados: jdbc:postgresql://localhost:5433/postgres  Usuário: ");
-	JTextField txtUsuario = new JTextField(7);
-	JButton botaoDesconectarBanco = new JButton("Desconectar banco");
-	JButton botaoConectarBanco = new JButton("Conectar banco");
-	JButton btnLimparLista = new JButton("Limpar lista");
-	JButton btnCriarTabela = new JButton("Criar tabela");
-	JLabel lblNomeTabela = new JLabel("Nome da tabela: ");
-	JTable tabela = new JTable();
-	JButton btnExcluir = new JButton("Excluir");
-	JLabel lblNome = new JLabel("Nome:");
-	JLabel lblTipo = new JLabel("Tipo:");
-	JButton btnIncluir = new JButton("Incluir");
+	private JPanel painel = new JPanel();
+	private JPanel painel2 = new JPanel();
+	private JPanel painel3 = new JPanel();
+	private JTextField txtNomeTabela = new JTextField();
+	private JTextField txtNomeColuna = new JTextField(7);
+	private JTextField txtTipoColuna = new JTextField(7);
+	private JLabel lblFonteDados = new JLabel("Fonte de dados: jdbc:postgresql://localhost:5433/postgres  Usuário: ");
+	private JTextField txtUsuario = new JTextField(7);
+	private JButton botaoDesconectarBanco = new JButton("Desconectar banco");
+	private JButton botaoConectarBanco = new JButton("Conectar banco");
+	private JButton btnLimparLista = new JButton("Limpar lista");
+	private JButton btnCriarTabela = new JButton("Criar tabela");
+	private JLabel lblNomeTabela = new JLabel("Nome da tabela: ");
+	private JTable tabela = new JTable();
+	private JButton btnExcluir = new JButton("Excluir");
+	private JLabel lblNome = new JLabel("Nome:");
+	private JLabel lblTipo = new JLabel("Tipo:");
+	private JButton btnIncluir = new JButton("Incluir");
 	Connection con;
 
 	public Ex18(){
