@@ -1,9 +1,31 @@
 package br.com.gustavo.shell.modelo;
 
-public class PlacaMae extends InformacoesDoSistema {
+import oshi.hardware.Baseboard;
 
+public class PlacaMae extends InformacoesDoSistema {
+	
+	private Baseboard placaMae = super.getPlacaMae();
+	
+	public String getFabricante() {
+		return placaMae.getManufacturer();
+	}
+	
+	public String getVersao() {
+		return placaMae.getSerialNumber();
+	}
+	
+	public String getModelo() {
+		return placaMae.getVersion();
+	}
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		PlacaMae placaMae = new PlacaMae();
+		
+		
+		System.out.println(placaMae.getFabricante());
+		System.out.println(placaMae.getVersao());
+		System.out.println(placaMae.getModelo());
+
 
 	}
 
