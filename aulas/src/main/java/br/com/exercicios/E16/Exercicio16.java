@@ -9,7 +9,7 @@ import java.awt.event.*;
 
 
 
-public class E16 extends JFrame implements ActionListener {
+public class Exercicio16 extends JFrame implements ActionListener {
 	/**
 	 * 
 	 */
@@ -19,7 +19,7 @@ public class E16 extends JFrame implements ActionListener {
 	private JTable tabela;
 	private int incCod = 0;
 
-	public E16() {
+	public Exercicio16() {
 		setTitle("Tabela");
 		setSize(441, 300);
 		setLocation(100, 50);
@@ -72,7 +72,7 @@ public class E16 extends JFrame implements ActionListener {
 	}
 
 	public static void main (String args[]){
-		E16 fr = new E16();
+		Exercicio16 fr = new Exercicio16();
 		fr.setVisible(true);
 	}
 }
