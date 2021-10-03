@@ -33,7 +33,10 @@ public class TelaInicial {
 			telaInicial.add(menuSobre);
 
 			// Itens Menus
-
+			
+			JMenuItem placaMae = new JMenuItem("Placa Mãe");
+			menuInformacoesHardware.add(placaMae);
+			
 			JMenuItem memoriaRam = new JMenuItem("Memoria RAM");
 			menuInformacoesHardware.add(memoriaRam);
 
@@ -42,9 +45,6 @@ public class TelaInicial {
 
 			JMenuItem gpu = new JMenuItem("GPU");
 			menuInformacoesHardware.add(gpu);
-
-			JMenuItem cliente = new JMenuItem("Rede");
-			menuInformacoesHardware.add(cliente);
 
 			JMenuItem armazenamento = new JMenuItem("Armazenamento");
 			menuInformacoesHardware.add(armazenamento);
