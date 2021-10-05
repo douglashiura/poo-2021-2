@@ -2,7 +2,7 @@ package br.ies.aula.jogo.cacaniquel.modelo;
 
 import java.util.Random;
 
-public abstract class Acao {
+public class Modelo {
 	private Integer fichas = 0;
 	private Integer n1;
 	private Integer n2;

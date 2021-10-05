@@ -1,12 +1,13 @@
 package br.ies.aula.jogo.cacaniquel.controle;
 
 import org.junit.Test;
-import br.ies.aula.jogo.cacaniquel.modelo.Acao;
 import br.ies.aula.jogo.cacaniquel.modelo.Jogador;
+import br.ies.aula.jogo.cacaniquel.modelo.Modelo;
+
 import static org.junit.Assert.*;
 
 
-public class Maquina extends Acao {
+public class Maquina extends Modelo{
 	private Integer continuar = 0;
 
 	@Test
