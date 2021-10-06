@@ -1,6 +1,7 @@
 package br.ies.pooii.douglas.hiura.jogo.par.impar.visao;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionListener;
 
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
@@ -10,9 +11,12 @@ import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.Aposta;
+
 public class TelaDoJogoParEImpar extends JFrame {
 
 	private static final long serialVersionUID = 1L;
+	private JButton fazAposta;
 
 	public TelaDoJogoParEImpar() {
 		this.getContentPane().add(montarPainel());
@@ -38,7 +42,7 @@ public class TelaDoJogoParEImpar extends JFrame {
 	}
 
 	private JPanel montarPainelDeControle() {
-		JButton fazAposta = new JButton("Apostar");
+		fazAposta = new JButton("Apostar");
 		JPanel painelDeControle = new JPanel();
 		painelDeControle.add(fazAposta);
 		return painelDeControle;
@@ -75,5 +79,13 @@ public class TelaDoJogoParEImpar extends JFrame {
 
 	private void configuraOTamanho() {
 		setSize(300, 300);
+	}
+
+	public void adicionarOuvintes(ActionListener ouvinte) {
+		fazAposta.addActionListener(ouvinte);
+	}
+
+	public Aposta obterAposta() {
+		return null;
 	}
 }
