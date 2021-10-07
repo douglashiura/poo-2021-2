@@ -1,4 +1,4 @@
-package test.br.ies.pooII.douglas.hiura.jogo.par.impar;
+package test.br.ies.pooii.douglas.hiura.jogo.par.impar;
 
 import static org.junit.Assert.assertEquals;
 

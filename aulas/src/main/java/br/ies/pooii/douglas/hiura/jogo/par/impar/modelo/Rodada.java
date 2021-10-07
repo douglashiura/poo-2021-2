@@ -25,13 +25,16 @@ public class Rodada {
 		estadoDoJogo.recebeUmaAposta(aposta);
 	}
 
-	public List<Especulavel> obterEspectadores() {
-		return espectadores;
-	}
-
 	public void fiqueAlertaParaReceberASegundaAposta() {
 		Aposta apostaDaPrimeiraRodada = estadoDoJogo.obterAposta();
 		estadoDoJogo = new EstrategiaDaSegundaJogada(apostaDaPrimeiraRodada, this);
+	}
+
+	public void avisarOEspeculadores(ResultadoDoJogo resultado) {
+		for (Especulavel especulavel : espectadores) {
+			especulavel.obtemOResultado(resultado);
+		}
+
 	}
 
 }

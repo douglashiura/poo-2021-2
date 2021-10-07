@@ -6,8 +6,6 @@ public interface Especulavel {
 
 		@Override
 		public void obtemOResultado(ResultadoDoJogo resultado) {
-			// TODO Auto-generated method stub
-			
 		}
 	};
 

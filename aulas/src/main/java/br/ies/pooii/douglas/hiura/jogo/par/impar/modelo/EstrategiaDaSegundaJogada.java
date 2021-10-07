@@ -12,13 +12,7 @@ public class EstrategiaDaSegundaJogada implements EstrategiaDeAposta {
 	@Override
 	public void recebeUmaAposta(Aposta aposta) {
 		ResultadoDoJogo resultado = calcular(aposta);
-		avisarOEspeculadores(resultado);
-	}
-
-	private void avisarOEspeculadores(ResultadoDoJogo resultado) {
-		for (Especulavel especulavel : rodada.obterEspectadores()) {
-			especulavel.obtemOResultado(resultado);
-		}
+		rodada.avisarOEspeculadores(resultado);
 	}
 
 	private ResultadoDoJogo calcular(Aposta apostaDois) {
