@@ -25,9 +25,4 @@ public class EstrategiaDaSegundaJogada implements EstrategiaDeAposta {
 		return new ResultadoDoJogo(soma, vencedora.obterJogador(), vencedora.obterTipo());
 	}
 
-	@Override
-	public Aposta obterAposta() {
-		throw new RuntimeException();
-	}
-
 }

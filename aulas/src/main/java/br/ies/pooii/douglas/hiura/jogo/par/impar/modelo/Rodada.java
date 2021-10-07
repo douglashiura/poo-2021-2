@@ -10,7 +10,7 @@ public class Rodada {
 
 	public Rodada() {
 		espectadores = new LinkedList<Especulavel>();
-		estadoDoJogo = new EstrategiaDaPrimeiraJogada(this);
+		estadoDoJogo = new EstrategiaDaPrimeiraJogada();
 	}
 
 	public void querAssistir(Torcedor torcedor) {
@@ -23,18 +23,14 @@ public class Rodada {
 
 	public void aposta(Aposta aposta) {
 		estadoDoJogo.recebeUmaAposta(aposta);
+		estadoDoJogo = new EstrategiaDaSegundaJogada(aposta, this);
 	}
 
-	public void fiqueAlertaParaReceberASegundaAposta() {
-		Aposta apostaDaPrimeiraRodada = estadoDoJogo.obterAposta();
-		estadoDoJogo = new EstrategiaDaSegundaJogada(apostaDaPrimeiraRodada, this);
-	}
 
 	public void avisarOEspeculadores(ResultadoDoJogo resultado) {
 		for (Especulavel especulavel : espectadores) {
 			especulavel.obtemOResultado(resultado);
 		}
-
 	}
 
 }

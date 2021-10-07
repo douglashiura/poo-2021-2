@@ -20,7 +20,7 @@ public class TesteOJogoDoParEImpar implements Especulavel {
 	@Test
 	public void umaRodadaPerfeitaEntreODouglasEBrayan() throws Exception {
 		Torcedor lucas = new Torcedor(this);
-		Jogador douglas = new Jogador(Especulavel.SEM_INTERESSE);
+		Jogador douglas = new Jogador(this);
 		brayan = new Jogador(this);
 		ModeloDoJogoDeParEImpar jogo = new ModeloDoJogoDeParEImpar();
 		Aposta doDouglas = new Aposta(douglas, Integer.valueOf(5), TiposDeAposta.PAR);
