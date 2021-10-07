@@ -6,10 +6,11 @@ import java.util.List;
 public class Rodada {
 
 	private List<Especulavel> espectadores;
-	private Aposta apostaUm;
+	private EstrategiaDeAposta estadoDoJogo;
 
 	public Rodada() {
 		espectadores = new LinkedList<Especulavel>();
+		estadoDoJogo = new EstrategiaDaPrimeiraJogada(this);
 	}
 
 	public void querAssistir(Torcedor torcedor) {
@@ -21,28 +22,16 @@ public class Rodada {
 	}
 
 	public void aposta(Aposta aposta) {
-		if (apostaUm == null) {
-			apostaUm = aposta;
-		} else {
-			ResultadoDoJogo resultado = calcular(apostaUm, aposta);
-			avisarOEspeculadores(resultado);
-		}
+		estadoDoJogo.recebeUmaAposta(aposta);
 	}
 
-	private void avisarOEspeculadores(ResultadoDoJogo resultado) {
-		for (Especulavel especulavel : espectadores) {
-			especulavel.obterOResultado(resultado);
-		}
+	public List<Especulavel> obterEspectadores() {
+		return espectadores;
 	}
 
-	private ResultadoDoJogo calcular(Aposta apostaUm, Aposta apostaDois) {
-		Integer soma = apostaUm.obterValor() + apostaDois.obterValor();
-		Boolean ehPar = soma % 2 == 0;
-		Aposta vencedora = apostaDois;
-		if (ehPar && TiposDeAposta.PAR.equals(apostaUm.obterTipo())) {
-			vencedora = apostaUm;
-		}
-		return new ResultadoDoJogo(soma, vencedora.obterJogador(), vencedora.obterTipo());
+	public void fiqueAlertaParaReceberASegundaAposta() {
+		Aposta apostaDaPrimeiraRodada = estadoDoJogo.obterAposta();
+		estadoDoJogo = new EstrategiaDaSegundaJogada(apostaDaPrimeiraRodada, this);
 	}
 
 }

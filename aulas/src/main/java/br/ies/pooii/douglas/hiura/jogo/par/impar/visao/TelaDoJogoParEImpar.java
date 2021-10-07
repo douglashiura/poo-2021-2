@@ -12,11 +12,19 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.Aposta;
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.Especulavel;
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.Jogador;
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.ResultadoDoJogo;
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.TiposDeAposta;
 
-public class TelaDoJogoParEImpar extends JFrame {
+public class TelaDoJogoParEImpar extends JFrame implements Especulavel {
 
 	private static final long serialVersionUID = 1L;
 	private JButton fazAposta;
+	private JTextField valorJogado;
+	private JRadioButton par;
+	private Jogador jogador;
+	private JLabel etiquetaDoResultado;
 
 	public TelaDoJogoParEImpar() {
 		this.getContentPane().add(montarPainel());
@@ -35,7 +43,7 @@ public class TelaDoJogoParEImpar extends JFrame {
 	}
 
 	private JPanel montarPainelDeResultado() {
-		JLabel etiquetaDoResultado = new JLabel("Aguardando apostas ...");
+		etiquetaDoResultado = new JLabel("Aguardando apostas ...");
 		JPanel painelDeResuldado = new JPanel();
 		painelDeResuldado.add(etiquetaDoResultado);
 		return painelDeResuldado;
@@ -51,7 +59,7 @@ public class TelaDoJogoParEImpar extends JFrame {
 	private JPanel montarPainelDoNumero() {
 		JPanel painelDoNumero = new JPanel();
 		JLabel etiquetaDoValorJogado = new JLabel("Aposte um número");
-		JTextField valorJogado = new JTextField(5);
+		valorJogado = new JTextField(5);
 		painelDoNumero.add(etiquetaDoValorJogado);
 		painelDoNumero.add(valorJogado);
 		return painelDoNumero;
@@ -60,7 +68,7 @@ public class TelaDoJogoParEImpar extends JFrame {
 	private JPanel montarPainelOpcoes() {
 		JLabel etiquetaDoTipo = new JLabel("Escolha o tipo");
 		ButtonGroup gerenciadorDeUmaEscolaApenas = new ButtonGroup();
-		JRadioButton par = new JRadioButton("Par");
+		par = new JRadioButton("Par");
 
 		JRadioButton impar = new JRadioButton("Impar");
 
@@ -86,6 +94,20 @@ public class TelaDoJogoParEImpar extends JFrame {
 	}
 
 	public Aposta obterAposta() {
-		return null;
+		Integer valor = Integer.valueOf(valorJogado.getText());
+		TiposDeAposta tipo = par.isSelected() ? TiposDeAposta.PAR : TiposDeAposta.IMPAR;
+		Aposta umaAposta = new Aposta(jogador, valor, tipo);
+		return umaAposta;
+	}
+
+	@Override
+	public void obtemOResultado(ResultadoDoJogo resultado) {
+		etiquetaDoResultado.setText(String.format("A aposta vencedora foi %s, com soma %s",
+				resultado.obterTipoDaApostaVencedora(), resultado.obterValorSomado()));
+	}
+
+	public void fixarJogador(Jogador jogador) {
+		this.jogador = jogador;
+
 	}
 }

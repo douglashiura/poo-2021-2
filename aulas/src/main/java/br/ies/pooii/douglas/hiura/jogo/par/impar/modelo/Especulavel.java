@@ -5,12 +5,12 @@ public interface Especulavel {
 	Especulavel SEM_INTERESSE = new Especulavel() {
 
 		@Override
-		public void obterOResultado(ResultadoDoJogo resultado) {
+		public void obtemOResultado(ResultadoDoJogo resultado) {
 			// TODO Auto-generated method stub
 			
 		}
 	};
 
-	void obterOResultado(ResultadoDoJogo resultado);
+	void obtemOResultado(ResultadoDoJogo resultado);
 
 }

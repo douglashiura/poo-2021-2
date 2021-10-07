@@ -33,11 +33,10 @@ public class TesteOJogoDoParEImpar implements Especulavel {
 		umaRodada.aposta(doBryan);
 	}
 
-	public void obterOResultado(ResultadoDoJogo resultado) {
-		System.out.println("TesteOJogoDoParEImpar.obterOResultado()");
-		assertEquals(brayan, resultado.obterVencedor());
-		assertEquals(TiposDeAposta.IMPAR, resultado.obterTipoDaApostaVencedora());
+	public void obtemOResultado(ResultadoDoJogo resultado) {
 		assertEquals(Integer.valueOf(9), resultado.obterValorSomado());
+		assertEquals(TiposDeAposta.IMPAR, resultado.obterTipoDaApostaVencedora());
+		assertEquals(brayan, resultado.obterVencedor());
 	}
 
 }
