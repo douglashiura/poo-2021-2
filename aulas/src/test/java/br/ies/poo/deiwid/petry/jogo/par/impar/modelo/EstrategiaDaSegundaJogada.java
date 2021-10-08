@@ -3,6 +3,7 @@ package br.ies.poo.deiwid.petry.jogo.par.impar.modelo;
 public class EstrategiaDaSegundaJogada implements EstrategiaDeAposta {
 	private Rodada rodada;
 	private Aposta daPrimeiraJogada;
+	private CalcularResultadoDoJogo calcularResultadoDoJogo;
 
 	public EstrategiaDaSegundaJogada(Aposta daPrimeiraJogada, Rodada rodada) {
 		this.daPrimeiraJogada = daPrimeiraJogada;
@@ -11,18 +12,9 @@ public class EstrategiaDaSegundaJogada implements EstrategiaDeAposta {
 
 	@Override
 	public void recebeUmaAposta(Aposta aposta) {
-		ResultadoDoJogo resultado = calcular(aposta);
+		calcularResultadoDoJogo = new CalcularResultadoDoJogo();
+		ResultadoDoJogo resultado = calcularResultadoDoJogo.calcular(aposta, daPrimeiraJogada);
 		rodada.avisarOEspeculadores(resultado);
-	}
-
-	private ResultadoDoJogo calcular(Aposta apostaDois) {
-		Integer soma = daPrimeiraJogada.obterValor() + apostaDois.obterValor();
-		Boolean ehPar = soma % 2 == 0;
-		Aposta vencedora = apostaDois;
-		if (ehPar && TiposDeAposta.PAR.equals(daPrimeiraJogada.obterTipo())) {
-			vencedora = daPrimeiraJogada;
-		}
-		return new ResultadoDoJogo(soma, vencedora.obterJogador(), vencedora.obterTipo());
 	}
 
 }
