@@ -3,7 +3,7 @@ package br.com.gustavo.shell.modelo;
 import java.util.Properties;
 import oshi.software.os.OperatingSystem;
 
-public class SistemaOperacional extends InformacoesDoSistema {
+public class SistemaOperacional extends Computador {
 	
 	private OperatingSystem sistemaOperacional = super.getSistemaOperacional();
 	private Properties propriedadesJvm = System.getProperties();

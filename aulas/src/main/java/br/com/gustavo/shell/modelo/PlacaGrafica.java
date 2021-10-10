@@ -2,22 +2,23 @@ package br.com.gustavo.shell.modelo;
 
 import oshi.hardware.GraphicsCard;
 
-public class PlacaGrafica extends InformacoesDoSistema implements Formatavel {
+public class PlacaGrafica extends Computador implements Formatavel {
 	
-	private GraphicsCard placaGrafica = super.getPlacaGrafica();
+	private GraphicsCard placaGrafica = super.getHardware().getGraphicsCards().get(0);
 	
 	@Override
 	public String formataValor(Object valor) {
-		// TODO Auto-generated method stub
-		return null;
+		Long gigaBytes = (Long) valor / 1000000000;
+		String valorFormatado = gigaBytes.toString() + "GB";
+		return valorFormatado;
 	}
 	
 	public String getNome() {
 		return placaGrafica.getName();
 	}
 	
-	public Long getMemoriaRam() {
-		return placaGrafica.getVRam();
+	public String getMemoriaRam() {
+		return formataValor(placaGrafica.getVRam());
 	}
 	
 	public String getFornecedor() {
@@ -27,8 +28,8 @@ public class PlacaGrafica extends InformacoesDoSistema implements Formatavel {
 	public static void main(String[] args) {
 		PlacaGrafica gpu = new PlacaGrafica();
 				
-		System.out.println(gpu.getPlacaGrafica().getName());
-		System.out.println(gpu.getPlacaGrafica().getVRam());
+		System.out.println(gpu.getNome());
+		System.out.println(gpu.getMemoriaRam());
 
 		
 	}
