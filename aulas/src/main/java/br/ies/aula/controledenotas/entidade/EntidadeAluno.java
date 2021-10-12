@@ -4,17 +4,15 @@ public class EntidadeAluno {
 	
 	private Long id;
 	private String nome;
-	private String login;
 	private String senha;
 	private String matricula;
 	
 	public EntidadeAluno() {
 	}
 
-	public EntidadeAluno(String nome, String login, String senha, String matricula) {
+	public EntidadeAluno(String nome, String senha, String matricula) {
 		super();
 		this.nome = nome;
-		this.login = login;
 		this.senha = senha;
 		this.matricula = matricula;
 	}
@@ -33,14 +31,6 @@ public class EntidadeAluno {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
 	}
 
 	public String getSenha() {

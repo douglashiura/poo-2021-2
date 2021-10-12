@@ -20,11 +20,9 @@ public class JanelaCadastro extends JFrame {
 	
 	private JPanel panelPrincipal;
 	private JLabel labelNome;
-	private JLabel labelLogin;
 	private JLabel labelSenha;
 	private JLabel labelMatricula;
 	private JTextField textFieldNome;
-	private JTextField textFieldLogin;
 	private JPasswordField fieldSenha;
 	private JTextField textFieldMatricula;
 	
@@ -67,23 +65,17 @@ public class JanelaCadastro extends JFrame {
 		labelNome.setHorizontalAlignment(SwingConstants.RIGHT);
 		labelNome.setBounds(25, 110, 75, 15);
 		
-		labelLogin = new JLabel("Login:");
-		labelLogin.setFont(new Font("Tahoma", Font.PLAIN, 13));
-		labelLogin.setHorizontalAlignment(SwingConstants.RIGHT);
-		labelLogin.setBounds(25, 140, 75, 15);
-		
 		labelSenha = new JLabel("Senha:");
 		labelSenha.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		labelSenha.setHorizontalAlignment(SwingConstants.RIGHT);
-		labelSenha.setBounds(25, 170, 75, 15);
+		labelSenha.setBounds(25, 140, 75, 15);
 		
 		labelMatricula = new JLabel("Matricula:");
 		labelMatricula.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		labelMatricula.setHorizontalAlignment(SwingConstants.RIGHT);
-		labelMatricula.setBounds(25, 200, 75, 15);
+		labelMatricula.setBounds(25, 170, 75, 15);
 		
 		panelPrincipal.add(labelNome);
-		panelPrincipal.add(labelLogin);
 		panelPrincipal.add(labelSenha);
 		panelPrincipal.add(labelMatricula);
 	}
@@ -92,17 +84,13 @@ public class JanelaCadastro extends JFrame {
 		textFieldNome = new JTextField();
 		textFieldNome.setBounds(110, 105, 145, 25);
 		
-		textFieldLogin = new JTextField();
-		textFieldLogin.setBounds(110, 135, 145, 25);
-		
 		fieldSenha = new JPasswordField();
-		fieldSenha.setBounds(110, 165, 145, 25);
+		fieldSenha.setBounds(110, 135, 145, 25);
 		
 		textFieldMatricula = new JTextField();
-		textFieldMatricula.setBounds(110, 195, 145, 25);
+		textFieldMatricula.setBounds(110, 165, 145, 25);
 		
 		panelPrincipal.add(textFieldNome);
-		panelPrincipal.add(textFieldLogin);
 		panelPrincipal.add(fieldSenha);
 		panelPrincipal.add(textFieldMatricula);
 	}
@@ -110,7 +98,7 @@ public class JanelaCadastro extends JFrame {
 	private void montarBotoes() {
 		JButton botaoSalvar = new JButton("Salvar");
 		botaoSalvar.setBounds(110, 230, 70, 25);
-		botaoSalvar.addActionListener(new ControleJanelaCadastro(textFieldNome, textFieldLogin, fieldSenha, textFieldMatricula));
+		botaoSalvar.addActionListener(new ControleJanelaCadastro(textFieldNome, fieldSenha, textFieldMatricula));
 		
 		JButton botaoSair = new JButton("Sair");
 		botaoSair.setBounds(185, 230, 70, 25);

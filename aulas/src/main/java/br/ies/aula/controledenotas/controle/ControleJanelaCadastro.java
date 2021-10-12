@@ -14,33 +14,31 @@ import javax.swing.SwingUtilities;
 import br.ies.aula.controledenotas.banco.BancoException;
 import br.ies.aula.controledenotas.entidade.EntidadeAluno;
 import br.ies.aula.controledenotas.modelo.Aluno;
+import br.ies.aula.controledenotas.modelo.AlunoBD;
 
 public class ControleJanelaCadastro implements ActionListener {
 
-	private Aluno aluno;
+	private AlunoBD alunoBD;
 	private JTextField textFieldNome;
-	private JTextField textFieldLogin;
 	private JPasswordField fieldSenha;
 	private JTextField textFieldMatricula;
 	
-	public ControleJanelaCadastro(JTextField textFieldNome, JTextField textFieldLogin, JPasswordField fieldSenha, JTextField textFieldMatricula) {
+	public ControleJanelaCadastro(JTextField textFieldNome,  JPasswordField fieldSenha, JTextField textFieldMatricula) {
 		this.textFieldNome = textFieldNome;
-		this.textFieldLogin = textFieldLogin;
 		this.fieldSenha = fieldSenha;
 		this.textFieldMatricula = textFieldMatricula;
-		aluno = new Aluno();
+		alunoBD = new AlunoBD();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		String nome = textFieldNome.getText();
-		String login = textFieldLogin.getText();
 		String senha = String.valueOf(fieldSenha.getPassword());
 		String matricula = textFieldMatricula.getText();
 		
-		EntidadeAluno entidadeAluno = new EntidadeAluno(nome, login, senha, matricula);
+		EntidadeAluno entidadeAluno = new EntidadeAluno(nome, senha, matricula);
 		
-		aluno.inserir(entidadeAluno);
+		alunoBD.inserir(entidadeAluno);
 		
 		fecharJanela(event);
 		JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!");

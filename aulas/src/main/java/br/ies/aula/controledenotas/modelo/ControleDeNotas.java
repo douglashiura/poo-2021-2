@@ -1,8 +1,10 @@
-package br.ies.aula.controledenotas;
+package br.ies.aula.controledenotas.modelo;
 
 import java.util.List;
 
-import br.ies.aula.controledenotas.modelo.RegistroNota;
+import br.ies.aula.controledenotas.Aluno;
+import br.ies.aula.controledenotas.Nota;
+import br.ies.aula.controledenotas.Resultado;
 
 public class ControleDeNotas {
 
@@ -38,6 +40,10 @@ public class ControleDeNotas {
 		media = soma / i;
 		return media;
 	}
+	public void iniciarApp() {
+		// TODO Auto-generated method stub
+		
+	}
 	public Aluno getAluno() {
 		// TODO Auto-generated method stub
 		return null;
@@ -48,5 +54,4 @@ public class ControleDeNotas {
 	public void setRegistroNota(RegistroNota registroNota) {
 		this.registroNota = registroNota;
 	}
-
 }

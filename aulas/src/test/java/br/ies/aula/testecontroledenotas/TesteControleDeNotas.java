@@ -2,6 +2,9 @@ package br.ies.aula.testecontroledenotas;
 
 import static org.junit.Assert.assertEquals;
 
+import java.awt.Container;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,8 +15,12 @@ import br.ies.aula.controledenotas.Aluno;
 import br.ies.aula.controledenotas.ControleDeNotas;
 import br.ies.aula.controledenotas.Nota;
 import br.ies.aula.controledenotas.Resultado;
+import br.ies.aula.controledenotas.visao.JanelaCadastro;
+import br.ies.aula.controledenotas.visao.JanelaLogin;
 
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 public class TesteControleDeNotas {
 	private Aluno deiwid;
@@ -52,6 +59,7 @@ public class TesteControleDeNotas {
 		Resultado resultado = controleDeNotas.verificarAprovacao(aluno);
 		assertEquals(Resultado.APROVADO, resultado);
 	}
+	
 	private void adicionarNotas(Aluno aluno, int quantidadeDeNotas) {
 		// TODO Auto-generated method stub
 		for (int i = 1; i <= quantidadeDeNotas; i++) {
