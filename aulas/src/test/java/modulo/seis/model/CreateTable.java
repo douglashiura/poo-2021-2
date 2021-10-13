@@ -11,7 +11,7 @@ public class CreateTable extends JFrame {
 	private java.sql.Connection con;
 	private java.sql.Statement st;
 	public String valor;
-
+	
 	public CreateTable(String valor) {
 		this.valor = valor;
 		String driver = "org.postgresql.Driver";

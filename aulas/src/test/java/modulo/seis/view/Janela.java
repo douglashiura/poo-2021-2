@@ -17,6 +17,7 @@ public class Janela extends JFrame {
 
 	public static void main(String args[]) {
 
+	
 		JFrame janela = new JFrame();
 		janela.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		janela.setSize(400, 250);
@@ -56,12 +57,12 @@ public class Janela extends JFrame {
 		textInsert.setVisible(true);
 		textInsert.setText("");
 
-		JButton btn_I = new JButton("Insert");
-		janela.getContentPane().add(btn_I);
+		JButton botaoDeInserir = new JButton("Insert");
+		janela.getContentPane().add(botaoDeInserir);
 		janela.getContentPane().setLayout(null);
-		btn_I.setBounds(110, 50, 80, 50);
+		botaoDeInserir.setBounds(110, 50, 80, 50);
 
-		btn_I.addActionListener(new ActionListener() {
+		botaoDeInserir.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {

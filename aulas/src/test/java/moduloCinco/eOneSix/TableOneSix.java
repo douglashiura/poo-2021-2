@@ -15,12 +15,18 @@ import javax.swing.table.DefaultTableModel;
 
 public class TableOneSix extends JFrame implements ActionListener {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private JButton buttonDelete, buttonInclude, buttonShow;
 	private JTextField text;
 	private JTable table;
-	private int incCod = 0;
+	private Integer contador;
 
 	public TableOneSix() {
+		
+		contador = 0;
 
 		setTitle("Table");
 		setSize(441, 300);
@@ -60,7 +66,7 @@ public class TableOneSix extends JFrame implements ActionListener {
 		if (origin == buttonInclude) {
 
 			DefaultTableModel dtm = (DefaultTableModel) table.getModel();
-			dtm.addRow(new Object[] { new Integer(++incCod), "Client " + incCod });
+			dtm.addRow(new Object[] { new Integer(++contador), "Client " + contador });
 		}
 
 		if (origin == buttonDelete) {

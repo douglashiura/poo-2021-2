@@ -39,7 +39,7 @@ public class SelectTable extends JFrame {
 				int id = rs.getInt("id");
 				String nome = rs.getString("nome");
 				System.out.println(id + " - " + nome);
-				
+			
 			}
 
 		} catch (SQLException eSQL) {
