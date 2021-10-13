@@ -5,14 +5,16 @@ import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class CalculaResultadoDe {
+public class CalculaResultadoDeApostas {
 
 	private ResultadoDoJogo resultado;
 
-	public CalculaResultadoDe(List<Aposta> apostas) {
-		int soma = apostas.stream().mapToInt(Aposta::obterValor).sum();
+	public CalculaResultadoDeApostas(List<Aposta> apostas) {
+		Integer soma = apostas.stream().mapToInt(Aposta::obterValor).sum();
 		Boolean ehPar = soma % 2 == 0;
-		TiposDeAposta tipoVencedor = Arrays.asList(TiposDeAposta.values()).stream().map(null);
+		Predicate<? super TiposDeAposta> filtroPeloTipoVencedor = tipoDeAposta -> tipoDeAposta.ehPar().equals(ehPar);
+		List<TiposDeAposta> tipos = Arrays.asList(TiposDeAposta.values());
+		TiposDeAposta tipoVencedor = tipos.stream().filter(filtroPeloTipoVencedor).findFirst().get();
 		List<Aposta> vencedores = obterApenasVencedores(apostas, tipoVencedor);
 		this.resultado = new ResultadoDoJogo(soma, vencedores, tipoVencedor);
 	}

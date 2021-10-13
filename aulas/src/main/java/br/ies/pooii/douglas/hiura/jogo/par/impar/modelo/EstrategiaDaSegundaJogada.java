@@ -20,7 +20,7 @@ public class EstrategiaDaSegundaJogada implements EstrategiaDeAposta {
 
 	private ResultadoDoJogo calcular(Aposta apostaDois) {
 		List<Aposta> listaDeApostas = Arrays.asList(daPrimeiraJogada, apostaDois);
-		CalculaResultadoDe calculadora = new CalculaResultadoDe(listaDeApostas);
+		CalculaResultadoDeApostas calculadora = new CalculaResultadoDeApostas(listaDeApostas);
 		return calculadora.obterResultado();
 	}
 }
