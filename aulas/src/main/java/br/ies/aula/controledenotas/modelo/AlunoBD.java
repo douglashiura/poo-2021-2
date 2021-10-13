@@ -7,7 +7,6 @@ import java.sql.SQLException;
 
 import br.ies.aula.controledenotas.banco.BancoException;
 import br.ies.aula.controledenotas.banco.BancoJdbc;
-import br.ies.aula.controledenotas.entidade.EntidadeAluno;
 
 public class AlunoBD {
 

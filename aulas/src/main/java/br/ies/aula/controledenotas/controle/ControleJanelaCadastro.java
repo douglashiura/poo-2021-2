@@ -12,9 +12,9 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 import br.ies.aula.controledenotas.banco.BancoException;
-import br.ies.aula.controledenotas.entidade.EntidadeAluno;
 import br.ies.aula.controledenotas.modelo.Aluno;
 import br.ies.aula.controledenotas.modelo.AlunoBD;
+import br.ies.aula.controledenotas.modelo.EntidadeAluno;
 
 public class ControleJanelaCadastro implements ActionListener {
 

@@ -1,22 +1,13 @@
 package br.ies.aula.controledenotas.modelo;
 
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.util.List;
 
 
-import com.sun.jdi.connect.spi.Connection;
-
 import br.ies.aula.controledenotas.Nota;
-import br.ies.aula.controledenotas.banco.BancoException;
-import br.ies.aula.controledenotas.banco.BancoJdbc;
-import br.ies.aula.controledenotas.entidade.EntidadeAluno;
 
 public class Aluno {
 	private Long id;
 	private String nome;
-	private String login;
 	private String senha;
 	private String matricula;
 	private List<Nota> lstNotas;
@@ -24,9 +15,8 @@ public class Aluno {
 	public Aluno() {
 	}
 
-	public Aluno(String nome, String login, String senha, String matricula) {
+	public Aluno(String nome, String senha, String matricula) {
 		this.nome = nome;
-		this.login = login;
 		this.senha = senha;
 		this.matricula = matricula;
 	}

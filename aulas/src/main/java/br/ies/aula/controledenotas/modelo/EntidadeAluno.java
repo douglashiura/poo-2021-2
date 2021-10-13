@@ -1,4 +1,4 @@
-package br.ies.aula.controledenotas.entidade;
+package br.ies.aula.controledenotas.modelo;
 
 public class EntidadeAluno {
 	
