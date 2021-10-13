@@ -11,10 +11,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import br.ies.aula.controledenotas.banco.BancoException;
 import br.ies.aula.controledenotas.modelo.Aluno;
 import br.ies.aula.controledenotas.modelo.AlunoBD;
-import br.ies.aula.controledenotas.modelo.EntidadeAluno;
 
 public class ControleJanelaCadastro implements ActionListener {
 
@@ -36,9 +34,9 @@ public class ControleJanelaCadastro implements ActionListener {
 		String senha = String.valueOf(fieldSenha.getPassword());
 		String matricula = textFieldMatricula.getText();
 		
-		EntidadeAluno entidadeAluno = new EntidadeAluno(nome, senha, matricula);
+		Aluno aluno = new Aluno(nome, senha, matricula);
 		
-		alunoBD.inserir(entidadeAluno);
+		alunoBD.inserir(aluno);
 		
 		fecharJanela(event);
 		JOptionPane.showMessageDialog(null, "Cadastro efetuado com sucesso!");

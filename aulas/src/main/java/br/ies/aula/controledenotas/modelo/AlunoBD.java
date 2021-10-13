@@ -12,7 +12,7 @@ public class AlunoBD {
 
 private String SQL_INSERT = "INSERT INTO public.usuario (nome, senha, matricula, tipo) VALUES (?, ?, ?, 1);";
 	
-	public void inserir(EntidadeAluno aluno) throws BancoException{
+	public void inserir(Aluno aluno) throws BancoException{
 		Connection conexao = BancoJdbc.obterConexao();
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
