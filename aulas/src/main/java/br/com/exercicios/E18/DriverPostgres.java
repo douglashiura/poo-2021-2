@@ -14,6 +14,7 @@ public class DriverPostgres {
 
 		try {
 			Class.forName(driver);
+			@SuppressWarnings("unused")
 			Connection con = null;
 			con = (Connection) DriverManager.getConnection(url, user, senha);
 			System.out.println("Conexão realizada com sucesso.");

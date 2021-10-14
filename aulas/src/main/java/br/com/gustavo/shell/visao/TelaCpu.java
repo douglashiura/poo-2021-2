@@ -1,12 +1,9 @@
 package br.com.gustavo.shell.visao;
 
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-import javax.swing.WindowConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import javax.swing.border.MatteBorder;
@@ -14,19 +11,16 @@ import javax.swing.border.SoftBevelBorder;
 
 import java.awt.*;
 
-public class TelaCpu {
-	
+public class TelaCpu extends Tela implements Adicionavel {
+		
 	private JFrame telaProcessador = new JFrame();
-    
 	private JPanel painelProcessador = new JPanel();
-	
 	private JLabel tituloArquitetura = new JLabel();
     private JLabel tituloFornecedor = new JLabel();
     private JLabel tituloFrequencia = new JLabel();
     private JLabel tituloId = new JLabel();
     private JLabel tituloIdentificador = new JLabel();
     private JLabel tituloNome = new JLabel();
-		
     private JLabel arquitetura = new JLabel();
     private JLabel cabecalho = new JLabel();
     private JLabel fornecedor = new JLabel();
@@ -35,45 +29,15 @@ public class TelaCpu {
     private JLabel identificador = new JLabel();
     private JLabel nome = new JLabel();
     
-	
     public TelaCpu() {
         inicializaInterface();
     }
     
-    private void agrupaLayout(JPanel painel) {
-        GroupLayout painelLayout = new GroupLayout(painel);
-        painel.setLayout(painelLayout);
-        Alignment alinhamentoLeading = GroupLayout.Alignment.LEADING;
-        painelLayout.setHorizontalGroup(painelLayout.createParallelGroup(alinhamentoLeading).addGap(0, 100, Short.MAX_VALUE));
-        painelLayout.setVerticalGroup(painelLayout.createParallelGroup(alinhamentoLeading).addGap(0, 100, Short.MAX_VALUE));
-	}
-    
-    private void executaConfiguracoesIniciais(JFrame frame) {
-    	frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-    	frame.setTitle("CPU");
-    	frame.setBounds(new Rectangle(10, 5, 1000, 1000));
-    	frame.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
-    	frame.setPreferredSize(new Dimension(485, 285));
-    	frame.setSize(new Dimension(1000, 250));
-    	frame.getContentPane().setLayout(null);
-    	frame.setVisible(true);
-	}
-    
-    private JLabel configuraComponente(JLabel componente, Font fonte, String texto, Border borda, Integer alinhamentoHorizontal) {
-    	componente.setFont(fonte);
-    	componente.setText(texto);
-    	componente.setBorder(borda);
-    	componente.setHorizontalAlignment(alinhamentoHorizontal);
-    	return componente;
-    }
-    
-    private void defineRestricoesDoComponente(JLabel componente, Integer x, Integer y, Integer largura, Integer altura) {
-    	componente.setBounds(x, y, largura, altura);
-    }
-    
-    private void adicionaComponenteNaTela(JLabel componente, JFrame frame) {
+    @Override
+	public void adicionaComponenteNaTela(JLabel componente, JFrame frame) {
     	frame.getContentPane().add(componente);
-    }
+		
+	}
     
     private void inicializaComponentes(JFrame frame) {
     	
@@ -83,15 +47,15 @@ public class TelaCpu {
     	Border bordaComponente = new SoftBevelBorder(BevelBorder.RAISED, Color.lightGray, Color.lightGray, Color.lightGray, Color.lightGray);
     	
     	configuraComponente(cabecalho, fonteCabecalho, "Informações do Processador", bordaCabecalho, SwingConstants.CENTER);
-        defineRestricoesDoComponente(cabecalho, 10, 11, 448, 19);
-        adicionaComponenteNaTela(cabecalho, frame);
+    	defineRestricoesDoComponente(cabecalho, 10, 11, 448, 19);
+    	adicionaComponenteNaTela(cabecalho, frame);
         
-        configuraComponente(tituloId, fonteComponente, "ID: ", bordaComponente, SwingConstants.CENTER);
-        defineRestricoesDoComponente(tituloId, 11, 41, 191, 28);
-        adicionaComponenteNaTela(tituloId, frame);
+    	configuraComponente(tituloId, fonteComponente, "ID: ", bordaComponente, SwingConstants.CENTER);
+    	defineRestricoesDoComponente(tituloId, 11, 41, 191, 28);
+    	adicionaComponenteNaTela(tituloId, frame);
         
-        configuraComponente(id, fonteComponente, "--", bordaComponente, SwingConstants.CENTER);
-        defineRestricoesDoComponente(id, 208, 41, 250, 28);
+    	configuraComponente(id, fonteComponente, "--", bordaComponente, SwingConstants.CENTER);
+    	defineRestricoesDoComponente(id, 208, 41, 250, 28);
         adicionaComponenteNaTela(id, frame);
         
         configuraComponente(tituloNome, fonteComponente, "Nome: ", bordaComponente, SwingConstants.CENTER);
@@ -137,8 +101,8 @@ public class TelaCpu {
     }
     
     private void inicializaInterface() {
-        executaConfiguracoesIniciais(telaProcessador);
-        agrupaLayout(painelProcessador);
+    	executaConfiguracoesIniciais(telaProcessador);
+    	agrupaLayout(painelProcessador);
         inicializaComponentes(telaProcessador);
     }                     
 
@@ -149,4 +113,6 @@ public class TelaCpu {
             }
         });
     }
+
+	
 }

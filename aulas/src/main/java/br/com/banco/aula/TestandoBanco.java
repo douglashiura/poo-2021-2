@@ -13,6 +13,8 @@ public class TestandoBanco {
 		
 		conexao.selecionarAlunos();
 		conexao.selecionarAlunoEspecifico(luiz);
+		conexao.selecionarAlunoEspecifico(nilo);
+		conexao.selecionarAlunoEspecifico(gustavo);
 	}
 
 }

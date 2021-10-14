@@ -7,8 +7,6 @@ import java.sql.Statement;
 public class DeleteIntoTableE18 {
 	private String driver;
 	private String fonte;
-	private String user;
-	private String password;
 	private Connection connection;
 	private Statement statement;
 	
@@ -20,8 +18,6 @@ public class DeleteIntoTableE18 {
 	public void deleteIntoDatabase(String user, String password, String tableName, String columnName) {
 		try {
 			Class.forName(driver);
-			this.user = user;
-			this.password = password;
 			connection = DriverManager.getConnection(fonte, user, password);
 		} catch (Exception e) {
 			e.printStackTrace();

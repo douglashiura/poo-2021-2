@@ -3,9 +3,9 @@ package br.com.gustavo.shell.modelo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.CentralProcessor.ProcessorIdentifier;
 
-public class Processador extends Hardware {
+public class Processador extends ComponentesDoComputador {
 	
-	private CentralProcessor processador = super.getHardware().getProcessor();
+	private CentralProcessor processador = super.getProcessador();
 	private ProcessorIdentifier informacoesDeFabrica = processador.getProcessorIdentifier();
 
 	public String getFornecedor() {

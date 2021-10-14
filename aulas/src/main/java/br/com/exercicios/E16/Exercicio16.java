@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.table.*; 
 import java.awt.*; 
-import java.awt.event.*;
 
 
 
@@ -50,7 +49,7 @@ public class Exercicio16 extends JFrame implements ActionListener {
 		btnMostrar.addActionListener(this);
 	}
 
-	@SuppressWarnings("deprecation")
+	@SuppressWarnings("removal")
 	public void actionPerformed(ActionEvent evt) {
 		Object origem = evt.getSource();
 		if (origem == btnIncluir) {

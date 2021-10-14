@@ -7,8 +7,6 @@ import java.sql.Statement;
 public class InsertIntoTableE18 {
 	private String driver;
 	private String url;
-	private String user;
-	private String password;
 	private Connection connection;
 	private Statement statement;
 	
@@ -20,8 +18,6 @@ public class InsertIntoTableE18 {
 	public void insertIntoDatabase(String user, String password, String tableName, String columnName, String dataType) {
 		try {
 			Class.forName(driver);
-			this.user = user;
-			this.password = password;
 			connection = DriverManager.getConnection(url, user, password);
 		} catch (Exception e) {
 			e.printStackTrace();
