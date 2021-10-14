@@ -3,21 +3,10 @@ package br.com.gustavo.shell.modelo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.CentralProcessor.ProcessorIdentifier;
 
-public class Processador extends Computador implements Formatavel {
+public class Processador extends Hardware {
 	
 	private CentralProcessor processador = super.getHardware().getProcessor();
 	private ProcessorIdentifier informacoesDeFabrica = processador.getProcessorIdentifier();
-	
-	private double calculoParaGigaBytes(Object valor) {
-		return (Double) valor / 1000000000.0;
-	}
-	
-	@Override
-	public String formataValor(Object valor) {
-		Double gigaBytes = calculoParaGigaBytes(valor);
-		String valorFormatado = gigaBytes.toString() + "GB";
-		return valorFormatado;
-	}
 
 	public String getFornecedor() {
 		return informacoesDeFabrica.getVendor();
@@ -40,9 +29,7 @@ public class Processador extends Computador implements Formatavel {
 	}
 	
 	public String getFrequenciaEmGigaHertz() {
-		return formataValor(informacoesDeFabrica.getVendorFreq());
+		return new FormataFrequencia().formataValor(informacoesDeFabrica.getVendorFreq());
 	}
-
-	
 
 }

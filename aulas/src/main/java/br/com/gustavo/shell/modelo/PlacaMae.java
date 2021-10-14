@@ -2,9 +2,9 @@ package br.com.gustavo.shell.modelo;
 
 import oshi.hardware.Baseboard;
 
-public class PlacaMae extends Computador {
+public class PlacaMae extends ComponentesDoComputador {
 	
-	private Baseboard placaMae = super.getHardware().getComputerSystem().getBaseboard();
+	private Baseboard placaMae = super.getPlacaMae();
 	
 	public String getFabricante() {
 		return placaMae.getManufacturer();
