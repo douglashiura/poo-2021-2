@@ -1,6 +1,5 @@
 package br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.hibernate;
 
-import java.util.List;
 import java.util.Properties;
 
 import org.hibernate.Session;
@@ -9,13 +8,14 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.entidade.Pessoa;
-import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.fachada.PessoaDAO;
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.entidade.Rodada;
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.fachada.RodadaDAO;
 
-public class PessoaDAOHibernate implements PessoaDAO {
+public class RodadaDAOHibernate implements RodadaDAO {
 
 	private SessionFactory fabricaDeSessao;
 
-	public PessoaDAOHibernate() {
+	public RodadaDAOHibernate() {
 		Properties properties = new Properties();
 		properties.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
 		properties.put(Environment.DRIVER, "org.postgresql.Driver");
@@ -28,33 +28,26 @@ public class PessoaDAOHibernate implements PessoaDAO {
 		properties.put(Environment.HBM2DDL_AUTO, "create");
 		Configuration configuration = new Configuration();
 		configuration.addAnnotatedClass(Pessoa.class);
+		configuration.addAnnotatedClass(Rodada.class);
 		configuration.setProperties(properties);
 		fabricaDeSessao = configuration.buildSessionFactory();
 	}
 
 	@Override
-	public void inserir(Pessoa pessoa) {
+	public void inserir(Rodada rodada) {
 		Session sessao = fabricaDeSessao.openSession();
 		sessao.beginTransaction();
-		sessao.persist(pessoa);
+		sessao.persist(rodada);
 		sessao.getTransaction().commit();
 		sessao.close();
 	}
 
 	@Override
-	public void deletar(Pessoa pessoa) {
+	public Rodada encontar(Integer id) {
 		Session sessao = fabricaDeSessao.openSession();
 		sessao.beginTransaction();
-		sessao.delete(pessoa);
-		sessao.getTransaction().commit();
-		sessao.close();
-	}
-
-	@Override
-	public List<Pessoa> listar() {
-		Session sessao = fabricaDeSessao.openSession();
 		try {
-			return sessao.createQuery("SELECT pessoa FROM Pessoa pessoa", Pessoa.class).list();
+			return sessao.find(Rodada.class, id);
 		} finally {
 			sessao.close();
 		}

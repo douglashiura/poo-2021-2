@@ -1,7 +1,10 @@
 package test.br.ies.pooii.douglas.hiura.jogo.par.impar;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
 import java.util.Properties;
 
 import org.hibernate.Session;
@@ -11,6 +14,9 @@ import org.hibernate.cfg.Environment;
 import org.junit.Test;
 
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.entidade.Pessoa;
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.entidade.Rodada;
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.hibernate.PessoaDAOHibernate;
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.hibernate.RodadaDAOHibernate;
 
 public class TesteHibernate {
 
@@ -32,4 +38,54 @@ public class TesteHibernate {
 		assertTrue(sessao.isConnected());
 	}
 
+	@Test
+	public void inserirDouglas() throws Exception {
+		Pessoa douglas = new Pessoa();
+		douglas.setNome("Douglas");
+		douglas.setSenha("s4nh4");
+		PessoaDAOHibernate daoHibernate = new PessoaDAOHibernate();
+		daoHibernate.inserir(douglas);
+		assertNotNull(douglas.getId());
+	}
+
+	@Test
+	public void insertirDouglasDeletaELista() throws Exception {
+		Pessoa douglas = new Pessoa();
+		douglas.setNome("Douglas");
+		douglas.setSenha("s4nh4");
+		PessoaDAOHibernate daoHibernate = new PessoaDAOHibernate();
+		daoHibernate.inserir(douglas);
+		daoHibernate.deletar(douglas);
+		List<Pessoa> pessoas = daoHibernate.listar();
+		assertEquals(0, pessoas.size());
+	}
+
+	@Test
+	public void insertirDouglasELista() throws Exception {
+		Pessoa douglas = new Pessoa();
+		douglas.setNome("Douglas");
+		douglas.setSenha("s4nh4");
+		PessoaDAOHibernate daoHibernate = new PessoaDAOHibernate();
+		daoHibernate.inserir(douglas);
+		List<Pessoa> pessoas = daoHibernate.listar();
+		assertEquals(1, pessoas.size());
+		assertEquals(douglas.getId(), pessoas.get(0).getId());
+	}
+
+	@Test
+	public void inserirDouglasEUmaRodadaComOJogadorDouglas() throws Exception {
+		Pessoa douglas = new Pessoa();
+		douglas.setNome("Douglas");
+		douglas.setSenha("s4nh4");
+		Rodada rodada = new Rodada();
+		rodada.getJogadores().add(douglas);
+
+		PessoaDAOHibernate daoHibernate = new PessoaDAOHibernate();
+		daoHibernate.inserir(douglas);
+		RodadaDAOHibernate daoRodadaHibernate = new RodadaDAOHibernate();
+		daoRodadaHibernate.inserir(rodada);
+
+		assertNotNull(rodada.getId());
+
+	}
 }
