@@ -1,4 +1,4 @@
-Nome projeto: Las Vegas
+Nome projeto: Caça-níquel
 
 Descrição: O computador gera 3 elementos aleatórios, e caso os elementos sejam iguais o jogador ganha uma recompensa;
 
