@@ -21,6 +21,7 @@ public class Rodada {
 
 	public Rodada() {
 		jogadores = new LinkedList<Pessoa>();
+		torcedores = new LinkedList<Pessoa>();
 	}
 
 	public List<Pessoa> getJogadores() {
