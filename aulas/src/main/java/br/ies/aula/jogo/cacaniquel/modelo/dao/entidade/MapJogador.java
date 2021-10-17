@@ -13,20 +13,8 @@ public class MapJogador {
 	private Integer id;
 	@Column(nullable = true)
 	private String nome;
-	@Column(nullable = true)
-	private Integer reembolso;
-	@Column(nullable = true)
-	private Integer premio;
-	@Column(nullable = true)
-	private Integer dinheiro;
 	
 	
-	public Integer getDinheiro() {
-		return dinheiro;
-	}
-	public void setDinheiro(Integer dinheiro) {
-		this.dinheiro = dinheiro;
-	}
 	public Integer getId() {
 		return id;
 	}
@@ -39,18 +27,5 @@ public class MapJogador {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Integer getReembolso() {
-		return reembolso;
-	}
-	public void setReembolso(Integer reembolso) {
-		this.reembolso = reembolso;
-	}
-	public Integer getPremio() {
-		return premio;
-	}
-	public void setPremio(Integer premio) {
-		this.premio = premio;
-	}
 	
-
 }

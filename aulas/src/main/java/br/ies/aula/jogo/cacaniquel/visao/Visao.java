@@ -6,62 +6,82 @@ import javax.swing.JFrame;
 
 
 public class Visao extends JFrame{
+	
 	private static final long serialVersionUID = 1L;
-	private TelaPrincipal telaPrincipal = new TelaPrincipal();
+	private TelaLogin telaLogin = new TelaLogin();
 	private TelaInicial telaInicial = new TelaInicial();
+	private TelaPrincipal telaPrincipal = new TelaPrincipal();
 	private TelaCartas telaCartas = new TelaCartas();
 
 	
 	public Visao() throws InterruptedException {
-		configuracaoTelaDoJogo();
 		
-		getContentPane().add(telaInicial);
+		configuracaoTelaVisao();
+		addTelaLogin();
 	}
 	
-	public void configuracaoTelaDoJogo() {
+	public void configuracaoTelaVisao() {
 		
-		getContentPane().setBackground(Color.darkGray);
+		getContentPane().setBackground(Color.magenta);
 		getContentPane().setLayout(new BorderLayout());
 		setSize(1420, 800);
 		setVisible(true);
+	}
+	
+	public void atualizarTelaVisao() {
+		
+		this.getContentPane().revalidate();
+		this.getContentPane().repaint();
+	}
+	
+	public void addTelaLogin() {
+		
+		this.getContentPane().removeAll();
+		this.getContentPane().add(telaLogin);
+		atualizarTelaVisao();
+	}
+	
+	public void addTelaInicial() {
+		
+		this.getContentPane().removeAll();
+		this.getContentPane().add(telaInicial);
+		atualizarTelaVisao();
 	}
 	
 	public void addTelaPrincipal() {
 		
 		this.getContentPane().removeAll();
 		this.getContentPane().add(telaPrincipal);
-		atualizarFrame();
+		atualizarTelaVisao();
 	}
 
-	
 	public void addTelaCartas() {
 		
 		this.getContentPane().removeAll();
 		this.getContentPane().add(telaCartas);
-		atualizarFrame();
+		atualizarTelaVisao();
 	}
 	
-	public void atualizarFrame() {
-		
-		this.getContentPane().revalidate();
-		this.getContentPane().repaint();
-	}
 
 	
+	
+	
+	
 	public TelaInicial getTelaInicial() {
-		
 		return this.telaInicial;
 	}
 	
 	public TelaPrincipal getTelaPrincipal() {
-		
 		return this.telaPrincipal;
 	}
 
 	public TelaCartas getTelaCartas() {
-		
 		return this.telaCartas;
 	}
 
+	public TelaLogin getTelaLogin() {
+		return telaLogin;
+	}
 
+	
 }

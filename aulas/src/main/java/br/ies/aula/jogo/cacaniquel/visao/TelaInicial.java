@@ -19,6 +19,7 @@ public class TelaInicial extends JPanel {
 	private JButton btnMoeda1 = new JButton("1");
 	private JButton btnMoeda5 = new JButton("5");
 	private JButton btnMoeda10 = new JButton("10");
+	private JButton btnSair = new JButton("SAIR");
 	
 
 	public TelaInicial() {
@@ -29,34 +30,39 @@ public class TelaInicial extends JPanel {
 		
 	public void configuracaoTelaInicial() {
 		
-		this.setBorder(BorderFactory.createLineBorder(Color.green, 1));
-		this.setBackground(Color.black);
-		this.setLayout(null);
-		this.setVisible(true);
+		setBorder(BorderFactory.createLineBorder(Color.green, 1));
+		setBackground(Color.black);
+		setLayout(null);
+		setVisible(true);
 	}
 	
 	public void montarBotoes() {
 		
+		btnSair.setBounds(1165, 1, 200, 24);
+		btnSair.setForeground(Color.black);
+		btnSair.setBackground(Color.green);
+		btnSair.setBorder(BorderFactory.createLineBorder(Color.black, 1));
+		btnSair.setVisible(true);
+		
 		btnMoeda1.setBackground(Color.green);
 		btnMoeda1.setForeground(Color.black);
-		btnMoeda1.setBounds(460, 310, 150, 150);
+		btnMoeda1.setBounds(460, 210, 150, 150);
 		btnMoeda1.setFont(new Font("Comic Sans", Font.BOLD, 25));
 		btnMoeda1.setVisible(true);
 		
-		
 		btnMoeda5.setBackground(Color.green);
 		btnMoeda5.setForeground(Color.black);
-		btnMoeda5.setBounds(620, 310, 150, 150);
+		btnMoeda5.setBounds(620, 210, 150, 150);
 		btnMoeda5.setFont(new Font("Comic Sans", Font.BOLD, 25));
 		btnMoeda5.setVisible(true);
 		
 		btnMoeda10.setBackground(Color.green);
 		btnMoeda10.setForeground(Color.black);
-		btnMoeda10.setBounds(780, 310, 150, 150);
+		btnMoeda10.setBounds(780, 210, 150, 150);
 		btnMoeda10.setFont(new Font("Comic Sans", Font.BOLD, 25));
 		btnMoeda10.setVisible(true);	
-	
 		
+		add(btnSair);
 		add(btnMoeda1);
 		add(btnMoeda5);
 		add(btnMoeda10);
@@ -64,7 +70,7 @@ public class TelaInicial extends JPanel {
 	
 	public void montarLabels() {
 		
-		labelInserirDinheiro.setForeground(Color.yellow);
+		labelInserirDinheiro.setForeground(Color.white);
 		labelInserirDinheiro.setFont(new Font("Verdana", Font.BOLD, 25));
 		labelInserirDinheiro.setBounds(465, 150, 590, 40);
 		labelInserirDinheiro.setVisible(true);
@@ -89,19 +95,25 @@ public class TelaInicial extends JPanel {
 		montarLabels();
 	}
 	
+	
+	
+	
+	
 	public JButton getBtn1() {
-		
 		return this.btnMoeda1;
 	}
 	
 	public JButton getBtn5() {
-		
 		return this.btnMoeda5;
 	}
 	
 	public JButton getBtn10() {
-		
 		return this.btnMoeda10;
 	}
+	
+	public JButton getBtnSair() {
+		return btnSair;
+	}
+	
 	
 }

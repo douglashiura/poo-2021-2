@@ -3,8 +3,6 @@ package br.ies.aula.jogo.cacaniquel.visao;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -14,17 +12,17 @@ import javax.swing.JPanel;
 public class TelaPrincipal extends JPanel {
 	
 	private static final long serialVersionUID = 1L;
-	private ImageIcon rocketjpg = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\rocket.jpg").getImage().getScaledInstance(200, 70, Image.SCALE_DEFAULT));
 	private JLabel labelrocket = new JLabel();
 	private JLabel labelPowered = new JLabel("powered by");
-	private JLabel labelEstorno = new JLabel("Você pode sair, e pedir estorno das fichas restantes.");
+	private JLabel labelEstorno = new JLabel("Você pode sair, e será reembolsado.");
+	private JLabel labelFichas = new JLabel("Você possui 0 fichas");
 	private JLabel carta1 = new JLabel();
 	private JLabel carta2 = new JLabel();
 	private JLabel carta3 = new JLabel();
 	private JButton btnAlavanca = new JButton("JOGAR");
-	private JButton btnAjuda = new JButton("Help");
-	private JButton btnSair = new JButton("Sair");
-	private ImageIcon coringajpg = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\coringao.jpg").getImage().getScaledInstance(200, 300, Image.SCALE_DEFAULT));
+	private JButton btnSair = new JButton("SAIR");
+	private ImageIcon rocketjpg = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\rocket.jpg").getImage().getScaledInstance(200, 70, Image.SCALE_DEFAULT));
+	private ImageIcon coringajpg = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\coringa.jpg").getImage().getScaledInstance(200, 300, Image.SCALE_DEFAULT));
 
 	public TelaPrincipal() {
 		
@@ -32,12 +30,13 @@ public class TelaPrincipal extends JPanel {
 		montarTela();
 	}
 
+	
 	public void configuracaoTelaPrincipal() {
 		
-		this.setBorder(BorderFactory.createLineBorder(Color.green, 1));
-		this.setBackground(Color.black);
-		this.setLayout(null);
-		this.setVisible(true);
+		setBorder(BorderFactory.createLineBorder(Color.green, 1));
+		setBackground(Color.black);
+		setLayout(null);
+		setVisible(true);
 	}
 	
 	public void montarBotoes() {
@@ -47,20 +46,6 @@ public class TelaPrincipal extends JPanel {
 		btnSair.setBackground(Color.green);
 		btnSair.setBorder(BorderFactory.createLineBorder(Color.black, 1));
 		btnSair.setVisible(true);
-		btnSair.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
-			}
-			
-		});
-		
-		btnAjuda.setBounds(1, 1, 200, 24);
-		btnAjuda.setForeground(Color.black);
-		btnAjuda.setBorder(BorderFactory.createLineBorder(Color.black, 1));
-		btnAjuda.setBackground(Color.green);
-		btnAjuda.setVisible(true);
 		
 		btnAlavanca.setBounds(1100, 350, 120, 120);
 		btnAlavanca.setFont(new Font("Comic Sans", Font.BOLD, 15));
@@ -70,15 +55,19 @@ public class TelaPrincipal extends JPanel {
 		btnAlavanca.setVisible(true);
 		
 		add(btnSair);
-		add(btnAjuda);
 		add(btnAlavanca);
 	}
 	
 	public void montarLabels() {
 		
-		labelEstorno.setBounds(450, 5, 480, 30);
+		labelFichas.setBounds(430, 150, 480, 40);
+		labelFichas.setForeground(Color.white);
+		labelFichas.setFont(new Font("Courier New", Font.BOLD, 30));
+		labelFichas.setVisible(true);
+		
+		labelEstorno.setBounds(1080, 40, 480, 30);
 		labelEstorno.setForeground(Color.white);
-		labelEstorno.setFont(new Font("Courier New", Font.BOLD, 15));
+		labelEstorno.setFont(new Font("Verdana", Font.PLAIN, 15));
 		labelEstorno.setVisible(true);
 		
 		labelPowered.setBounds(80, 672, 100, 30);
@@ -112,6 +101,7 @@ public class TelaPrincipal extends JPanel {
 		add(carta2);
 		add(carta3);
 		add(labelPowered);
+		add(labelFichas);
 	}
 	
 	public void montarTela() {
@@ -122,8 +112,8 @@ public class TelaPrincipal extends JPanel {
 	
 	public void atualizarTela() {
 		
-		this.repaint();
-		this.revalidate();
+		repaint();
+		revalidate();
 	}
 	
 	public JButton getBtnAlavanca() {
@@ -131,5 +121,12 @@ public class TelaPrincipal extends JPanel {
 		return this.btnAlavanca;
 	}
 	
+	public JLabel getLabelFichas() {
+		return labelFichas;
+	}
 	
+	public JButton getBtnSair() {
+		
+		return this.btnSair;
+	}
 }

@@ -1,18 +1,17 @@
 package br.ies.aula.jogo.cacaniquel.modelo.dao.hibernate;
 
-import java.util.List;
 import java.util.Properties;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
+import br.ies.aula.jogo.cacaniquel.modelo.Jogador;
 import br.ies.aula.jogo.cacaniquel.modelo.dao.entidade.MapJogador;
 import br.ies.aula.jogo.cacaniquel.modelo.dao.fachada.JogadorDAO;
 
 public class JogadorDAOHibernate implements JogadorDAO {
 	
 	SessionFactory fabricaDeSessao;
-	
 	
 	public JogadorDAOHibernate () {
 		
@@ -30,38 +29,54 @@ public class JogadorDAOHibernate implements JogadorDAO {
 		fabricaDeSessao = configuracao.buildSessionFactory();
 	}
 	
+	
+	
 	@Override
-	public void inserirJogador(MapJogador mapJogador) {
+	public void enviarJogadorAoBanco(Jogador jogador) {
 		
-		Session sessao = fabricaDeSessao.openSession();
-		sessao.beginTransaction();
-		sessao.persist(mapJogador);
-		sessao.getTransaction().commit();
-		sessao.close();
+			Session sessao = fabricaDeSessao.openSession();
+			sessao.beginTransaction();
+			sessao.persist(converterJogadorToMapJogador(jogador));
+			sessao.getTransaction().commit();
+			sessao.close();
 	}
 
 	@Override
-	public MapJogador buscarNoBanco(MapJogador mapJogador) {
+	public MapJogador buscarJogadorNoBanco(Jogador jogador) {
 		
 			Session sessao = fabricaDeSessao.openSession();
 			try {
-				return sessao.find(MapJogador.class, mapJogador.getId());
+				return sessao.find(MapJogador.class, jogador.getId());
 			
 			} finally {
 				sessao.close();
 			}
 	}
 	
-	public void updatePremio(MapJogador mapJogador) {
+	@Override
+	public MapJogador converterJogadorToMapJogador(Jogador jogador) {
 		
-			Session sessao = fabricaDeSessao.openSession();
-			sessao.beginTransaction();
-			MapJogador jogador = sessao.find(MapJogador.class, mapJogador.getId());
-			jogador.setPremio(jogador.getPremio() + mapJogador.getPremio());
-			jogador = null;
-			sessao.getTransaction().commit();
-			sessao.close();
+		MapJogador mapJogador = new MapJogador();
+		mapJogador.setId(jogador.getId());
+		mapJogador.setNome(jogador.getNome());
+		
+		return mapJogador;
 	}
 
+	@Override
+	public String cadastrarJogador(Jogador jogador) {
+		
+		MapJogador mapJogador = buscarJogadorNoBanco(jogador);
+		
+		if (mapJogador == null) {
+			enviarJogadorAoBanco(jogador);
+			return "Novo jogador cadastrado!";
+			
+		} else {
+			return "Bem-vindo de volta!";
+		}
+	}
+
+	
 	
 }
