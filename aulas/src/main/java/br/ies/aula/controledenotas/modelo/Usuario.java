@@ -5,27 +5,29 @@ import java.util.List;
 
 import br.ies.aula.controledenotas.Nota;
 
-public class Aluno {
-	private Long id;
+public class Usuario {
+	private Integer id;
 	private String nome;
 	private String senha;
 	private String matricula;
+	private Integer tipo;
 	private List<Nota> lstNotas;
 	
-	public Aluno() {
+	public Usuario() {
 	}
 
-	public Aluno(String nome, String senha, String matricula) {
+	public Usuario(String nome, String senha, String matricula, Integer tipo) {
 		this.nome = nome;
 		this.senha = senha;
 		this.matricula = matricula;
+		this.tipo = tipo;
 	}
 
-	public Long getId() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 
@@ -59,5 +61,13 @@ public class Aluno {
 
 	public void setMatricula(String matricula) {
 		this.matricula = matricula;
+	}
+	
+	public Integer getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(Integer tipo) {
+		this.tipo = tipo;
 	}
 }

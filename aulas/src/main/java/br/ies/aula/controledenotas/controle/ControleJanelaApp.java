@@ -36,7 +36,7 @@ public class ControleJanelaApp {
 		iniciarApp();
 	}
 
-	public void salvar(JTextField textFieldMatricula, JComboBox<?> comboBoxMaterias, JTextField textNotaUm, JTextField textNotaUmRecuperacao, JTextField textNotaDois, JTextField textNotaDoisRecuperacao) {
+	public void salvar(JTextField textFieldMatricula, JComboBox<?> comboBoxMaterias, JTextField textNotaUm, JTextField textNotaUmRecuperacao, JTextField textNotaDois, JTextField textNotaDoisRecuperacao, JComboBox<?> comboBoxSemestre) {
 		
 	}
 	

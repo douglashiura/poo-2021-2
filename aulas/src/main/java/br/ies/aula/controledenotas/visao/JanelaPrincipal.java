@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import br.ies.aula.controledenotas.controle.ControleJanelaApp;
+import br.ies.aula.controledenotas.modelo.Materia;
 import br.ies.aula.controledenotas.modelo.RegistroNota;
 
 public class JanelaPrincipal extends JFrame {
@@ -27,12 +28,14 @@ private JLabel labelNotaUmRecuperacao;
 private JLabel labelNotaDois;
 private JLabel labelNotaDoisRecuperacao;
 private JLabel labelMatricula;
+private JLabel labelSemestre;
 private JTextField textNotaUm;
 private JTextField textNotaUmRecuperacao;
 private JTextField textNotaDois;
 private JTextField textNotaDoisRecuperacao;
 private JTextField textFieldMatricula;
 private JComboBox<?> comboBoxMaterias;
+private JComboBox<?> comboBoxSemestre;
 	
 	private ControleJanelaApp controle;
 	
@@ -101,12 +104,18 @@ private JComboBox<?> comboBoxMaterias;
 		labelNotaDoisRecuperacao.setHorizontalAlignment(SwingConstants.LEFT);
 		labelNotaDoisRecuperacao.setBounds(25, 260, 210, 15);
 		
+		labelSemestre = new JLabel("Semestre:");
+		labelSemestre.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		labelSemestre.setHorizontalAlignment(SwingConstants.LEFT);
+		labelSemestre.setBounds(25, 290, 210, 15);
+		
 		panelPrincipal.add(labelMatricula);
 		panelPrincipal.add(labelMateria);
 		panelPrincipal.add(labelNotaUm);
 		panelPrincipal.add(labelNotaUmRecuperacao);
 		panelPrincipal.add(labelNotaDois);
 		panelPrincipal.add(labelNotaDoisRecuperacao);
+		panelPrincipal.add(labelSemestre);
 	}
 
 	private void montarFields() {
@@ -114,8 +123,8 @@ private JComboBox<?> comboBoxMaterias;
 		textFieldMatricula = new JTextField();
 		textFieldMatricula.setBounds(160, 105, 145, 25);
 		
-		String country[]={"India","Aus","U.S.A","England","Newzealand"};        
-		comboBoxMaterias = new JComboBox(country);
+		       
+		comboBoxMaterias = new JComboBox<Materia>(Materia.pesquisarAluno());
 		comboBoxMaterias.setBounds(160, 135, 145, 25);
 		
 		textNotaUm = new JTextField();
@@ -130,12 +139,16 @@ private JComboBox<?> comboBoxMaterias;
 		textNotaDoisRecuperacao = new JTextField();
 		textNotaDoisRecuperacao.setBounds(160, 255, 145, 25);
 		
+		comboBoxSemestre = new JComboBox<Materia>(Materia.pesquisarAluno());
+		comboBoxSemestre.setBounds(160, 285, 145, 25);
+		
 		panelPrincipal.add(textFieldMatricula);
 		panelPrincipal.add(comboBoxMaterias);
 		panelPrincipal.add(textNotaUm);
 		panelPrincipal.add(textNotaUmRecuperacao);
 		panelPrincipal.add(textNotaDois);
 		panelPrincipal.add(textNotaDoisRecuperacao);
+		panelPrincipal.add(comboBoxSemestre);
 		
 	}
 
@@ -146,7 +159,7 @@ private JComboBox<?> comboBoxMaterias;
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				controle.salvar(textFieldMatricula, comboBoxMaterias, textNotaUm, textNotaUmRecuperacao, textNotaDois, textNotaDoisRecuperacao);
+				controle.salvar(textFieldMatricula, comboBoxMaterias, textNotaUm, textNotaUmRecuperacao, textNotaDois, textNotaDoisRecuperacao, comboBoxSemestre);
 			}
 			
 		});

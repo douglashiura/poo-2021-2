@@ -8,20 +8,20 @@ import java.sql.SQLException;
 import br.ies.aula.controledenotas.banco.BancoException;
 import br.ies.aula.controledenotas.banco.BancoJdbc;
 
-public class AlunoBD {
+public class UsuarioBD {
 
 private String SQL_INSERT = "INSERT INTO public.usuario (nome, senha, matricula, tipo) VALUES (?, ?, ?, 1);";
 	
-	public void inserir(Aluno aluno) throws BancoException{
+	public void inserir(Usuario usuario) throws BancoException{
 		Connection conexao = BancoJdbc.obterConexao();
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 				
 		try {
 			statement = conexao.prepareStatement(SQL_INSERT, java.sql.Statement.RETURN_GENERATED_KEYS);
-			statement.setString(1, aluno.getNome());
-			statement.setString(2, aluno.getSenha());
-			statement.setString(3, aluno.getMatricula());
+			statement.setString(1, usuario.getNome());
+			statement.setString(2, usuario.getSenha());
+			statement.setString(3, usuario.getMatricula());
 			
 			int linhasAfetadas = statement.executeUpdate();
 			
@@ -29,8 +29,8 @@ private String SQL_INSERT = "INSERT INTO public.usuario (nome, senha, matricula,
 				resultSet = statement.getGeneratedKeys();	
 				
 				if (resultSet.next()) {
-					Long id = resultSet.getLong(1);
-					aluno.setId(id);
+					Integer id = resultSet.getInt(1);
+					usuario.setId(id);
 				}
 			}
 			else 
@@ -46,7 +46,7 @@ private String SQL_INSERT = "INSERT INTO public.usuario (nome, senha, matricula,
 		
 	}
 	
-	public Aluno pesquisarAluno(String matricula) {
+	public Usuario pesquisarAluno(String matricula) {
 		Connection conexao = BancoJdbc.obterConexao();
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
@@ -58,7 +58,7 @@ private String SQL_INSERT = "INSERT INTO public.usuario (nome, senha, matricula,
 			resultSet = statement.executeQuery();
 			
 			if(resultSet.next()) {
-				Aluno aluno = instanciarAluno(resultSet);
+				Usuario aluno = instanciarAluno(resultSet);
 				return aluno;
 			}
 			
@@ -74,10 +74,10 @@ private String SQL_INSERT = "INSERT INTO public.usuario (nome, senha, matricula,
 		
 	}
 
-	private Aluno instanciarAluno(ResultSet resultSet) throws SQLException {
-		Aluno aluno = new Aluno();
+	private Usuario instanciarAluno(ResultSet resultSet) throws SQLException {
+		Usuario aluno = new Usuario();
 			
-		aluno.setId(resultSet.getLong("id"));
+		aluno.setId(resultSet.getInt("id"));
 		aluno.setNome(resultSet.getString("nome"));
 		aluno.setSenha(resultSet.getString("senha"));
 		aluno.setMatricula(resultSet.getString("matricula"));

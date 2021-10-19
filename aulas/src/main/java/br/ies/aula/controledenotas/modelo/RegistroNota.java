@@ -2,12 +2,12 @@ package br.ies.aula.controledenotas.modelo;
 
 public class RegistroNota {
 	private Long id;
-	private Aluno aluno;
+	private Usuario aluno;
 	
 	public RegistroNota() {
 	}
 	
-	public RegistroNota(Aluno aluno) {
+	public RegistroNota(Usuario aluno) {
 		this.aluno = aluno;
 	}
 
@@ -23,11 +23,11 @@ public class RegistroNota {
 		this.id = id;
 	}
 
-	public Aluno getAluno() {
+	public Usuario getAluno() {
 		return aluno;
 	}
 
-	public void setAluno(Aluno aluno) {
+	public void setAluno(Usuario aluno) {
 		this.aluno = aluno;
 	}
 

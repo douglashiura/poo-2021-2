@@ -11,12 +11,12 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
-import br.ies.aula.controledenotas.modelo.Aluno;
-import br.ies.aula.controledenotas.modelo.AlunoBD;
+import br.ies.aula.controledenotas.modelo.Usuario;
+import br.ies.aula.controledenotas.modelo.UsuarioBD;
 
 public class ControleJanelaCadastro implements ActionListener {
 
-	private AlunoBD alunoBD;
+	private UsuarioBD alunoBD;
 	private JTextField textFieldNome;
 	private JPasswordField fieldSenha;
 	private JTextField textFieldMatricula;
@@ -25,7 +25,7 @@ public class ControleJanelaCadastro implements ActionListener {
 		this.textFieldNome = textFieldNome;
 		this.fieldSenha = fieldSenha;
 		this.textFieldMatricula = textFieldMatricula;
-		alunoBD = new AlunoBD();
+		alunoBD = new UsuarioBD();
 	}
 
 	@Override
@@ -34,7 +34,7 @@ public class ControleJanelaCadastro implements ActionListener {
 		String senha = String.valueOf(fieldSenha.getPassword());
 		String matricula = textFieldMatricula.getText();
 		
-		Aluno aluno = new Aluno(nome, senha, matricula);
+		Usuario aluno = new Usuario(nome, senha, matricula, 1);
 		
 		alunoBD.inserir(aluno);
 		
