@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 
 @Entity
@@ -15,8 +16,10 @@ public class Rodada {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	@ManyToMany()
+	@JoinTable(name = "JogadoresDaRodada")
 	private List<Pessoa> jogadores;
 	@ManyToMany()
+	@JoinTable(name = "TorcedoresDaRodada")
 	private List<Pessoa> torcedores;
 
 	public Rodada() {
