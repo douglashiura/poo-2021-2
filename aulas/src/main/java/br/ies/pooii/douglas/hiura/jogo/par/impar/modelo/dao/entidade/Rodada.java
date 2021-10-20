@@ -16,7 +16,7 @@ public class Rodada {
 	private Integer id;
 	@ManyToMany()
 	private List<Pessoa> jogadores;
-	@ManyToMany
+	@ManyToMany()
 	private List<Pessoa> torcedores;
 
 	public Rodada() {
