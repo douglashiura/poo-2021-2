@@ -22,9 +22,8 @@ public class GerenciadorDeFabricaDeHibernate {
 		properties.put(Environment.USER, "comexchain");
 		properties.put(Environment.PASS, "comexchain");
 		properties.put(Environment.AUTOCOMMIT, "false");
-
 		properties.put(Environment.SHOW_SQL, "true");
-		properties.put(Environment.HBM2DDL_AUTO, "create");
+		properties.put(Environment.HBM2DDL_AUTO, "validate");
 		Configuration configuration = new Configuration();
 		configuration.addAnnotatedClass(Pessoa.class);
 		configuration.addAnnotatedClass(Rodada.class);

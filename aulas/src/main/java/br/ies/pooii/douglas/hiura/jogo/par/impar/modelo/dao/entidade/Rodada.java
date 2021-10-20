@@ -21,7 +21,12 @@ public class Rodada {
 	@ManyToMany()
 	@JoinTable(name = "TorcedoresDaRodada")
 	private List<Pessoa> torcedores;
+	private String nome;
 
+	public Rodada(String nome) {
+		this();
+		this.nome = nome;
+	}
 	public Rodada() {
 		jogadores = new LinkedList<Pessoa>();
 		torcedores = new LinkedList<Pessoa>();
@@ -37,5 +42,9 @@ public class Rodada {
 
 	public Integer getId() {
 		return id;
+	}
+
+	public String getNome() {
+		return nome;
 	}
 }
