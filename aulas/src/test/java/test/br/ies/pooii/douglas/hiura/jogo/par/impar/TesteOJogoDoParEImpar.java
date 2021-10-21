@@ -3,10 +3,7 @@ package test.br.ies.pooii.douglas.hiura.jogo.par.impar;
 import static org.junit.Assert.assertEquals;
 
 import java.util.List;
-import java.util.Properties;
 
-import org.hibernate.cfg.Configuration;
-import org.hibernate.cfg.Environment;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,7 +15,6 @@ import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.ResultadoDoJogo;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.RodadaDoJogo;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.TiposDeAposta;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.Torcedor;
-import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.entidade.Pessoa;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.entidade.Rodada;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.hibernate.RodadaDAOHibernate;
 
@@ -29,19 +25,7 @@ public class TesteOJogoDoParEImpar implements Especulavel {
 
 	@Before
 	public void configurarOTeste() {
-		Properties properties = new Properties();
-		properties.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
-		properties.put(Environment.DRIVER, "org.postgresql.Driver");
-		properties.put(Environment.URL, "jdbc:postgresql://localhost:5432/saas");
-		properties.put(Environment.USER, "comexchain");
-		properties.put(Environment.PASS, "comexchain");
-		properties.put(Environment.SHOW_SQL, "true");
-		properties.put(Environment.HBM2DDL_AUTO, "create");
-		Configuration configuration = new Configuration();
-		configuration.addAnnotatedClass(Pessoa.class);
-		configuration.addAnnotatedClass(Rodada.class);
-		configuration.setProperties(properties);
-		configuration.buildSessionFactory();
+		AjudanteDeTeste.limpaBancoDeDados();
 	}
 
 	@Test

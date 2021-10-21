@@ -23,19 +23,7 @@ public class TesteHibernate {
 
 	@Before
 	public void configurarOTeste() {
-		Properties properties = new Properties();
-		properties.put(Environment.DIALECT, "org.hibernate.dialect.PostgreSQLDialect");
-		properties.put(Environment.DRIVER, "org.postgresql.Driver");
-		properties.put(Environment.URL, "jdbc:postgresql://localhost:5432/saas");
-		properties.put(Environment.USER, "comexchain");
-		properties.put(Environment.PASS, "comexchain");
-		properties.put(Environment.SHOW_SQL, "true");
-		properties.put(Environment.HBM2DDL_AUTO, "create");
-		Configuration configuration = new Configuration();
-		configuration.addAnnotatedClass(Pessoa.class);
-		configuration.addAnnotatedClass(Rodada.class);
-		configuration.setProperties(properties);
-		configuration.buildSessionFactory();
+		AjudanteDeTeste.limpaBancoDeDados();
 	}
 
 	@Test
@@ -126,6 +114,7 @@ public class TesteHibernate {
 		assertEquals(rodadaDois.getId(), rodadasDoDouglas.get(1).getId());
 		assertEquals("Final", rodadasDoDouglas.get(1).getNome());
 	}
+
 	@Test
 	public void listarRodadas() throws Exception {
 		Pessoa douglas = new Pessoa();
