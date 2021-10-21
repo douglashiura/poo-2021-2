@@ -56,7 +56,10 @@ public class RodadaDAOHibernate implements RodadaDAO {
 		try {
 			String hql = "SELECT rodada FROM Rodada rodada ORDER BY rodada.id ASC";
 			Query<Rodada> createQuery = sessao.createQuery(hql, Rodada.class);
-			return createQuery.getResultList();
+			List<Rodada> resultList = createQuery.getResultList();
+			resultList.forEach(rodada -> rodada.getJogadores().forEach(jogador -> jogador.getNome()));
+			resultList.forEach(rodada -> rodada.getTorcedores().forEach(torcedor -> torcedor.getNome()));
+			return resultList;
 		} finally {
 			sessao.close();
 		}

@@ -3,14 +3,18 @@ package br.ies.pooii.douglas.hiura.jogo.par.impar.modelo;
 import java.util.LinkedList;
 import java.util.List;
 
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.entidade.Rodada;
+
 public class RodadaDoJogo {
 
 	private List<Especulavel> espectadores;
 	private EstrategiaDeAposta estadoDoJogo;
+	private Rodada rodada;
 
 	public RodadaDoJogo() {
+		rodada = new Rodada("Rodada anonima");
 		espectadores = new LinkedList<Especulavel>();
-		estadoDoJogo = new EstrategiaDaPrimeiraJogada();
+		estadoDoJogo = new EstrategiaDaPrimeiraJogada(this);
 	}
 
 	public void querAssistir(Torcedor torcedor) {
@@ -26,11 +30,14 @@ public class RodadaDoJogo {
 		estadoDoJogo = new EstrategiaDaSegundaJogada(aposta, this);
 	}
 
-
 	public void avisarOEspeculadores(ResultadoDoJogo resultado) {
 		for (Especulavel especulavel : espectadores) {
 			especulavel.obtemOResultado(resultado);
 		}
+	}
+
+	public Rodada comoUmaEntidade() {
+		return rodada;
 	}
 
 }
