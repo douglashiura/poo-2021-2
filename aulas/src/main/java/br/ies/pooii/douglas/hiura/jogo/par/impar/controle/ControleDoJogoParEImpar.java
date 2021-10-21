@@ -6,12 +6,12 @@ import java.util.List;
 
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.Jogador;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.ModeloDoJogoDeParEImpar;
-import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.Rodada;
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.RodadaDoJogo;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.visao.TelaDoJogoParEImpar;
 
 public class ControleDoJogoParEImpar {
 
-	private Rodada rodada;
+	private RodadaDoJogo rodada;
 
 	public ControleDoJogoParEImpar(ModeloDoJogoDeParEImpar modelo, List<TelaDoJogoParEImpar> janelas) {
 		rodada = modelo.novaRodada();

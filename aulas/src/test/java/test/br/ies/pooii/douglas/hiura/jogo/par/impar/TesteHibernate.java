@@ -126,4 +126,20 @@ public class TesteHibernate {
 		assertEquals(rodadaDois.getId(), rodadasDoDouglas.get(1).getId());
 		assertEquals("Final", rodadasDoDouglas.get(1).getNome());
 	}
+	@Test
+	public void listarRodadas() throws Exception {
+		Pessoa douglas = new Pessoa();
+		douglas.setNome("Douglas");
+		douglas.setSenha("s4nh4");
+		Rodada rodadaUm = new Rodada("GrandePremmio");
+		rodadaUm.getJogadores().add(douglas);
+		PessoaDAOHibernate daoHibernate = new PessoaDAOHibernate();
+		daoHibernate.inserir(douglas);
+		RodadaDAOHibernate daoRodadaHibernate = new RodadaDAOHibernate();
+		daoRodadaHibernate.inserir(rodadaUm);
+		List<Rodada> rodadasDoDouglas = daoRodadaHibernate.listar();
+		assertEquals(1, rodadasDoDouglas.size());
+		assertEquals(rodadaUm.getId(), rodadasDoDouglas.get(0).getId());
+		assertEquals("GrandePremmio", rodadasDoDouglas.get(0).getNome());
+	}
 }

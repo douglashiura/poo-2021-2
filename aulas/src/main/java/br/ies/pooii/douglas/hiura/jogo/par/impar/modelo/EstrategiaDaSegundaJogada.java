@@ -4,10 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 
 public class EstrategiaDaSegundaJogada implements EstrategiaDeAposta {
-	private Rodada rodada;
+	private RodadaDoJogo rodada;
 	private Aposta daPrimeiraJogada;
 
-	public EstrategiaDaSegundaJogada(Aposta daPrimeiraJogada, Rodada rodada) {
+	public EstrategiaDaSegundaJogada(Aposta daPrimeiraJogada, RodadaDoJogo rodada) {
 		this.daPrimeiraJogada = daPrimeiraJogada;
 		this.rodada = rodada;
 	}

@@ -3,12 +3,12 @@ package br.ies.pooii.douglas.hiura.jogo.par.impar.modelo;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Rodada {
+public class RodadaDoJogo {
 
 	private List<Especulavel> espectadores;
 	private EstrategiaDeAposta estadoDoJogo;
 
-	public Rodada() {
+	public RodadaDoJogo() {
 		espectadores = new LinkedList<Especulavel>();
 		estadoDoJogo = new EstrategiaDaPrimeiraJogada();
 	}

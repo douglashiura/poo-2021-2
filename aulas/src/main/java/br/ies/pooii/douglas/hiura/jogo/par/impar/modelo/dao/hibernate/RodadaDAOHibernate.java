@@ -50,4 +50,16 @@ public class RodadaDAOHibernate implements RodadaDAO {
 		}
 	}
 
+	public List<Rodada> listar() {
+		Session sessao = fabricaDeSessao.openSession();
+		sessao.beginTransaction();
+		try {
+			String hql = "SELECT rodada FROM Rodada rodada ORDER BY rodada.id ASC";
+			Query<Rodada> createQuery = sessao.createQuery(hql, Rodada.class);
+			return createQuery.getResultList();
+		} finally {
+			sessao.close();
+		}
+	}
+
 }
