@@ -21,7 +21,7 @@ public class ControleDoJogoParEImpar {
 
 	private void adicionarOJogadorNasJanelas(List<TelaDoJogoParEImpar> janelas) {
 		for (TelaDoJogoParEImpar janela : janelas) {
-			Jogador jogador = new Jogador(janela);
+			Jogador jogador = new Jogador(janela, "Se Joga", "123");
 			janela.fixarJogador(jogador);
 			rodada.querInscreverSe(jogador);
 		}

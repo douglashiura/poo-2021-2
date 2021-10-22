@@ -1,6 +1,7 @@
 package br.ies.pooii.douglas.hiura.jogo.par.impar.modelo;
 
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.entidade.Rodada;
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.hibernate.PessoaDAOHibernate;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.hibernate.RodadaDAOHibernate;
 
 public class EstrategiaDaPrimeiraJogada implements EstrategiaDeAposta {
@@ -14,10 +15,10 @@ public class EstrategiaDaPrimeiraJogada implements EstrategiaDeAposta {
 	@Override
 	public void recebeUmaAposta(Aposta aposta) {
 		Rodada rodadaEntidade = rodada.comoUmaEntidade();
-//		PessoaDAOHibernate daoHibernate = new PessoaDAOHibernate();
-//		daoHibernate.inserir(douglas);
-//		daoHibernate.inserir(lucas);
-//		daoHibernate.inserir(brayan);
+		PessoaDAOHibernate daoHibernate = new PessoaDAOHibernate();
+		daoHibernate.inserir(rodadaEntidade.getJogadores().get(0));
+		daoHibernate.inserir(rodadaEntidade.getJogadores().get(1));
+		daoHibernate.inserir(rodadaEntidade.getTorcedores().get(0));
 		RodadaDAOHibernate daoRodadaHibernate = new RodadaDAOHibernate();
 		daoRodadaHibernate.inserir(rodadaEntidade);
 	}

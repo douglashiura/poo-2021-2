@@ -18,10 +18,12 @@ public class RodadaDoJogo {
 	}
 
 	public void querAssistir(Torcedor torcedor) {
+		rodada.getTorcedores().add(torcedor.comoPessoa());
 		espectadores.add(torcedor.obterSuaParteEspeculavel());
 	}
 
 	public void querInscreverSe(Jogador jogador) {
+		rodada.getJogadores().add(jogador.comoPessoa());
 		espectadores.add(jogador.obterSuaParteEspeculavel());
 	}
 

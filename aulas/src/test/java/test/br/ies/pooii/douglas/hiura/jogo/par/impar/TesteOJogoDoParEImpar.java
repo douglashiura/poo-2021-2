@@ -30,9 +30,9 @@ public class TesteOJogoDoParEImpar implements Especulavel {
 
 	@Test
 	public void umaRodadaPerfeitaEntreODouglasEBrayan() throws Exception {
-		Torcedor lucas = new Torcedor(this);
-		Jogador douglas = new Jogador(this);
-		brayan = new Jogador(this);
+		Torcedor lucas = new Torcedor(this, "Lucas", "1234");
+		Jogador douglas = new Jogador(this, "Douglas", "123");
+		brayan = new Jogador(this, "Brayan", "2344");
 		ModeloDoJogoDeParEImpar jogo = new ModeloDoJogoDeParEImpar();
 		Aposta doDouglas = new Aposta(douglas, Integer.valueOf(5), TiposDeAposta.PAR);
 		doBrayan = new Aposta(brayan, Integer.valueOf(4), TiposDeAposta.IMPAR);
@@ -47,6 +47,30 @@ public class TesteOJogoDoParEImpar implements Especulavel {
 		assertEquals(1, rodadas.size());
 		assertEquals(2, rodadas.get(0).getJogadores().size());
 		assertEquals(1, rodadas.get(0).getTorcedores().size());
+	}
+	
+	
+	@Test
+	public void umaRodadacomDoisJogadoresEDoisTorcedores() throws Exception {
+		Torcedor lucas = new Torcedor(this, "Lucas", "1234");
+		Torcedor larissa = new Torcedor(this, "Larissa", "1234");
+		Jogador douglas = new Jogador(this, "Douglas", "123");
+		brayan = new Jogador(this, "Brayan", "2344");
+		ModeloDoJogoDeParEImpar jogo = new ModeloDoJogoDeParEImpar();
+		Aposta doDouglas = new Aposta(douglas, Integer.valueOf(5), TiposDeAposta.PAR);
+		doBrayan = new Aposta(brayan, Integer.valueOf(4), TiposDeAposta.IMPAR);
+		RodadaDoJogo umaRodada = jogo.novaRodada();
+		umaRodada.querAssistir(lucas);
+		umaRodada.querAssistir(larissa);
+		umaRodada.querInscreverSe(douglas);
+		umaRodada.querInscreverSe(brayan);
+		umaRodada.aposta(doDouglas);
+		umaRodada.aposta(doBrayan);
+		RodadaDAOHibernate daoRodadaHibernate = new RodadaDAOHibernate();
+		List<Rodada> rodadas = daoRodadaHibernate.listar();
+		assertEquals(1, rodadas.size());
+		assertEquals(2, rodadas.get(0).getJogadores().size());
+		assertEquals(2, rodadas.get(0).getTorcedores().size());
 	}
 
 	public void obtemOResultado(ResultadoDoJogo resultado) {
