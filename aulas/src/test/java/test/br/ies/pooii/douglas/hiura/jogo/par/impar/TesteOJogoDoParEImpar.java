@@ -18,7 +18,7 @@ import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.Torcedor;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.entidade.Rodada;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.hibernate.RodadaDAOHibernate;
 
-public class TesteOJogoDoParEImpar implements Especulavel {
+public class TesteOJogoDoParEImpar {
 
 	private Jogador brayan;
 	private Aposta doBrayan;
@@ -30,9 +30,9 @@ public class TesteOJogoDoParEImpar implements Especulavel {
 
 	@Test
 	public void umaRodadaPerfeitaEntreODouglasEBrayan() throws Exception {
-		Torcedor lucas = new Torcedor(this, "Lucas", "1234");
-		Jogador douglas = new Jogador(this, "Douglas", "123");
-		brayan = new Jogador(this, "Brayan", "2344");
+		Torcedor lucas = new Torcedor(new ResultadoBrayanDouglas(), "Lucas", "1234");
+		Jogador douglas = new Jogador(new ResultadoBrayanDouglas(), "Douglas", "123");
+		brayan = new Jogador(new ResultadoBrayanDouglas(), "Brayan", "2344");
 		ModeloDoJogoDeParEImpar jogo = new ModeloDoJogoDeParEImpar();
 		Aposta doDouglas = new Aposta(douglas, Integer.valueOf(5), TiposDeAposta.PAR);
 		doBrayan = new Aposta(brayan, Integer.valueOf(4), TiposDeAposta.IMPAR);
@@ -48,14 +48,13 @@ public class TesteOJogoDoParEImpar implements Especulavel {
 		assertEquals(2, rodadas.get(0).getJogadores().size());
 		assertEquals(1, rodadas.get(0).getTorcedores().size());
 	}
-	
-	
+
 	@Test
 	public void umaRodadacomDoisJogadoresEDoisTorcedores() throws Exception {
-		Torcedor lucas = new Torcedor(this, "Lucas", "1234");
-		Torcedor larissa = new Torcedor(this, "Larissa", "1234");
-		Jogador douglas = new Jogador(this, "Douglas", "123");
-		brayan = new Jogador(this, "Brayan", "2344");
+		Torcedor lucas = new Torcedor(new ResultadoBrayanDouglas(), "Lucas", "1234");
+		Torcedor larissa = new Torcedor(new ResultadoBrayanDouglas(), "Larissa", "1234");
+		Jogador douglas = new Jogador(new ResultadoBrayanDouglas(), "Douglas", "123");
+		brayan = new Jogador(new ResultadoBrayanDouglas(), "Brayan", "2344");
 		ModeloDoJogoDeParEImpar jogo = new ModeloDoJogoDeParEImpar();
 		Aposta doDouglas = new Aposta(douglas, Integer.valueOf(5), TiposDeAposta.PAR);
 		doBrayan = new Aposta(brayan, Integer.valueOf(4), TiposDeAposta.IMPAR);
@@ -73,12 +72,14 @@ public class TesteOJogoDoParEImpar implements Especulavel {
 		assertEquals(2, rodadas.get(0).getTorcedores().size());
 	}
 
-	public void obtemOResultado(ResultadoDoJogo resultado) {
-		List<Aposta> apostasVencedoras = resultado.obterApostasVencedoras();
-		assertEquals(Integer.valueOf(9), resultado.obterValorSomado());
-		assertEquals(TiposDeAposta.IMPAR, resultado.obterTipoDaApostaVencedora());
-		assertEquals(1, apostasVencedoras.size());
-		assertEquals(doBrayan, apostasVencedoras.get(0));
-	}
+	public class ResultadoBrayanDouglas implements Especulavel {
+		public void obtemOResultado(ResultadoDoJogo resultado) {
+			List<Aposta> apostasVencedoras = resultado.obterApostasVencedoras();
+			assertEquals(Integer.valueOf(9), resultado.obterValorSomado());
+			assertEquals(TiposDeAposta.IMPAR, resultado.obterTipoDaApostaVencedora());
+			assertEquals(1, apostasVencedoras.size());
+			assertEquals(doBrayan, apostasVencedoras.get(0));
+		}
 
+	}
 }

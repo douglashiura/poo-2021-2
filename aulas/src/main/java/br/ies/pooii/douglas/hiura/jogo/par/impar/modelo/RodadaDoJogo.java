@@ -29,6 +29,7 @@ public class RodadaDoJogo {
 
 	public void aposta(Aposta aposta) {
 		estadoDoJogo.recebeUmaAposta(aposta);
+		
 		estadoDoJogo = new EstrategiaDaSegundaJogada(aposta, this);
 	}
 
