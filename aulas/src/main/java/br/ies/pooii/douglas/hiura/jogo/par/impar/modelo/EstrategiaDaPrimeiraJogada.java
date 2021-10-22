@@ -16,7 +16,7 @@ public class EstrategiaDaPrimeiraJogada implements EstrategiaDeAposta {
 	}
 
 	@Override
-	public void recebeUmaAposta(Aposta aposta) {
+	public void recebeApostas(List<Aposta> apostas) {
 		Rodada rodadaEntidade = rodada.comoUmaEntidade();
 		PessoaDAOHibernate daoHibernate = new PessoaDAOHibernate();
 		List<Pessoa> jogadores = rodadaEntidade.getJogadores();

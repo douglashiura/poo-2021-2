@@ -10,8 +10,10 @@ public class RodadaDoJogo {
 	private List<Especulavel> espectadores;
 	private EstrategiaDeAposta estadoDoJogo;
 	private Rodada rodada;
+	private List<Aposta> apostas;
 
 	public RodadaDoJogo() {
+		apostas = new LinkedList<Aposta>();
 		rodada = new Rodada("Rodada anonima");
 		espectadores = new LinkedList<Especulavel>();
 		estadoDoJogo = new EstrategiaDaPrimeiraJogada(this);
@@ -28,9 +30,9 @@ public class RodadaDoJogo {
 	}
 
 	public void aposta(Aposta aposta) {
-		estadoDoJogo.recebeUmaAposta(aposta);
-		
-		estadoDoJogo = new EstrategiaDaSegundaJogada(aposta, this);
+		apostas.add(aposta);
+		estadoDoJogo.recebeApostas(apostas);
+		estadoDoJogo = new EstrategiaDaUltimaJogada(this);
 	}
 
 	public void avisarOEspeculadores(ResultadoDoJogo resultado) {
