@@ -3,48 +3,57 @@ package com.github.pedrolucascorrea.poo.test.calculadora.view;
 import java.awt.Color;
 import java.awt.GridLayout;
 
+import javax.swing.JButton;
 import javax.swing.JPanel;
 
-public class NumbersPanel extends JPanel {
-	
+public class NumbersPanel extends JPanel{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 
-	
 	public NumbersPanel() {
+		JButton button1 = new JButton("1");
+		JButton button2 = new JButton("2");
+		JButton button3 = new JButton("3");
+		JButton button4 = new JButton("4");
+		JButton button5 = new JButton("5");
+		JButton button6 = new JButton("6");
+		JButton button7 = new JButton("7");
+		JButton button8 = new JButton("8");
+		JButton button9 = new JButton("9");
+		JButton button0 = new JButton("0");
+
+		JButton dotButton = new JButton(".");
+		JButton sumButton = new JButton("+");
+		JButton subButton = new JButton("-");
+		JButton multButton = new JButton("*");
+		JButton divButton = new JButton("/");
+		JButton clearButton = new JButton("C");
 		
-		JPanel numbersPanel = new JPanel();
-		JButtons b = new JButtons();
-		
-		numbersPanel.setBackground(Color.lightGray);
-		numbersPanel.add(b.button1);
-		numbersPanel.add(b.button2);
-		numbersPanel.add(b.button3);
-		numbersPanel.add(b.sumButton);
+		this.setBackground(Color.lightGray);
+		this.add(button1);
+		this.add(button2);
+		this.add(button3);
+		this.add(sumButton);
 
-		numbersPanel.add(b.button4);
-		numbersPanel.add(b.button5);
-		numbersPanel.add(b.button6);
-		numbersPanel.add(b.subButton);
+		this.add(button4);
+		this.add(button5);
+		this.add(button6);
+		this.add(subButton);
 
-		numbersPanel.add(b.button7);
-		numbersPanel.add(b.button8);
-		numbersPanel.add(b.button9);
-		numbersPanel.add(b.multButton);
+		this.add(button7);
+		this.add(button8);
+		this.add(button9);
+		this.add(multButton);
 
-		numbersPanel.add(b.button0);
-		numbersPanel.add(b.dotButton);
-		numbersPanel.add(b.clearButton);
-		numbersPanel.add(b.divButton);
+		this.add(button0);
+		this.add(dotButton);
+		this.add(clearButton);
+		this.add(divButton);
 
-		numbersPanel.setLayout(new GridLayout(4, 4, 3, 3));
-
-	 } 
-		
+		this.setLayout(new GridLayout(4, 4, 3, 3));
+	}
 	
 	
-	
-
 }
