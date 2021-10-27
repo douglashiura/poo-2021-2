@@ -22,6 +22,7 @@ public class TesteOJogoDoParEImpar {
 
 	private Jogador brayan;
 	private Aposta doBrayan;
+	private Aposta doLucas;
 
 	@Before
 	public void configurarOTeste() {
@@ -48,6 +49,29 @@ public class TesteOJogoDoParEImpar {
 		assertEquals(2, rodadas.get(0).getJogadores().size());
 		assertEquals(1, rodadas.get(0).getTorcedores().size());
 	}
+	
+	@Test
+	public void umaRodadaComTresJogadores() throws Exception {
+		Jogador lucas = new Jogador(new ResultadoBrayanDouglasELucas(), "Lucas", "1234");
+		Jogador douglas = new Jogador(new ResultadoBrayanDouglasELucas(), "Douglas", "123");
+		brayan = new Jogador(new ResultadoBrayanDouglasELucas(), "Brayan", "2344");
+		ModeloDoJogoDeParEImpar jogo = new ModeloDoJogoDeParEImpar();
+		Aposta doDouglas = new Aposta(douglas, Integer.valueOf(5), TiposDeAposta.PAR);
+		doBrayan = new Aposta(brayan, Integer.valueOf(4), TiposDeAposta.IMPAR);
+		doLucas = new Aposta(lucas, Integer.valueOf(4), TiposDeAposta.IMPAR);
+		RodadaDoJogo umaRodada = jogo.novaRodada();
+		umaRodada.querInscreverSe(lucas);
+		umaRodada.querInscreverSe(douglas);
+		umaRodada.querInscreverSe(brayan);
+		umaRodada.aposta(doDouglas);
+		umaRodada.aposta(doBrayan);
+		umaRodada.aposta(doLucas);
+		RodadaDAOHibernate daoRodadaHibernate = new RodadaDAOHibernate();
+		List<Rodada> rodadas = daoRodadaHibernate.listar();
+		assertEquals(1, rodadas.size());
+		assertEquals(2, rodadas.get(0).getJogadores().size());
+		assertEquals(1, rodadas.get(0).getTorcedores().size());
+	}
 
 	@Test
 	public void umaRodadacomDoisJogadoresEDoisTorcedores() throws Exception {
@@ -65,11 +89,12 @@ public class TesteOJogoDoParEImpar {
 		umaRodada.querInscreverSe(brayan);
 		umaRodada.aposta(doDouglas);
 		umaRodada.aposta(doBrayan);
+		umaRodada.aposta(doLucas);	
 		RodadaDAOHibernate daoRodadaHibernate = new RodadaDAOHibernate();
 		List<Rodada> rodadas = daoRodadaHibernate.listar();
 		assertEquals(1, rodadas.size());
-		assertEquals(2, rodadas.get(0).getJogadores().size());
-		assertEquals(2, rodadas.get(0).getTorcedores().size());
+		assertEquals(3, rodadas.get(0).getJogadores().size());
+		assertEquals(0, rodadas.get(0).getTorcedores().size());
 	}
 
 	public class ResultadoBrayanDouglas implements Especulavel {
@@ -79,6 +104,17 @@ public class TesteOJogoDoParEImpar {
 			assertEquals(TiposDeAposta.IMPAR, resultado.obterTipoDaApostaVencedora());
 			assertEquals(1, apostasVencedoras.size());
 			assertEquals(doBrayan, apostasVencedoras.get(0));
+		}
+	}
+	
+	public class ResultadoBrayanDouglasELucas implements Especulavel {
+		public void obtemOResultado(ResultadoDoJogo resultado) {
+			List<Aposta> apostasVencedoras = resultado.obterApostasVencedoras();
+			assertEquals(Integer.valueOf(13), resultado.obterValorSomado());
+			assertEquals(TiposDeAposta.IMPAR, resultado.obterTipoDaApostaVencedora());
+			assertEquals(2, apostasVencedoras.size());
+			assertEquals(doBrayan, apostasVencedoras.get(0));
+			assertEquals(doLucas, apostasVencedoras.get(1));
 		}
 
 	}
