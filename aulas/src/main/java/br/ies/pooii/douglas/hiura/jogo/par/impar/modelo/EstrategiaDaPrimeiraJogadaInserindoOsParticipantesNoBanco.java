@@ -7,11 +7,11 @@ import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.entidade.Rodada;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.hibernate.PessoaDAOHibernate;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.hibernate.RodadaDAOHibernate;
 
-public class EstrategiaDaPrimeiraJogada implements EstrategiaDeAposta {
+public class EstrategiaDaPrimeiraJogadaInserindoOsParticipantesNoBanco implements EstrategiaDeAposta {
 
 	private RodadaDoJogo rodada;
 
-	public EstrategiaDaPrimeiraJogada(RodadaDoJogo rodada) {
+	public EstrategiaDaPrimeiraJogadaInserindoOsParticipantesNoBanco(RodadaDoJogo rodada) {
 		this.rodada = rodada;
 	}
 
@@ -25,6 +25,7 @@ public class EstrategiaDaPrimeiraJogada implements EstrategiaDeAposta {
 		inserirPessoas(torcedores, daoHibernate);
 		RodadaDAOHibernate daoRodadaHibernate = new RodadaDAOHibernate();
 		daoRodadaHibernate.inserir(rodadaEntidade);
+		rodada.jaInserirOsJogadoresEARodadaNoBanco();
 	}
 
 	private void inserirPessoas(List<Pessoa> pessoas, PessoaDAOHibernate daoHibernate) {

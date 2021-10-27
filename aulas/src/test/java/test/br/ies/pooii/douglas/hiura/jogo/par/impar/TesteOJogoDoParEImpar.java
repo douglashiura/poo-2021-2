@@ -69,8 +69,8 @@ public class TesteOJogoDoParEImpar {
 		RodadaDAOHibernate daoRodadaHibernate = new RodadaDAOHibernate();
 		List<Rodada> rodadas = daoRodadaHibernate.listar();
 		assertEquals(1, rodadas.size());
-		assertEquals(2, rodadas.get(0).getJogadores().size());
-		assertEquals(1, rodadas.get(0).getTorcedores().size());
+		assertEquals(3, rodadas.get(0).getJogadores().size());
+		assertEquals(0, rodadas.get(0).getTorcedores().size());
 	}
 
 	@Test
@@ -89,12 +89,11 @@ public class TesteOJogoDoParEImpar {
 		umaRodada.querInscreverSe(brayan);
 		umaRodada.aposta(doDouglas);
 		umaRodada.aposta(doBrayan);
-		umaRodada.aposta(doLucas);	
 		RodadaDAOHibernate daoRodadaHibernate = new RodadaDAOHibernate();
 		List<Rodada> rodadas = daoRodadaHibernate.listar();
 		assertEquals(1, rodadas.size());
-		assertEquals(3, rodadas.get(0).getJogadores().size());
-		assertEquals(0, rodadas.get(0).getTorcedores().size());
+		assertEquals(2, rodadas.get(0).getJogadores().size());
+		assertEquals(2, rodadas.get(0).getTorcedores().size());
 	}
 
 	public class ResultadoBrayanDouglas implements Especulavel {

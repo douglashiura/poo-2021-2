@@ -16,7 +16,7 @@ public class RodadaDoJogo {
 		apostas = new LinkedList<Aposta>();
 		rodada = new Rodada("Rodada anonima");
 		espectadores = new LinkedList<Especulavel>();
-		estadoDoJogo = new EstrategiaDaPrimeiraJogada(this);
+		estadoDoJogo = new EstrategiaDaPrimeiraJogadaInserindoOsParticipantesNoBanco(this);
 	}
 
 	public void querAssistir(Torcedor torcedor) {
@@ -32,7 +32,13 @@ public class RodadaDoJogo {
 	public void aposta(Aposta aposta) {
 		apostas.add(aposta);
 		estadoDoJogo.recebeApostas(apostas);
-		estadoDoJogo = new EstrategiaDaUltimaJogada(this);
+		if (ehPenultimaAposta()) {
+			estadoDoJogo = new EstrategiaDaUltimaJogada(this);
+		}
+	}
+
+	private boolean ehPenultimaAposta() {
+		return apostas.size() == rodada.getJogadores().size() - 1;
 	}
 
 	public void avisarOEspeculadores(ResultadoDoJogo resultado) {
@@ -43,6 +49,10 @@ public class RodadaDoJogo {
 
 	public Rodada comoUmaEntidade() {
 		return rodada;
+	}
+
+	public void jaInserirOsJogadoresEARodadaNoBanco() {
+		estadoDoJogo = new EstrategiaQueNaoInsereMaisOJogadoresNoBanco();
 	}
 
 }
