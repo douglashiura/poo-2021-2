@@ -24,7 +24,7 @@ public class TestJOptionPaneDialog {
 		});
 		frame.getContentPane().add(button);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(300, 200);
+		frame.setSize(600, 600);
 		frame.setVisible(true);
 	}
 }

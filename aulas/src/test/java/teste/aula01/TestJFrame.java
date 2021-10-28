@@ -7,10 +7,10 @@ import javax.swing.JLabel;
 public class TestJFrame {
 	public static void main(String[] args) {
 		JFrame frame = new JFrame("TESTE DE FRAME");
-		JLabel label = new JLabel("JANELA ABERTA");
-		frame.setSize(400, 300);
+		final JLabel label = new JLabel("JANELA ABERTA");
 		frame.getContentPane().add(label, BorderLayout.CENTER);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.pack();
 		frame.setVisible(true);
 	}
 }

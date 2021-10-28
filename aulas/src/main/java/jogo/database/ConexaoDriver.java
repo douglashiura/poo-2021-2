@@ -1,6 +1,6 @@
 package jogo.database;
 
-public class Ex17_Conexao{
+public class ConexaoDriver{
 	public static void main(String[] args) {
 		try{
 			Class.forName("org.postgresql.Driver");

@@ -14,6 +14,7 @@ public class ConexaoDatabase {
 		
 		try {
 			Class.forName(driver);
+			@SuppressWarnings("unused")
 			Connection con = null;
 			
 			con = (Connection) DriverManager.getConnection(url, user, password);

@@ -3,7 +3,7 @@ import javax.swing.JOptionPane;
 
 import org.junit.Test;
 
-public class TesteJOptionPane {
+public class TestJOptionPane {
 
 	@Test
 	public void testNameInput() throws Exception {
