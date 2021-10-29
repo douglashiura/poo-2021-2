@@ -7,6 +7,7 @@ import org.hibernate.cfg.Configuration;
 import org.hibernate.cfg.Environment;
 
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.entidade.Pessoa;
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.entidade.Resultado;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.entidade.Rodada;
 
 public class GerenciadorDeFabricaDeHibernate {
@@ -27,6 +28,7 @@ public class GerenciadorDeFabricaDeHibernate {
 		Configuration configuration = new Configuration();
 		configuration.addAnnotatedClass(Pessoa.class);
 		configuration.addAnnotatedClass(Rodada.class);
+		configuration.addAnnotatedClass(Resultado.class);
 		configuration.setProperties(properties);
 		fabricaDeSessao = configuration.buildSessionFactory();
 	}
