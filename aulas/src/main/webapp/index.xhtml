@@ -5,6 +5,12 @@
 	<title>Aula</title>
 </h:head>
 <h:body>
-	<h:outputLabel value="JSF" />
+	<h:form>
+		<h:outputLabel value="Douglas" style="color:red;" />
+		<h3>Aulas TOP de HTML</h3>
+		<h:inputText value="#{beanDoFormulario.texto}" />
+		<br />
+		<h:commandButton value="Manda Os dados para O servidor" actionListener="#{beanDoFormulario.mostaOTexto()}">	</h:commandButton>
+	</h:form>
 </h:body>
 </html>
