@@ -1,2 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16359844792620" configfile="/aulas/src/main/webapp/WEB-INF/faces-config.xml"/>
+=======
+<pageflow:Pageflow xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16359855055650" configfile="/aulas/src/main/webapp/WEB-INF/faces-config.xml"/>
+>>>>>>> branch 'douglas-hiura-longo-introducao-jsf' of https://github.com/douglashiura/poo-2021-2.git
