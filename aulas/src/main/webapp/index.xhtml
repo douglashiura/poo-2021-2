@@ -1,5 +1,6 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 	<title>Aula</title>
@@ -10,7 +11,10 @@
 		<h3>Aulas TOP de HTML</h3>
 		<h:inputText value="#{beanDoFormulario.texto}" />
 		<br />
-		<h:commandButton value="Manda Os dados para O servidor" actionListener="#{beanDoFormulario.mostaOTexto()}">	</h:commandButton>
+		<p:calendar value="#{beanDoFormulario.nascimento}" style="border: 20px solid red;" />
+		<h:commandButton value="Manda Os dados para O servidor"
+			actionListener="#{beanDoFormulario.mostaOTexto()}">
+		</h:commandButton>
 	</h:form>
 </h:body>
 </html>

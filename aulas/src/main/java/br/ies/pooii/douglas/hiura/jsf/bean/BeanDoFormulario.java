@@ -1,5 +1,7 @@
 package br.ies.pooii.douglas.hiura.jsf.bean;
 
+import java.time.LocalDate;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -7,8 +9,10 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class BeanDoFormulario {
 	private String texto;
+	private LocalDate nascimento;
+
 	public BeanDoFormulario() {
-		texto="Douglas 123";
+		texto = "Douglas 123";
 	}
 
 	public String getTexto() {
@@ -21,5 +25,14 @@ public class BeanDoFormulario {
 
 	public void mostaOTexto() {
 		System.out.println(texto);
+		System.out.println(getNascimento());
+	}
+
+	public LocalDate getNascimento() {
+		return nascimento;
+	}
+
+	public void setNascimento(LocalDate nascimento) {
+		this.nascimento = nascimento;
 	}
 }
