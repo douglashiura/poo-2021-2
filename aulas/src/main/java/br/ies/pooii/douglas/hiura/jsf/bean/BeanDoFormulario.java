@@ -1,38 +1,27 @@
 package br.ies.pooii.douglas.hiura.jsf.bean;
 
-import java.time.LocalDate;
-
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.entidade.Pessoa;
+import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.hibernate.PessoaDAOHibernate;
 
 @ManagedBean
 @ViewScoped
 public class BeanDoFormulario {
-	private String texto;
-	private LocalDate nascimento;
+
+	private Pessoa pessoa;
 
 	public BeanDoFormulario() {
-		texto = "Douglas 123";
+		pessoa = new Pessoa();
 	}
 
-	public String getTexto() {
-		return texto;
+	public Pessoa getPessoa() {
+		return pessoa;
 	}
 
-	public void setTexto(String texto) {
-		this.texto = texto;
+	public void salvar() {
+		new PessoaDAOHibernate().inserir(pessoa);
 	}
 
-	public void mostaOTexto() {
-		System.out.println(texto);
-		System.out.println(getNascimento());
-	}
-
-	public LocalDate getNascimento() {
-		return nascimento;
-	}
-
-	public void setNascimento(LocalDate nascimento) {
-		this.nascimento = nascimento;
-	}
 }

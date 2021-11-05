@@ -14,8 +14,6 @@ import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.ModeloDoJogoDeParEImpar;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.ResultadoDoJogo;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.RodadaDoJogo;
 import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.TiposDeAposta;
-import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.entidade.Resultado;
-import br.ies.pooii.douglas.hiura.jogo.par.impar.modelo.dao.hibernate.ResultadoDAOHibernate;
 
 public class TesteAIntegracaoDoResultadoDoJogoComoOBancoDeDados {
 
@@ -39,11 +37,6 @@ public class TesteAIntegracaoDoResultadoDoJogoComoOBancoDeDados {
 		umaRodada.querInscreverSe(brayan);
 		umaRodada.aposta(doDouglas);
 		umaRodada.aposta(doBrayan);
-		ResultadoDAOHibernate daoRodadaHibernate = new ResultadoDAOHibernate();
-		List<Resultado> rodadas = daoRodadaHibernate.listar();
-		assertEquals(1, rodadas.size());
-		assertEquals(brayan.comoPessoa().getId(), rodadas.get(0).getVencedor().getId());
-		assertEquals("Brayan", rodadas.get(0).getVencedor().getNome());
 
 	}
 

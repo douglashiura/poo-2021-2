@@ -42,4 +42,12 @@ public class Pessoa {
 		return id;
 	}
 
+	public Date getNascimento() {
+		return nascimento;
+	}
+
+	public void setNascimento(Date nascimento) {
+		this.nascimento = nascimento;
+	}
+
 }

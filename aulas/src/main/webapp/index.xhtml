@@ -9,14 +9,13 @@
 
 <h:body>
 	<h:outputLabel value="first " />
-	<h:form>
-		<h:outputLabel value="Douglas" style="color:red;" />
-		<h3>Aulas TOP de HTML</h3>
-		<h:inputText value="#{beanDoFormulario.texto}" />
-		<br />
-		<p:calendar value="#{beanDoFormulario.nascimento}" style="border: 20px solid red;" />
+	<h:form style="display:flex; flex-direction:column;">
+		Nome<h:inputText value="#{beanDoFormulario.pessoa.nome}" />
+		Pass<h:inputSecret value="#{beanDoFormulario.pessoa.senha}" />
+		Nascimento<p:calendar value="#{beanDoFormulario.pessoa.nascimento}"
+			style="border: 20px solid red;" />
 		<h:commandButton value="Manda Os dados para O servidor"
-			actionListener="#{beanDoFormulario.mostaOTexto()}">
+			actionListener="#{beanDoFormulario.salvar()}">
 		</h:commandButton>
 	</h:form>
 </h:body>
