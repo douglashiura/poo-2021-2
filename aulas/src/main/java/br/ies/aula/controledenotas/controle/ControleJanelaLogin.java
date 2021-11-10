@@ -15,37 +15,33 @@ import br.ies.aula.controledenotas.modelo.Usuario;
 import br.ies.aula.controledenotas.modelo.UsuarioBD;
 import br.ies.aula.controledenotas.modelo.RegistroNota;
 import br.ies.aula.controledenotas.modelo.RegistroNotaBD;
+import br.ies.aula.controledenotas.visao.JanelaNotas;
 import br.ies.aula.controledenotas.visao.JanelaPrincipal;
 
 public class ControleJanelaLogin implements ActionListener {
 
-	private UsuarioBD alunoBD;
-	private RegistroNotaBD registroNotaBD;
+	private UsuarioBD usuarioBD;
 	private JTextField textFieldMatricula;
 	private JPasswordField fieldSenha;
 	
 	public ControleJanelaLogin(JTextField textFieldMatricula, JPasswordField fieldSenha) {
 		this.textFieldMatricula = textFieldMatricula;
 		this.fieldSenha = fieldSenha;
-		alunoBD = new UsuarioBD();
-		registroNotaBD = new RegistroNotaBD();
+		usuarioBD = new UsuarioBD();
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		String matricula = textFieldMatricula.getText();
-		Usuario usuario = alunoBD.pesquisarAluno(matricula);
+		Usuario usuario = usuarioBD.pesquisarUsuario(matricula);
 		
 		if (autenticarUsuario(usuario)) {
 			RegistroNota registroNota = new RegistroNota(usuario);
-			registroNotaBD.inserir(registroNota);
 			new JanelaPrincipal(registroNota);
 			fecharJanela(event);
 		} 
 		else if (autenticarAluno(usuario)) {
-			RegistroNota registroNota = new RegistroNota(usuario);
-			registroNotaBD.inserir(registroNota);
-			new JanelaPrincipal(registroNota);
+			new JanelaNotas(usuario);
 			fecharJanela(event);
 		}
 		else 

@@ -2,16 +2,12 @@ package br.ies.aula.controledenotas.modelo;
 
 import java.util.List;
 
-
-import br.ies.aula.controledenotas.Nota;
-
 public class Usuario {
 	private Integer id;
 	private String nome;
 	private String senha;
 	private String matricula;
 	private Integer tipo;
-	private List<Nota> lstNotas;
 	
 	public Usuario() {
 	}
@@ -45,14 +41,6 @@ public class Usuario {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
-
-	public  List<Nota> getLstNotas() {
-		return lstNotas;
-	}
-
-	public void setLstNotas(List<Nota> lstNotas) {
-		this.lstNotas = lstNotas;
 	}
 	
 	public String getMatricula() {

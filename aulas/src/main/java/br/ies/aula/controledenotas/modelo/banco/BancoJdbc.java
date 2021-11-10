@@ -1,4 +1,4 @@
-package br.ies.aula.controledenotas.banco;
+package br.ies.aula.controledenotas.modelo.banco;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

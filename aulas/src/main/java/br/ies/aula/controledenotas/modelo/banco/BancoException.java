@@ -1,4 +1,4 @@
-package br.ies.aula.controledenotas.banco;
+package br.ies.aula.controledenotas.modelo.banco;
 
 public class BancoException extends RuntimeException{
 

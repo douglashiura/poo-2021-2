@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.ies.aula.controledenotas.banco.BancoException;
-import br.ies.aula.controledenotas.banco.BancoJdbc;
+import br.ies.aula.controledenotas.modelo.banco.BancoException;
+import br.ies.aula.controledenotas.modelo.banco.BancoJdbc;
 
 public class UsuarioBD {
 
@@ -46,7 +46,7 @@ private String SQL_INSERT = "INSERT INTO public.usuario (nome, senha, matricula,
 		
 	}
 	
-	public Usuario pesquisarAluno(String matricula) {
+	public Usuario pesquisarUsuario(String matricula) {
 		Connection conexao = BancoJdbc.obterConexao();
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
@@ -58,7 +58,7 @@ private String SQL_INSERT = "INSERT INTO public.usuario (nome, senha, matricula,
 			resultSet = statement.executeQuery();
 			
 			if(resultSet.next()) {
-				Usuario aluno = instanciarAluno(resultSet);
+				Usuario aluno = instanciarUsuario(resultSet);
 				return aluno;
 			}
 			
@@ -74,15 +74,16 @@ private String SQL_INSERT = "INSERT INTO public.usuario (nome, senha, matricula,
 		
 	}
 
-	private Usuario instanciarAluno(ResultSet resultSet) throws SQLException {
-		Usuario aluno = new Usuario();
+	private Usuario instanciarUsuario(ResultSet resultSet) throws SQLException {
+		Usuario usuario = new Usuario();
 			
-		aluno.setId(resultSet.getInt("id"));
-		aluno.setNome(resultSet.getString("nome"));
-		aluno.setSenha(resultSet.getString("senha"));
-		aluno.setMatricula(resultSet.getString("matricula"));
+		usuario.setId(resultSet.getInt("idusuario"));
+		usuario.setNome(resultSet.getString("nome"));
+		usuario.setSenha(resultSet.getString("senha"));
+		usuario.setMatricula(resultSet.getString("matricula"));
+		usuario.setTipo(resultSet.getInt("tipo"));
 			
-		return aluno;
+		return usuario;
 	}
 
 }

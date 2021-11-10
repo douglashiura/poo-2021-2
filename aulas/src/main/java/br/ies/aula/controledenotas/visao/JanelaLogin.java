@@ -14,6 +14,7 @@ import javax.swing.SwingConstants;
 
 
 import br.ies.aula.controledenotas.controle.ControleJanelaLogin;
+import br.ies.aula.controledenotas.modelo.LimitaCaracter;
 
 public class JanelaLogin extends JFrame {
 
@@ -78,6 +79,7 @@ public class JanelaLogin extends JFrame {
 
 	private void montarFields() {
 		textFieldMatricula = new JTextField();
+		textFieldMatricula.setDocument(new LimitaCaracter(11));
 		textFieldMatricula.setBounds(110, 81, 145, 25);
 		
 		fieldSenha = new JPasswordField();

@@ -5,35 +5,30 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Vector;
-
-import javax.swing.JComboBox;
 
 import br.ies.aula.controledenotas.modelo.banco.BancoException;
 import br.ies.aula.controledenotas.modelo.banco.BancoJdbc;
 
-public class MateriaBD {
-	
-	public MateriaBD() {
+public class Ano {
+	public Ano() {
 	}
 
-	public ArrayList<String> pesquisarMateria() {
-		ArrayList<String> materias = new ArrayList<String>();
+	public static ArrayList<Integer> pesquisarAno() {
+		ArrayList<Integer> anos = new ArrayList<Integer>();
 		Connection conexao = BancoJdbc.obterConexao();
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		
 		try {
-			statement = conexao.prepareStatement("SELECT idmateria, nomemateria FROM public.materias;");
+			statement = conexao.prepareStatement("SELECT ano FROM public.ano;");
 			
 			resultSet = statement.executeQuery();
 			
 			while(resultSet.next()) {
-				materias.add(resultSet.getInt("idmateria")+"-"+resultSet.getString("nomemateria"));
+				anos.add(resultSet.getInt("ano"));
 			}
 			
-			return materias;
+			return anos;
 			
 		} 
 		catch (SQLException exception) {
@@ -44,4 +39,5 @@ public class MateriaBD {
 		}
 		
 	}
+
 }

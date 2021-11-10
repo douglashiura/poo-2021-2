@@ -1,5 +1,7 @@
 package br.ies.aula.controledenotas.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Vector;
 
 import javax.swing.JComboBox;
@@ -15,7 +17,8 @@ public class Materia {
 		
 	}
 	
-	public static Vector<Materia> pesquisarAluno() {
+	public static ArrayList<String> pesquisarMateria() {
+		
 		return new MateriaBD().pesquisarMateria();
 	}
 

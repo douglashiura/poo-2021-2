@@ -13,6 +13,7 @@ import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 
 import br.ies.aula.controledenotas.controle.ControleJanelaCadastro;
+import br.ies.aula.controledenotas.modelo.LimitaCaracter;
 
 public class JanelaCadastro extends JFrame {
 
@@ -88,6 +89,7 @@ public class JanelaCadastro extends JFrame {
 		fieldSenha.setBounds(110, 135, 145, 25);
 		
 		textFieldMatricula = new JTextField();
+		textFieldMatricula.setDocument(new LimitaCaracter(11));
 		textFieldMatricula.setBounds(110, 165, 145, 25);
 		
 		panelPrincipal.add(textFieldNome);
