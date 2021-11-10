@@ -3,6 +3,9 @@ package br.ies.aula.jogo.cacaniquel.modelo;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+
+import br.ies.aula.jogo.cacaniquel.modelo.dao.hibernate.JogadorDAOHibernate;
+import br.ies.aula.jogo.cacaniquel.modelo.dao.hibernate.PartidaDAOHibernate;
 import br.ies.aula.jogo.cacaniquel.modelo.dao.hibernate.PremioDAOHibernate;
 
 
@@ -10,8 +13,11 @@ public class Modelo {
 
 	private List<Integer> listaValoresAleatorios;
 	private Jogador jogador;
-	private PremioDAOHibernate premioDAO;
 	private String resultado;
+	private JogadorDAOHibernate jogadorDAO;
+	private PartidaDAOHibernate partidaDAO;
+	private PremioDAOHibernate premioDAO;
+
 
 	public boolean verificarSeJogadorTemFichas() {
 		
@@ -39,7 +45,7 @@ public class Modelo {
 			this.resultado = "Parabéns, você ganhou R$60,00!";
 			premioDAO = new PremioDAOHibernate();
 			premioDAO.enviarPremioAoBanco(jogador);
-		} 
+		}
 		else {
 			this.resultado = "Perdeu. Tente novamente!";
 		}
@@ -48,7 +54,7 @@ public class Modelo {
 	public void trocarDinheiroPorFicha(Integer dinheiro) {
 		
 		jogador.recebeFichas(dinheiro);
-		jogador.zerarDinheiro();
+		jogador.setDinheiro(0);
 	}
 	
 	public void removerUmaFichaDoJogador() {
@@ -56,18 +62,36 @@ public class Modelo {
 		jogador.recebeFichas(jogador.getFichas()-1);
 	}
 
-	
-	
-	
-	public void setJogador(Jogador j) {
+	public String cadastrarJogador(Jogador j) {
 		
 		this.jogador = j;
+		jogadorDAO = new JogadorDAOHibernate();
+		
+		return jogadorDAO.cadastrarJogador(j);
 	}
+	
+	public void reembolsarJogador(Jogador jogador2) {
+		
+		jogador.setReembolso(jogador.getFichas());
+		
+		partidaDAO = new PartidaDAOHibernate();
+		partidaDAO.enviarPartidaAoBanco(jogador);
+		jogador.setReembolso(0);
+	}
+	
+	
+	
 	
 	public String getResultado() {
 		
 		return resultado;
 	}
+
+	
+
+	
+
+	
 
 
 

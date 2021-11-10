@@ -14,11 +14,6 @@ public class Jogador {
 		this.fichas = fichas;
 	}
 	
-	
-	public void zerarDinheiro() {
-
-		this.dinheiro = 0;
-	}
 
 	public Integer getId() {
 		return id;

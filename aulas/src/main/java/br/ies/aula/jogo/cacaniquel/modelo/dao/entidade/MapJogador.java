@@ -15,6 +15,9 @@ public class MapJogador {
 	private String nome;
 	
 	
+	
+	
+	
 	public Integer getId() {
 		return id;
 	}

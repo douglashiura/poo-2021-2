@@ -30,27 +30,26 @@ public class JogadorDAOHibernate implements JogadorDAO {
 	}
 	
 	
-	
 	@Override
 	public void enviarJogadorAoBanco(Jogador jogador) {
 		
-			Session sessao = fabricaDeSessao.openSession();
-			sessao.beginTransaction();
-			sessao.persist(converterJogadorToMapJogador(jogador));
-			sessao.getTransaction().commit();
-			sessao.close();
+		Session sessao = fabricaDeSessao.openSession();
+		sessao.beginTransaction();
+		sessao.persist(converterJogadorToMapJogador(jogador));
+		sessao.getTransaction().commit();
+		sessao.close();
 	}
 
 	@Override
 	public MapJogador buscarJogadorNoBanco(Jogador jogador) {
 		
-			Session sessao = fabricaDeSessao.openSession();
-			try {
-				return sessao.find(MapJogador.class, jogador.getId());
-			
-			} finally {
-				sessao.close();
-			}
+		Session sessao = fabricaDeSessao.openSession();
+		try {
+			return sessao.find(MapJogador.class, jogador.getId());
+		} 
+		finally {
+			sessao.close();
+		}
 	}
 	
 	@Override
@@ -66,17 +65,18 @@ public class JogadorDAOHibernate implements JogadorDAO {
 	@Override
 	public String cadastrarJogador(Jogador jogador) {
 		
-		MapJogador mapJogador = buscarJogadorNoBanco(jogador);
-		
-		if (mapJogador == null) {
+		if (buscarJogadorNoBanco(jogador) == null) {
+			
 			enviarJogadorAoBanco(jogador);
 			return "Novo jogador cadastrado!";
-			
-		} else {
-			return "Bem-vindo de volta!";
-		}
+		} 
+		
+		return "Bem-vindo de volta!";
 	}
 
+	
+	
+	
 	
 	
 }

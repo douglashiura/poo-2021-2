@@ -109,7 +109,6 @@ public class TelaCartas extends JPanel{
 		}
 	}
 	
-	
 	public void decidirImagemDaCarta3(Integer valorAleatorio) {
 		
 		if (valorAleatorio == 0) {

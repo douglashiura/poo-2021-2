@@ -37,7 +37,6 @@ public class PartidaDAOHibernate implements PartidaDAO{
 		MapPartida mapPartida = new MapPartida();
 		mapPartida.setId_jogador(jogador.getId());
 		mapPartida.setReembolso(jogador.getReembolso());
-		jogador.setReembolso(0);
 		
 		Session sessao = fabricaDeSessao.openSession();
 		sessao.beginTransaction();

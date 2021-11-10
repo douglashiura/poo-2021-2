@@ -1,6 +1,5 @@
 package aulas.bibliotecaswing.exercicios;
 
-import static org.junit.Assert.assertEquals;
 import org.junit.Test;
 import br.ies.aula.jogo.cacaniquel.modelo.Jogador;
 import br.ies.aula.jogo.cacaniquel.modelo.Modelo;
@@ -18,8 +17,8 @@ public class TesteCacaNiquel {
 	public void persistirJogador() throws Exception {
 		
 		Jogador jogador = new Jogador();
-		jogador.setId(1273);
-		jogador.setNome("Fuca");
+		jogador.setId(2527);
+		jogador.setNome("Xesus");
 
 		jogadorDAO = new JogadorDAOHibernate();
 		jogadorDAO.enviarJogadorAoBanco(jogador);
@@ -29,7 +28,7 @@ public class TesteCacaNiquel {
 	public void buscarJogador() throws Exception {
 		
 		Jogador jogador = new Jogador();
-		jogador.setId(2929);
+		jogador.setId(2527);
 		
 		jogadorDAO = new JogadorDAOHibernate();
 		MapJogador mapJogador = jogadorDAO.buscarJogadorNoBanco(jogador);
@@ -38,20 +37,10 @@ public class TesteCacaNiquel {
 	}
 	
 	@Test
-	public void persistirPartida() throws Exception {
-		
-		Jogador jogador = new Jogador();
-		jogador.setId(1273);
-		
-		PartidaDAOHibernate partidaDAO = new PartidaDAOHibernate();
-		partidaDAO.enviarPartidaAoBanco(jogador);
-	}
-
-	@Test
 	public void persistirPremio() throws Exception {
 		
 		Jogador jogador = new Jogador();
-		jogador.setId(2929);
+		jogador.setId(2527);
 		
 		PremioDAOHibernate premioDAO = new PremioDAOHibernate();
 		premioDAO.enviarPremioAoBanco(jogador);
@@ -61,18 +50,27 @@ public class TesteCacaNiquel {
 	public void testeOJogo() throws Exception {
 		
 		Jogador jogador = new Jogador();
+		jogador.setId(2526);
 		Modelo maquina = new Modelo();
 
-		maquina.setJogador(jogador);
+		maquina.cadastrarJogador(jogador);
 		
 		jogador.setDinheiro(5);
 		maquina.trocarDinheiroPorFicha(jogador.getDinheiro());
-		maquina.verificarSeJogadorTemFichas();
 		
 		if (maquina.verificarSeJogadorTemFichas()) {
 			maquina.gerarValoresAleatorios();
 		}
 	}
 	
+	@Test
+	public void persistirPartida() throws Exception {
+		
+		Jogador jogador = new Jogador();
+		jogador.setId(2527);
+		
+		PartidaDAOHibernate partidaDAO = new PartidaDAOHibernate();
+		partidaDAO.enviarPartidaAoBanco(jogador);
+	}
 
 }

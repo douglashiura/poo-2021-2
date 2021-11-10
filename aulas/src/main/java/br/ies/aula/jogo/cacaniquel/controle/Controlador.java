@@ -5,16 +5,12 @@ import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import br.ies.aula.jogo.cacaniquel.modelo.Jogador;
 import br.ies.aula.jogo.cacaniquel.modelo.Modelo;
-import br.ies.aula.jogo.cacaniquel.modelo.dao.hibernate.JogadorDAOHibernate;
-import br.ies.aula.jogo.cacaniquel.modelo.dao.hibernate.PartidaDAOHibernate;
 import br.ies.aula.jogo.cacaniquel.visao.Visao;
 
 public class Controlador {
 	
 	private Visao visao;
 	private Modelo maquina;
-	private JogadorDAOHibernate jogadorDAO;
-	private PartidaDAOHibernate partidaDAO;
 	private Jogador jogador; 
 	
 	public Controlador(Visao visao, Modelo maquina) {
@@ -40,11 +36,8 @@ public class Controlador {
 				jogador = new Jogador();
 				jogador.setId(Integer.valueOf(visao.getTelaLogin().getTxtCPF().getText()));
 				jogador.setNome(visao.getTelaLogin().getTxtNome().getText());
-				maquina.setJogador(jogador);
 				
-				
-				jogadorDAO = new JogadorDAOHibernate();
-				String mensagem = jogadorDAO.cadastrarJogador(jogador);
+				String mensagem = maquina.cadastrarJogador(jogador);
 				
 				visao.addTelaInicial();
 				JOptionPane.showMessageDialog(visao, mensagem, null, JOptionPane.INFORMATION_MESSAGE);
@@ -73,7 +66,6 @@ public class Controlador {
 			if (maquina.verificarSeJogadorTemFichas()) {
 				
 				visao.getTelaCartas().transmutarCartas(maquina.gerarValoresAleatorios());
-				
 				visao.getTelaCartas().getLabelResultado().setText(maquina.getResultado());
 				visao.getTelaPrincipal().getLabelFichas().setText("Você possui: "+jogador.getFichas()+" fichas.");
 				visao.addTelaCartas();
@@ -96,11 +88,7 @@ public class Controlador {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 		
-			jogador.setReembolso(jogador.getFichas());
-			
-			partidaDAO = new PartidaDAOHibernate();
-			partidaDAO.enviarPartidaAoBanco(jogador);
-			
+			maquina.reembolsarJogador(jogador);
 			visao.addTelaLogin();
 		}
 	}
