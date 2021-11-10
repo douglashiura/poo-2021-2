@@ -2,7 +2,7 @@ package com.github.pedrolucascorrea.poo.test.calculadora.controller;
 
 import java.util.Locale;
 
-import br.com.bruno.model.Expressao;
+import com.github.pedrolucascorrea.poo.test.calculadora.model.Expressao;
 
 public class ExpressaoController {
 	
