@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 import com.github.pedrolucascorrea.poo.test.calculadora.controller.ExpressaoController;
@@ -135,10 +136,13 @@ public class CalcGUI implements ActionListener {
 
 		if (comando.equals("=")) {
 			Expressao expressao = new Expressao(textoAtual);
-			this.histController.add(expressao);
-			txtfield.setText(expController.requestAnswer(expressao));
+			if(expressao.getExp().checkSyntax()) {
+				this.histController.add(expressao);
+				txtfield.setText(expController.requestAnswer(expressao));
+			} else {
+				JOptionPane.showMessageDialog(frame, "Expressão Inválida");
+			}
 		}
-
 		else if (comando.equals("Histórico")) {
 			new HistoricoGUI(this.histController);
 			frame.setVisible(false);
