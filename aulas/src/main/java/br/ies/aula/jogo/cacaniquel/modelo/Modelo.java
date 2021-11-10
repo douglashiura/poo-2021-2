@@ -15,11 +15,7 @@ public class Modelo {
 
 	public boolean verificarSeJogadorTemFichas() {
 		
-		if (jogador.getFichas()>0) {
-			return true;
-		}else {
-			return false;
-		}
+		return jogador.getFichas() > 0;
 	}
 	
 	public List<Integer> gerarValoresAleatorios() {
@@ -40,13 +36,12 @@ public class Modelo {
 
 		if (listaCombinacoes.get(0) == listaCombinacoes.get(1) & listaCombinacoes.get(1) == listaCombinacoes.get(2)) {
 		
-			setResultado("Parabéns, você ganhou R$60,00!");
-			
+			this.resultado = "Parabéns, você ganhou R$60,00!";
 			premioDAO = new PremioDAOHibernate();
 			premioDAO.enviarPremioAoBanco(jogador);
-			
-		} else {
-			setResultado("Perdeu. Tente novamente!");
+		} 
+		else {
+			this.resultado = "Perdeu. Tente novamente!";
 		}
 	}
 	
@@ -69,10 +64,6 @@ public class Modelo {
 		this.jogador = j;
 	}
 	
-	public void setResultado(String resultado) {
-		
-		this.resultado = resultado;
-	}
 	public String getResultado() {
 		
 		return resultado;

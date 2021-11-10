@@ -42,6 +42,7 @@ public class Controlador {
 				jogador.setNome(visao.getTelaLogin().getTxtNome().getText());
 				maquina.setJogador(jogador);
 				
+				
 				jogadorDAO = new JogadorDAOHibernate();
 				String mensagem = jogadorDAO.cadastrarJogador(jogador);
 				

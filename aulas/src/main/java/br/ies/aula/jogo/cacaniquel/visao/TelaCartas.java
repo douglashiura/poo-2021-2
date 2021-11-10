@@ -16,13 +16,12 @@ public class TelaCartas extends JPanel{
 	private JLabel carta1 = new JLabel();
 	private JLabel carta2 = new JLabel();
 	private JLabel carta3 = new JLabel();
-	JButton btnVoltar = new JButton("VOLTAR");
+	private JButton btnVoltar = new JButton("VOLTAR");
 	private JLabel labelResultado = new JLabel();
-	List<Integer> combinacaoResultante;
 	private ImageIcon imagem0 = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\ar.jpg").getImage().getScaledInstance(200, 300, Image.SCALE_DEFAULT));
 	private ImageIcon imagem1 = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\agua.jpg").getImage().getScaledInstance(200, 300, Image.SCALE_DEFAULT));
 	private ImageIcon imagem2 = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\fogo.jpg").getImage().getScaledInstance(200, 300, Image.SCALE_DEFAULT));
-	
+	private List<Integer> combinacaoResultante;
 	
 	public TelaCartas() throws InterruptedException {
 	
@@ -73,64 +72,60 @@ public class TelaCartas extends JPanel{
 
 	public void transmutarCartas(List<Integer> listaCombinacoes) {
 			
-		decidirImagemDaCarta1(listaCombinacoes.get(0), 0);
-		decidirImagemDaCarta2(listaCombinacoes.get(1), 1);
-		decidirImagemDaCarta3(listaCombinacoes.get(2), 2);
+		decidirImagemDaCarta1(listaCombinacoes.get(0));
+		decidirImagemDaCarta2(listaCombinacoes.get(1));
+		decidirImagemDaCarta3(listaCombinacoes.get(2));
 	}
 	
-	public void decidirImagemDaCarta1(Integer valorAleatorio, int index) {
+	public void decidirImagemDaCarta1(Integer valorAleatorio) {
 		
-		switch (index) {
-		case 0:
-			if (valorAleatorio == 0) {
-				carta1.setIcon(imagem0);
-				carta1.setBorder(BorderFactory.createLineBorder(Color.green, 3));
-			}
-				else if (valorAleatorio == 1) {
-					carta1.setIcon(imagem1);
-					carta1.setBorder(BorderFactory.createLineBorder(Color.blue, 3));
-				}else {
-					carta1.setIcon(imagem2);
-					carta1.setBorder(BorderFactory.createLineBorder(Color.red, 3));
-				} 
-		}	
-	}
-	
-	public void decidirImagemDaCarta2(Integer valorAleatorio, int index) {
-		
-		switch (index) {
-		case 1:
-			if (valorAleatorio == 0){
-				carta2.setIcon(imagem0);
-				carta2.setBorder(BorderFactory.createLineBorder(Color.green, 3));
-			}
-				else if (valorAleatorio == 1) {
-					carta2.setIcon(imagem1);
-					carta2.setBorder(BorderFactory.createLineBorder(Color.blue, 3));
-				}else {
-					carta2.setIcon(imagem2);
-					carta2.setBorder(BorderFactory.createLineBorder(Color.red, 3));
-				}
+		if (valorAleatorio == 0) {
+			carta1.setIcon(imagem0);
+			carta1.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+		}
+		else if (valorAleatorio == 1) {
+			carta1.setIcon(imagem1);
+			carta1.setBorder(BorderFactory.createLineBorder(Color.blue, 3));
+		}
+		else {
+			carta1.setIcon(imagem2);
+			carta1.setBorder(BorderFactory.createLineBorder(Color.red, 3));
 		}
 	}
 	
-	public void decidirImagemDaCarta3(Integer valorAleatorio, int index) {
+	public void decidirImagemDaCarta2(Integer valorAleatorio) {
 		
-		switch (index) {
-		case 2:
-			if (valorAleatorio == 0) {
-				carta3.setIcon(imagem0);
-				carta3.setBorder(BorderFactory.createLineBorder(Color.green, 3));
-			}
-				else if (valorAleatorio == 1) {
-					carta3.setIcon(imagem1);
-					carta3.setBorder(BorderFactory.createLineBorder(Color.blue, 3));
-				}else {
-					carta3.setIcon(imagem2);
-					carta3.setBorder(BorderFactory.createLineBorder(Color.red, 3));
-				}
+		if (valorAleatorio == 0){
+			carta2.setIcon(imagem0);
+			carta2.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+		}
+		else if (valorAleatorio == 1) {
+			carta2.setIcon(imagem1);
+			carta2.setBorder(BorderFactory.createLineBorder(Color.blue, 3));
+		}
+		else {
+			carta2.setIcon(imagem2);
+			carta2.setBorder(BorderFactory.createLineBorder(Color.red, 3));
 		}
 	}
+	
+	
+	public void decidirImagemDaCarta3(Integer valorAleatorio) {
+		
+		if (valorAleatorio == 0) {
+			carta3.setIcon(imagem0);
+			carta3.setBorder(BorderFactory.createLineBorder(Color.green, 3));
+		}
+		else if (valorAleatorio == 1) {
+			carta3.setIcon(imagem1);
+			carta3.setBorder(BorderFactory.createLineBorder(Color.blue, 3));
+		}
+		else {
+			carta3.setIcon(imagem2);
+			carta3.setBorder(BorderFactory.createLineBorder(Color.red, 3));
+		}
+	}
+	
 	
 	
 	
@@ -142,6 +137,10 @@ public class TelaCartas extends JPanel{
 	public JLabel getLabelResultado() {
 		
 		return labelResultado;
+	}
+
+	public List<Integer> getCombinacaoResultante() {
+		return combinacaoResultante;
 	}
 
 	
