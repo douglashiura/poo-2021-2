@@ -46,7 +46,6 @@ public class Controlador {
 				String mensagem = jogadorDAO.cadastrarJogador(jogador);
 				
 				visao.addTelaInicial();
-				
 				JOptionPane.showMessageDialog(visao, mensagem, null, JOptionPane.INFORMATION_MESSAGE);
 				
 			}catch(Exception e1){

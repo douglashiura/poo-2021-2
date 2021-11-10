@@ -29,7 +29,7 @@ public class TesteCacaNiquel {
 	public void buscarJogador() throws Exception {
 		
 		Jogador jogador = new Jogador();
-		jogador.setId(1273);
+		jogador.setId(2929);
 		
 		jogadorDAO = new JogadorDAOHibernate();
 		MapJogador mapJogador = jogadorDAO.buscarJogadorNoBanco(jogador);
@@ -51,7 +51,7 @@ public class TesteCacaNiquel {
 	public void persistirPremio() throws Exception {
 		
 		Jogador jogador = new Jogador();
-		jogador.setId(1273);
+		jogador.setId(2929);
 		
 		PremioDAOHibernate premioDAO = new PremioDAOHibernate();
 		premioDAO.enviarPremioAoBanco(jogador);
