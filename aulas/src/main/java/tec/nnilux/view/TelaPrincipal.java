@@ -77,6 +77,7 @@ public class TelaPrincipal extends JFrame {
 				
 			}
 		});
+		
 		menuBarTelaPrincipal.add(menuSair);
 
 		setTitle("Nilux Technology - Outsourcing de TI");

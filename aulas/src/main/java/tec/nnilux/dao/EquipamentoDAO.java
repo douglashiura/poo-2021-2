@@ -1,12 +1,11 @@
 package tec.nnilux.dao;
 
-import tec.nnilux.model.Equipamento;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 import java.io.IOException;
 import java.sql.Connection;
-import java.sql.ConnectionBuilder;
-import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+import tec.nnilux.model.Equipamento;
 
 public class EquipamentoDAO {
 	

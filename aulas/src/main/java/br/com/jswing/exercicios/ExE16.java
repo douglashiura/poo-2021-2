@@ -42,6 +42,7 @@ public class ExE16 extends JFrame implements ActionListener {
 		P.add(scroll, "Center");
 
 		JPanel panelInferior = new JPanel();
+
 		incluirButton = new JButton("Incluir");
 		excluirButton = new JButton("Excluir");
 		mostrarButton = new JButton("Mostrar");
@@ -66,12 +67,15 @@ public class ExE16 extends JFrame implements ActionListener {
 	@SuppressWarnings("deprecation")
 	@Override
 	public void actionPerformed(ActionEvent evt) {
+
 		Object origem = evt.getSource();
+		
 		if (origem == incluirButton) {
 			DefaultTableModel dtm = (DefaultTableModel) tabela.getModel();
 			dtm.addRow(new Object[] { new Integer(++incCod), "Cliente " + incCod });
 			tabela.setBackground(Color.green);
 		}
+
 		if (origem == excluirButton) {
 			int linhas[] = tabela.getSelectedRows();
 			DefaultTableModel dtm = (DefaultTableModel) tabela.getModel();
@@ -80,6 +84,7 @@ public class ExE16 extends JFrame implements ActionListener {
 			tabela.setBackground(Color.cyan);
 
 		}
+
 		if (origem == mostrarButton) {
 			if (tabela.getSelectedRow() >= 0)
 				texto.setText(tabela.getValueAt(tabela.getSelectedRow(), tabela.getSelectedColumn()).toString());
@@ -90,6 +95,7 @@ public class ExE16 extends JFrame implements ActionListener {
 	}
 
 	public static void main(String[] args) {
+		
 		ExE16 swing = new ExE16();
 		swing.setVisible(true);
 	}
