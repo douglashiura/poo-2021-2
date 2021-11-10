@@ -1,5 +1,5 @@
 package com.github.pedrolucascorrea.poo.test.calculadora.controller;
 
-public class Controller {
+public class HistoricoController {
 
 }
