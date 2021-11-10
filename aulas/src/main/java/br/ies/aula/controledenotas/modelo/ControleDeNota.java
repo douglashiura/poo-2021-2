@@ -6,15 +6,15 @@ import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 
-public class ControleDeNotas {
+public class ControleDeNota {
 
 	
 	private RegistroNota registroNota;
-	public ControleDeNotas(RegistroNota registroNota) {
+	public ControleDeNota(RegistroNota registroNota) {
 		this.setRegistroNota(registroNota);
 		
 	}
-	public ControleDeNotas() {
+	public ControleDeNota() {
 	}
 	public double calculoMedia(JTextField textNotaUm, JTextField textNotaUmRecuperacao, JTextField textNotaDois, JTextField textNotaDoisRecuperacao) {
 		double media = 0;

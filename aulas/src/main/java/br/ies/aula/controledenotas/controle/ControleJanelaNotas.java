@@ -8,7 +8,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import br.ies.aula.controledenotas.modelo.ControleDeNotas;
+import br.ies.aula.controledenotas.modelo.ControleDeNota;
 import br.ies.aula.controledenotas.modelo.RegistroNota;
 import br.ies.aula.controledenotas.modelo.Usuario;
 import br.ies.aula.controledenotas.visao.JanelaNotas;

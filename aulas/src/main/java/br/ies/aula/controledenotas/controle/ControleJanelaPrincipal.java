@@ -7,7 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import br.ies.aula.controledenotas.modelo.ControleDeNotas;
+import br.ies.aula.controledenotas.modelo.ControleDeNota;
 import br.ies.aula.controledenotas.modelo.RegistroNota;
 import br.ies.aula.controledenotas.modelo.RegistroNotaBD;
 import br.ies.aula.controledenotas.modelo.UsuarioBD;
@@ -18,12 +18,12 @@ import br.ies.aula.controledenotas.visao.JanelaNotas;
 public class ControleJanelaPrincipal {
 
 
-	private ControleDeNotas app;
+	private ControleDeNota app;
 	private RegistroNota registroNota;
 	private Validacao validacao;
 
 	public ControleJanelaPrincipal(RegistroNota registroNota) {
-		this.app = new ControleDeNotas(registroNota);
+		this.app = new ControleDeNota(registroNota);
 		this.registroNota = new RegistroNota();
 		validacao = new Validacao();
 	}
