@@ -8,14 +8,19 @@ import javax.swing.JFrame;
 public class Visao extends JFrame{
 	
 	private static final long serialVersionUID = 1L;
-	private TelaLogin telaLogin = new TelaLogin();
-	private TelaInicial telaInicial = new TelaInicial();
-	private TelaPrincipal telaPrincipal = new TelaPrincipal();
-	private TelaCartas telaCartas = new TelaCartas();
+	private TelaLogin telaLogin;
+	private TelaInicial telaInicial;
+	private TelaPrincipal telaPrincipal;
+	private TelaCartas telaCartas;
 
 	
 	public Visao() throws InterruptedException {
 		
+		telaLogin = new TelaLogin();
+		telaInicial = new TelaInicial();
+		telaPrincipal = new TelaPrincipal();
+		telaCartas = new TelaCartas();
+
 		configuracaoTelaVisao();
 		addTelaLogin();
 	}
@@ -55,7 +60,7 @@ public class Visao extends JFrame{
 		atualizarTelaVisao();
 	}
 
-	public void addTelaCartas() {
+	public void addTelaCartas(){
 		
 		this.getContentPane().removeAll();
 		this.getContentPane().add(telaCartas);

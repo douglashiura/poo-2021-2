@@ -1,4 +1,4 @@
-package br.ies.aula.jogo.cacaniquel.modelo;
+ package br.ies.aula.jogo.cacaniquel.modelo;
 
 import java.util.ArrayList;
 import java.util.List;

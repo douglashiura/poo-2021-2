@@ -13,17 +13,17 @@ import javax.swing.JPanel;
 public class TelaCartas extends JPanel{
 
 	private static final long serialVersionUID = 1L;
-	private JLabel carta1 = new JLabel();
-	private JLabel carta2 = new JLabel();
-	private JLabel carta3 = new JLabel();
-	private JButton btnVoltar = new JButton("VOLTAR");
-	private JLabel labelResultado = new JLabel();
-	private ImageIcon imagem0 = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\ar.jpg").getImage().getScaledInstance(200, 300, Image.SCALE_DEFAULT));
-	private ImageIcon imagem1 = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\agua.jpg").getImage().getScaledInstance(200, 300, Image.SCALE_DEFAULT));
-	private ImageIcon imagem2 = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\fogo.jpg").getImage().getScaledInstance(200, 300, Image.SCALE_DEFAULT));
+	private JLabel carta1;
+	private JLabel carta2;
+	private JLabel carta3;
+	private JButton btnVoltar;
+	private JLabel labelResultado;
+	private ImageIcon imagem0;
+	private ImageIcon imagem1;
+	private ImageIcon imagem2;
 	private List<Integer> combinacaoResultante;
 	
-	public TelaCartas() throws InterruptedException {
+	public TelaCartas(){
 	
 		configuracaoTelaCartas();
 		montarTela();
@@ -39,11 +39,17 @@ public class TelaCartas extends JPanel{
 	
 	public void montarTela() {
 		
+		imagem0 = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\ar.jpg").getImage().getScaledInstance(200, 300, Image.SCALE_DEFAULT));
+		imagem1 = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\agua.jpg").getImage().getScaledInstance(200, 300, Image.SCALE_DEFAULT));
+		imagem2 = new ImageIcon(new ImageIcon("C:\\users\\ronal\\pictures\\minhas imagens\\fogo.jpg").getImage().getScaledInstance(200, 300, Image.SCALE_DEFAULT));
+		
+		labelResultado = new JLabel();
 		labelResultado.setBounds(360, 150, 600, 40);
 		labelResultado.setForeground(Color.white);
 		labelResultado.setFont(new Font("Courier New", Font.BOLD, 30));
 		labelResultado.setVisible(true);
 		
+		btnVoltar = new JButton("VOLTAR");
 		btnVoltar.setBounds(1100, 350, 120, 120);
 		btnVoltar.setFont(new Font("Verdana", Font.BOLD, 15));
 		btnVoltar.setBackground(Color.black);
@@ -51,14 +57,17 @@ public class TelaCartas extends JPanel{
 		btnVoltar.setBorder(BorderFactory.createLineBorder(Color.white, 1));
 		btnVoltar.setVisible(true);
 		
+		carta1 = new JLabel();
 		carta1.setBorder(BorderFactory.createLineBorder(Color.yellow, 3));
 		carta1.setBounds(300, 250, 200, 300);
 		carta1.setVisible(true);
 		
+		carta2 = new JLabel();
 		carta2.setBorder(BorderFactory.createLineBorder(Color.green, 3));
 		carta2.setBounds(515, 250, 200, 300);
 		carta2.setVisible(true);
 		
+		carta3 = new JLabel();
 		carta3.setBorder(BorderFactory.createLineBorder(Color.blue, 3));
 		carta3.setBounds(730, 250, 200, 300);
 		carta3.setVisible(true);
